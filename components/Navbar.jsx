@@ -5,9 +5,10 @@ const Navbar = () => (
   <nav className="navbar">
     <ul>
       <NavClose />
-      <li><Link href="/"><a>Dashboard</a></Link></li>
-      <li><Link href="/new"><a>New</a></Link></li>
-      <li><Link href="/draft"><a>Draft</a></Link></li>
+      <li><Link href="/app"><a>Dashboard</a></Link></li>
+      <li><Link href="/app/new"><a>New</a></Link></li>
+      <li><Link href="/app/draft"><a>Draft</a></Link></li>
+      <li><Link href="/app/sent"><a>Sent</a></Link></li>
     </ul>
     <style jsx>{`
       .navbar {

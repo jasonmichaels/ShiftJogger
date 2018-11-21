@@ -11,15 +11,19 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/app": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/": [
+    "/app/new": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/app/draft": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/app/sent": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
