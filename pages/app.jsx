@@ -1,15 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-import AppLayout from '../components/Layout/appLayout'
+import Layout from '../components/Layout'
 
-const app = () => {
-    return (
-        <AppLayout>
-            <div>
-                <p>App</p>
-            </div>
-        </AppLayout>
-    )
-} 
+const app = () => (
+     <Layout>
+        <div>
+            <p>App</p>
+        </div>
+    </Layout>
+)
 
 export default app

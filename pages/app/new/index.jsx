@@ -1,10 +1,10 @@
-import React from 'react';
+import Layout from '../components/Layout'
 
-const New = () => {
-    return(
-        <h1>New</h1>
-    )
-}
+  const New = () => (
+    <Layout>
+      <h1>New</h1>
+    </Layout>
+  )
 
 export default New
 
