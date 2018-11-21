@@ -1,9 +1,9 @@
-import React from 'react';
+import Layout from '../components/Layout'
 
-const Saved = () => {
-    return(
-        <h1>Saved</h1>
-    )
-}
+const Draft = () => (
+  <Layout>
+    <h1>Drafts</h1>
+  </Layout>
+)
 
-export default Saved
+export default Draft
