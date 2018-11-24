@@ -1,9 +1,10 @@
-import Layout from '../../../components/Layout'
+import Layout from "../../../components/Layout";
+import { HeaderTextStyle } from "../../../components/HeaderStyles";
 
 const Draft = () => (
   <Layout>
-    <h1>SENT</h1>
+    <HeaderTextStyle>SENT</HeaderTextStyle>
   </Layout>
-)
+);
 
-export default Draft
+export default Draft;

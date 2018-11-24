@@ -1,9 +1,9 @@
-import Layout from '../../../components/Layout'
+import Layout from "../../../components/Layout";
 
 const Draft = () => (
   <Layout>
-    <h1>Draft</h1>
+    <h2>Draft</h2>
   </Layout>
-)
+);
 
-export default Draft
+export default Draft;
