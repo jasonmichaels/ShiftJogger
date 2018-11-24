@@ -1,14 +1,7 @@
-const NavClose = () => (
-  <div className="nav-close">
-    X
-    <style jsx>{`
-    .nav-close {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-    `}</style>
-  </div>
-)
+import { NavCloseStyle } from "./NavStyles";
 
-export default NavClose
+const NavClose = ({ toggleNav }) => (
+  <NavCloseStyle onClick={() => toggleNav()}>X</NavCloseStyle>
+);
+
+export default NavClose;
