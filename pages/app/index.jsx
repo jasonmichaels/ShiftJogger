@@ -1,12 +1,11 @@
-import React from 'react'
-import Layout from '../../components/Layout'
+import React from "react";
+import Layout from "../../components/Layout";
+import { HeaderTextStyle } from "../../components/HeaderStyles";
 
 const app = () => (
-     <Layout>
-        <div>
-            <h1>DASHBOARD</h1>
-        </div>
-    </Layout>
-)
+  <Layout>
+    <HeaderTextStyle>DASHBOARD</HeaderTextStyle>
+  </Layout>
+);
 
-export default app
+export default app;

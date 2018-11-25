@@ -1,23 +1,17 @@
-import NavOpen from './NavOpen'
+import NavOpen from "./NavOpen";
+import { HeaderStyle, HeaderTextStyle } from "./HeaderStyles";
 
-const Header = (props) => (
-  <React.Fragment>
-    <header>
-      <NavOpen />
-      {props.children}
-    </header>
-    <style jsx>{`
-      header {
-        display: flex;
-        align-items: center;
-        width: 100vw;
-        height: 70px;
-        display: flex;
-        text-transform: uppercase;
-        font-size: 1em;
-      }
-    `}</style>
-  </React.Fragment>
-)
+const Header = props => {
+  const { headTitle, toggleNav } = props;
+  console.log(headTitle);
+  return (
+    <React.Fragment>
+      <HeaderStyle>
+        <NavOpen toggleNav={toggleNav} />
+        <HeaderTextStyle> {headTitle.children}</HeaderTextStyle>
+      </HeaderStyle>
+    </React.Fragment>
+  );
+};
 
-export default Header
+export default Header;
