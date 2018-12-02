@@ -12,8 +12,7 @@ const initialState = {
   shiftEnd: "",
   comments: "",
   timeStamp: null,
-  logId: null,
-  enableSave: false
+  logId: null
 };
 class New extends Component {
   state = initialState;
@@ -57,14 +56,7 @@ class New extends Component {
   };
 
   render() {
-    const {
-      title,
-      date,
-      shiftStart,
-      shiftEnd,
-      comments,
-      enableSave
-    } = this.state;
+    const { title, date, shiftStart, shiftEnd, comments } = this.state;
     const isEnabled =
       title !== "" && shiftStart !== "" && shiftEnd !== "" && date !== "";
     return (
