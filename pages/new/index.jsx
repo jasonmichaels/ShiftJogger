@@ -25,23 +25,22 @@ class New extends Component {
 
   componentDidMount = () => {
     const { fileToEdit, editing } = this.props;
-    console.log(this.props);
-    console.log(fileToEdit, editing);
     if (!editing) return;
-    const { title, date, shiftStart, shiftEnd, comments } = fileToEdit;
+    const { title, date, shiftStart, shiftEnd, comments, logId } = fileToEdit;
     this.setState({
       title,
       date,
       shiftStart,
       shiftEnd,
-      comments
+      comments,
+      logId
     });
   };
 
   onSave = e => {
     const { dispatch } = this.props;
     e.preventDefault();
-    const { title, date, shiftEnd, shiftStart, comments } = this.state;
+    const { title, date, shiftEnd, shiftStart, comments, logId } = this.state;
     dispatch(
       saveDraft({
         title,
@@ -50,7 +49,7 @@ class New extends Component {
         shiftStart,
         comments,
         timeStamp: Date.now(),
-        logId: createRandomString(20)
+        logId: logId === null ? createRandomString(20) : logId
       })
     );
     this.setState(initialState);

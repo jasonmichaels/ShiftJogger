@@ -22,7 +22,15 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SAVE:
       const oldDrafts = state.drafts;
-      if (oldDrafts === []) {
+      if (
+        oldDrafts === [] ||
+        oldDrafts
+          .map(elem => {
+            console.log(elem.logId);
+            return elem.logId;
+          })
+          .indexOf(action.payload.logId) === -1
+      ) {
         return {
           fileToEdit: {},
           drafts: [...state.drafts, action.payload],
@@ -35,21 +43,14 @@ export const reducer = (state = initialState, action) => {
             return elem.logId;
           })
           .indexOf(action.payload.logId);
-        if (pos) {
-          oldDrafts.splice(pos, 1);
-          oldDrafts.push(action.payload);
-          return {
-            fileToEdit: {},
-            drafts: oldDrafts,
-            editing: false
-          };
-        } else {
-          return {
-            fileToEdit: {},
-            drafts: [...state.drafts, action.payload],
-            editing: false
-          };
-        }
+
+        oldDrafts.splice(pos, 1);
+        oldDrafts.push(action.payload);
+        return {
+          fileToEdit: {},
+          drafts: oldDrafts,
+          editing: false
+        };
       }
 
     case actionTypes.GET_DRAFTS:
