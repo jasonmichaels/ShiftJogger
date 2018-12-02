@@ -58,4 +58,7 @@ export const NavOpenStyle = styled.button`
     height: 2px;
     background: black;
   }
+  @media screen and (min-width: 850px) {
+    display: none;
+  }
 `;
