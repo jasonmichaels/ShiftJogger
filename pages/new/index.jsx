@@ -24,18 +24,18 @@ class New extends Component {
   };
 
   componentDidMount = () => {
-    const { fileToEdit } = this.props;
-    console.log(fileToEdit);
-    if (fileToEdit) {
-      const { title, date, shiftStart, shiftEnd, comments } = fileToEdit[0];
-      this.setState({
-        title,
-        date,
-        shiftStart,
-        shiftEnd,
-        comments
-      });
-    }
+    const { fileToEdit, editing } = this.props;
+    console.log(this.props);
+    console.log(fileToEdit, editing);
+    if (!editing) return;
+    const { title, date, shiftStart, shiftEnd, comments } = fileToEdit;
+    this.setState({
+      title,
+      date,
+      shiftStart,
+      shiftEnd,
+      comments
+    });
   };
 
   onSave = e => {
@@ -98,8 +98,8 @@ class New extends Component {
 }
 
 const mapStateToProps = state => {
-  const { fileToEdit } = state;
-  return { fileToEdit };
+  const { fileToEdit, editing } = state;
+  return { fileToEdit, editing };
 };
 
 export default connect(mapStateToProps)(New);

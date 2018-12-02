@@ -7,7 +7,8 @@ const initialState = {
   sent: [],
   user: null,
   isLoggedIn: false,
-  fileToEdit: []
+  fileToEdit: {},
+  editing: false
 };
 
 const actionTypes = {
@@ -20,15 +21,26 @@ const actionTypes = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SAVE:
-      return { ...state, drafts: [...state.drafts, action.payload] };
+      return {
+        fileToEdit: {},
+        drafts: [...state.drafts, action.payload],
+        editing: false
+      };
     case actionTypes.GET_DRAFTS:
-      return state;
+      return state.drafts;
     case actionTypes.ON_EDIT:
       const { drafts } = state;
-      const theFileToEdit = drafts.filter(log => {
-        log.logId === action.payload.draft.logId;
+      state.fileToEdit = {};
+      let theFileToEdit;
+      drafts.forEach(log => {
+        log.logId === action.payload.draft.logId ? (theFileToEdit = log) : null;
       });
-      return { fileToEdit: theFileToEdit };
+      console.log(theFileToEdit);
+      return {
+        ...state,
+        editing: true,
+        fileToEdit: theFileToEdit
+      };
     default:
       return state;
   }

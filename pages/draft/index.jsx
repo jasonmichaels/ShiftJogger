@@ -11,7 +11,7 @@ class Draft extends Component {
   };
   componentDidMount = () => {
     const { drafts } = this.props;
-    this.setState({ drafts }, () => console.log(this.state));
+    this.setState({ drafts });
   };
   handleQuery = query => {
     const draftsCopy = [];
