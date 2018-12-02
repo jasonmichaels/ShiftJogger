@@ -21,11 +21,37 @@ const actionTypes = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SAVE:
-      return {
-        fileToEdit: {},
-        drafts: [...state.drafts, action.payload],
-        editing: false
-      };
+      const oldDrafts = state.drafts;
+      if (oldDrafts === []) {
+        return {
+          fileToEdit: {},
+          drafts: [...state.drafts, action.payload],
+          editing: false
+        };
+      } else {
+        const pos = oldDrafts
+          .map(elem => {
+            console.log(elem.logId);
+            return elem.logId;
+          })
+          .indexOf(action.payload.logId);
+        if (pos) {
+          oldDrafts.splice(pos, 1);
+          oldDrafts.push(action.payload);
+          return {
+            fileToEdit: {},
+            drafts: oldDrafts,
+            editing: false
+          };
+        } else {
+          return {
+            fileToEdit: {},
+            drafts: [...state.drafts, action.payload],
+            editing: false
+          };
+        }
+      }
+
     case actionTypes.GET_DRAFTS:
       return state.drafts;
     case actionTypes.ON_EDIT:

@@ -4,8 +4,9 @@ export const NavBarStyle = styled.nav`
   position: relative;
   display: ${props => (props.isOpen ? "inline-block" : "none")};
   background: lightgrey;
-  width: 15vw;
+  width: 100vw;
   height: 100vh;
+  z-index: 9999;
   transition: display 2s ease-out;
   grid-column-start: 0;
   grid-column-end: 1;
@@ -21,6 +22,12 @@ export const NavBarStyle = styled.nav`
         color: black;
       }
     }
+  }
+  @media screen and (min-width: 850px) {
+    display: block;
+    width: 15vw;
+    min-width: 150px;
+    max-width: 250px;
   }
 `;
 
