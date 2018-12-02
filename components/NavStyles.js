@@ -6,7 +6,9 @@ export const NavBarStyle = styled.nav`
   background: lightgrey;
   width: 15vw;
   height: 100vh;
-  transition: all 2s ease-out;
+  transition: display 2s ease-out;
+  grid-column-start: 0;
+  grid-column-end: 1;
   & ul {
     list-style: none;
     padding: 40px 0 0 20px;

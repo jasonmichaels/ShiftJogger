@@ -11,3 +11,4 @@ const NavOpen = ({ toggleNav }) => (
 );
 
 export default NavOpen;
+

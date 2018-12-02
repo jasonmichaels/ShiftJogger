@@ -2,13 +2,20 @@ import React, { Component } from "react";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import Container from './Container'
 
 const GlobalStyle = createGlobalStyle`
   body {
     box-sizing: border-box;
     margin: 0;
   }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 15vw auto;
+  grid-template-rows: auto;
 `;
 
 export default class Layout extends Component {
@@ -21,17 +28,19 @@ export default class Layout extends Component {
     });
   };
   render() {
-    const { children } = this.props;
     return (
-      <div>
+      <> 
         <GlobalStyle />
-        <Head>
-          <title>Shift Logger</title>
-          {/* <link rel="stylesheet" href="https://bootswatch.com/4/spacelab/bootstrap.min.css"></link> */}
-        </Head>
-        <Header toggleNav={this.toggleNav} headTitle={children.props} />
-        <Navbar isOpen={this.state.isOpen} toggleNav={this.toggleNav} />
-      </div>
+      <Grid>
+        <div>
+          <Header toggleNav={this.toggleNav}/>
+          <Navbar isOpen={this.state.isOpen} toggleNav={this.toggleNav} />
+        </div>
+        <Container>
+          {this.props.children}
+        </Container>
+      </Grid>
+      </>
     );
   }
 }
