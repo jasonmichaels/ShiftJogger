@@ -12,7 +12,8 @@ const initialState = {
   shiftEnd: "",
   comments: "",
   timeStamp: null,
-  logId: null
+  logId: null,
+  enableSave: false
 };
 class New extends Component {
   state = initialState;
@@ -56,6 +57,16 @@ class New extends Component {
   };
 
   render() {
+    const {
+      title,
+      date,
+      shiftStart,
+      shiftEnd,
+      comments,
+      enableSave
+    } = this.state;
+    const isEnabled =
+      title !== "" && shiftStart !== "" && shiftEnd !== "" && date !== "";
     return (
       <>
         <HeaderTextStyle>New</HeaderTextStyle>
@@ -63,30 +74,35 @@ class New extends Component {
         <form>
           <input
             onChange={e => this.handleChange(e, "title")}
-            value={this.state.title}
+            value={title}
             type="text"
           />
           <input
             onChange={e => this.handleChange(e, "date")}
-            value={this.state.date}
+            value={date}
             type="date"
           />
           <input
             onChange={e => this.handleChange(e, "shiftStart")}
-            value={this.state.shiftStart}
+            value={shiftStart}
             type="date"
           />
           <input
             onChange={e => this.handleChange(e, "shiftEnd")}
-            value={this.state.shiftEnd}
+            value={shiftEnd}
             type="date"
           />
           <textarea
             onChange={e => this.handleChange(e, "comments")}
-            value={this.state.comments}
+            value={comments}
             type="text"
           />
-          <input type="submit" onClick={this.onSave} value="Save" />
+          <input
+            type="submit"
+            onClick={this.onSave}
+            value="Save"
+            disabled={!isEnabled}
+          />
           <Link href="/">
             <button>Go Back</button>
           </Link>

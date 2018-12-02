@@ -14,7 +14,8 @@ const initialState = {
 const actionTypes = {
   SAVE: "SAVE",
   GET_DRAFTS: "GET_DRAFTS",
-  ON_EDIT: "ON_EDIT"
+  ON_EDIT: "ON_EDIT",
+  DELETE_LOG: "DELETE_LOG"
 };
 
 // REDUCERS
@@ -68,6 +69,19 @@ export const reducer = (state = initialState, action) => {
         editing: true,
         fileToEdit: theFileToEdit
       };
+    case actionTypes.DELETE_LOG:
+      const updatedDrafts = [...state.drafts];
+      const pos = updatedDrafts
+        .map(elem => {
+          console.log(elem.logId);
+          return elem.logId;
+        })
+        .indexOf(action.payload.logId);
+      const response = confirm("Are you sure you want to delete this record?");
+      if (response) {
+        updatedDrafts.splice(pos, 1);
+        return { drafts: updatedDrafts };
+      }
     default:
       return state;
   }
@@ -86,6 +100,10 @@ export const fetchDrafts = dispatch => {
 
 export const editFile = payload => dispatch => {
   return dispatch({ type: actionTypes.ON_EDIT, payload });
+};
+
+export const deleteLog = payload => dispatch => {
+  return dispatch({ type: actionTypes.DELETE_LOG, payload });
 };
 
 export function initializeStore(initialState = initialState) {
