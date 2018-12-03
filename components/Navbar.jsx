@@ -8,22 +8,22 @@ const Navbar = ({ isOpen, toggleNav }) => (
       <NavClose toggleNav={toggleNav} />
       <li>
         <Link href="/">
-          <a>Dashboard</a>
+          <a onClick={toggleNav}>Dashboard</a>
         </Link>
       </li>
       <li>
         <Link href="/new">
-          <a>New</a>
+          <a onClick={toggleNav}>New</a>
         </Link>
       </li>
       <li>
         <Link href="/draft">
-          <a>Draft</a>
+          <a onClick={toggleNav}>Draft</a>
         </Link>
       </li>
       <li>
         <Link href="/sent">
-          <a>Sent</a>
+          <a onClick={toggleNav}>Sent</a>
         </Link>
       </li>
     </ul>
