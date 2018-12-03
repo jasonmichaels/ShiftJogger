@@ -12,14 +12,17 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 15vw auto;
-  grid-template-rows: auto;
+  width: 100vw;
+  @media (min-width: 850px) {
+    display: grid;
+    grid-template-columns: 15vw auto;
+    grid-template-rows: auto;
+  }  
 `;
 
 export default class Layout extends Component {
   state = {
-    isOpen: true
+    isOpen: false
   };
   toggleNav = () => {
     this.setState({
