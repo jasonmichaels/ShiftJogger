@@ -40,12 +40,18 @@ class Draft extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="drafts">
         <HeaderTextStyle>Draft</HeaderTextStyle>
         <input
           type="text"
           value={this.state.query}
           onChange={e => this.handleQuery(e.target.value)}
+          placeholder={
+            this.state.drafts.length > 0
+              ? "Search previous logs..."
+              : "Nothing to search!"
+          }
+          disabled={this.state.drafts.length > 0 ? false : true}
         />
         <table>
           <tbody>

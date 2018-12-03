@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import styled, { createGlobalStyle } from "styled-components";
-import Container from './Container'
+import Container from "./Container";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -29,17 +28,15 @@ export default class Layout extends Component {
   };
   render() {
     return (
-      <> 
+      <>
         <GlobalStyle />
-      <Grid>
-        <div>
-          <Header toggleNav={this.toggleNav}/>
-          <Navbar isOpen={this.state.isOpen} toggleNav={this.toggleNav} />
-        </div>
-        <Container>
-          {this.props.children}
-        </Container>
-      </Grid>
+        <Grid>
+          <div>
+            <Header toggleNav={this.toggleNav} />
+            <Navbar isOpen={this.state.isOpen} toggleNav={this.toggleNav} />
+          </div>
+          <Container>{this.props.children}</Container>
+        </Grid>
       </>
     );
   }

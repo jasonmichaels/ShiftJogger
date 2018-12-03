@@ -28,6 +28,7 @@ export const NavBarStyle = styled.nav`
     width: 15vw;
     min-width: 150px;
     max-width: 250px;
+    height: 100vh;
   }
 `;
 
