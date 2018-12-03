@@ -51,7 +51,6 @@ class Draft extends Component {
               ? "Search previous logs..."
               : "Nothing to search!"
           }
-          disabled={this.state.drafts.length > 0 ? false : true}
         />
         <table>
           <tbody>

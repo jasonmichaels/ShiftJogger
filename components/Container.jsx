@@ -3,14 +3,16 @@ import styled from "styled-components";
 
 const ContainerStyle = styled.div`
   display: flex;
-  flex-direction: column;
-
+  justify-content: center;
   width: 100%;
   .drafts {
     margin: 0 auto;
 
     input {
-      width: 100%;
+      display: block;
+      margin: 0 auto;
+      width: 70%;
+      padding: 0.25rem;
     }
     table {
       margin-top: 2rem;
