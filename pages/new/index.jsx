@@ -4,6 +4,7 @@ import Link from "next/link";
 import { connect } from "react-redux";
 import { saveDraft } from "../../store";
 import { createRandomString } from "../../utils/utils";
+import { FormStyleParent } from "../../components/FormStyles";
 
 const initialState = {
   title: "",
@@ -63,42 +64,48 @@ class New extends Component {
       <>
         <HeaderTextStyle>New</HeaderTextStyle>
         <h1>NEW/EDIT SHIFT</h1>
-        <form>
+        <FormStyleParent>
           <input
+            className="title"
             onChange={e => this.handleChange(e, "title")}
             value={title}
             type="text"
           />
           <input
+            className="date"
             onChange={e => this.handleChange(e, "date")}
             value={date}
             type="date"
           />
           <input
+            className="shifStart"
             onChange={e => this.handleChange(e, "shiftStart")}
             value={shiftStart}
             type="date"
           />
           <input
+            className="shiftEnd"
             onChange={e => this.handleChange(e, "shiftEnd")}
             value={shiftEnd}
             type="date"
           />
           <textarea
+            className="comments"
             onChange={e => this.handleChange(e, "comments")}
             value={comments}
             type="text"
           />
           <input
+            className="submit"
             type="submit"
             onClick={this.onSave}
             value="Save"
             disabled={!isEnabled}
           />
           <Link href="/">
-            <button>Go Back</button>
+            <button className="back">Go Back</button>
           </Link>
-        </form>
+        </FormStyleParent>
       </>
     );
   }
