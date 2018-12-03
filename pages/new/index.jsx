@@ -62,8 +62,7 @@ class New extends Component {
       title !== "" && shiftStart !== "" && shiftEnd !== "" && date !== "";
     return (
       <>
-        <HeaderTextStyle>New</HeaderTextStyle>
-        <h1>NEW/EDIT SHIFT</h1>
+        <HeaderTextStyle>NEW/EDIT SHIFT</HeaderTextStyle>
         <FormStyleParent>
           <input
             autoFocus
