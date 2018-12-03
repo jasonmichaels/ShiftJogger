@@ -17,6 +17,9 @@ const ContainerStyle = styled.div`
       th {
         padding: 1rem;
       }
+      td {
+        padding: 1rem;
+      }
     }
   }
 `;

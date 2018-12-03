@@ -66,6 +66,7 @@ class New extends Component {
         <h1>NEW/EDIT SHIFT</h1>
         <FormStyleParent>
           <input
+            autoFocus
             className="title"
             onChange={e => this.handleChange(e, "title")}
             value={title}
