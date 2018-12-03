@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const ContainerStyle = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
   .drafts {
     margin: 0 auto;
 
