@@ -73,26 +73,26 @@ class New extends Component {
             type="text"
             placeholder="Enter a title for your work log..."
           />
-          <label>
-            Date
-            <input
+          <label className="label">
+            Date:
+            <input 
               className="date"
               onChange={e => this.handleChange(e, "date")}
               value={date}
               type="date"
             />
           </label>
-          <label>
-            Start Date
+          <label className="label">
+            Start Date:
             <input
-              className="shifStart"
+              className="shiftStart"
               onChange={e => this.handleChange(e, "shiftStart")}
               value={shiftStart}
               type="date"
             />
           </label>
-          <label>
-            Start End
+          <label className="label">
+            Start End:
             <input
               className="shiftEnd"
               onChange={e => this.handleChange(e, "shiftEnd")}

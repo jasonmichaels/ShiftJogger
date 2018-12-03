@@ -6,7 +6,7 @@ export const FormStyleParent = styled.form`
   grid-template-rows: 50px 1fr 150px 1fr;
   grid-template-areas:
     "title title title"
-    "date shiftStart shiftEnd"
+    "label label label"
     "comments comments comments"
     "submit . back";
   grid-gap: 10px;
@@ -16,14 +16,10 @@ export const FormStyleParent = styled.form`
   .title {
     grid-area: title;
   }
-  .date {
-    grid-area: date;
-  }
-  .shiftStart {
-    grid-area: shiftStart;
-  }
-  .shiftEnd {
-    grid-area: shiftEnd;
+  .label {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
   }
   .comments {
     grid-area: comments;
