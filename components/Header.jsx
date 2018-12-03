@@ -1,5 +1,5 @@
 import NavOpen from "./NavOpen";
-import { HeaderStyle, HeaderTextStyle } from "./HeaderStyles";
+import { HeaderStyle, AppTitle, HeaderTextStyle } from "./HeaderStyles";
 
 const Header = props => {
   const { headTitle, toggleNav } = props;
@@ -7,6 +7,7 @@ const Header = props => {
     <React.Fragment>
       <HeaderStyle>
         <NavOpen toggleNav={toggleNav} />
+        <AppTitle>Shift Logger</AppTitle>
         <HeaderTextStyle> {headTitle}</HeaderTextStyle>
       </HeaderStyle>
     </React.Fragment>

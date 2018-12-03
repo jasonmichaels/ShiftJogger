@@ -8,7 +8,13 @@ export const HeaderStyle = styled.header`
   font-size: 1em;
 `;
 
-export const HeaderTextStyle = styled.h1`
+export const AppTitle = styled.h1`
+  margin: 0 auto 0 auto;
+`;
+
+export const HeaderTextStyle = styled.h2`
+  margin: 0;
+  text-align: center;
   padding-left: 1rem;
   & ~ * {
     text-align: center;
