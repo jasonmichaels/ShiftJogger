@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { HeaderTextStyle } from "../../components/HeaderStyles";
 import { connect } from "react-redux";
 import Link from "next/link";
-import { editFile } from "../../store";
+import { editFile, deleteLog } from "../../store";
 
 class Draft extends Component {
   state = {
@@ -11,7 +11,7 @@ class Draft extends Component {
   };
   componentDidMount = () => {
     const { drafts } = this.props;
-    this.setState({ drafts }, () => console.log(this.state));
+    this.setState({ drafts });
   };
   handleQuery = query => {
     const draftsCopy = [];
@@ -34,14 +34,23 @@ class Draft extends Component {
     const { dispatch } = this.props;
     dispatch(editFile({ draft }));
   };
+  handleDelete = draft => {
+    const { dispatch } = this.props;
+    dispatch(deleteLog({ draft }));
+  };
   render() {
     return (
-      <div>
+      <div className="drafts">
         <HeaderTextStyle>Draft</HeaderTextStyle>
         <input
           type="text"
           value={this.state.query}
           onChange={e => this.handleQuery(e.target.value)}
+          placeholder={
+            this.state.drafts.length > 0
+              ? "Search previous logs..."
+              : "Nothing to search!"
+          }
         />
         <table>
           <tbody>
@@ -51,6 +60,8 @@ class Draft extends Component {
               <th>Shift Start</th>
               <th>Shift End</th>
               <th>Comments</th>
+              <th>Edit Log</th>
+              <th>Delete Log</th>
             </tr>
             {this.state.drafts &&
               this.state.drafts.map(draft => (
@@ -67,6 +78,11 @@ class Draft extends Component {
                         query: { log: `${draft.logId}` }
                       }}>
                       <span onClick={() => this.handleEdit(draft)}>✏️</span>
+                    </Link>
+                  </td>
+                  <td>
+                    <Link href="/new">
+                      <span onClick={() => this.handleDelete(draft)}>X</span>
                     </Link>
                   </td>
                 </tr>

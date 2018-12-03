@@ -7,28 +7,81 @@ const initialState = {
   sent: [],
   user: null,
   isLoggedIn: false,
-  fileToEdit: []
+  fileToEdit: {},
+  editing: false
 };
 
 const actionTypes = {
   SAVE: "SAVE",
   GET_DRAFTS: "GET_DRAFTS",
-  ON_EDIT: "ON_EDIT"
+  ON_EDIT: "ON_EDIT",
+  DELETE_LOG: "DELETE_LOG"
 };
 
 // REDUCERS
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SAVE:
-      return { ...state, drafts: [...state.drafts, action.payload] };
+      const oldDrafts = state.drafts;
+      if (
+        oldDrafts === [] ||
+        oldDrafts
+          .map(elem => {
+            console.log(elem.logId);
+            return elem.logId;
+          })
+          .indexOf(action.payload.logId) === -1
+      ) {
+        return {
+          fileToEdit: {},
+          drafts: [...state.drafts, action.payload],
+          editing: false
+        };
+      } else {
+        const pos = oldDrafts
+          .map(elem => {
+            console.log(elem.logId);
+            return elem.logId;
+          })
+          .indexOf(action.payload.logId);
+
+        oldDrafts.splice(pos, 1);
+        oldDrafts.push(action.payload);
+        return {
+          fileToEdit: {},
+          drafts: oldDrafts,
+          editing: false
+        };
+      }
+
     case actionTypes.GET_DRAFTS:
-      return state;
+      return state.drafts;
     case actionTypes.ON_EDIT:
       const { drafts } = state;
-      const theFileToEdit = drafts.filter(log => {
-        log.logId === action.payload.draft.logId;
+      state.fileToEdit = {};
+      let theFileToEdit;
+      drafts.forEach(log => {
+        log.logId === action.payload.draft.logId ? (theFileToEdit = log) : null;
       });
-      return { fileToEdit: theFileToEdit };
+      console.log(theFileToEdit);
+      return {
+        ...state,
+        editing: true,
+        fileToEdit: theFileToEdit
+      };
+    case actionTypes.DELETE_LOG:
+      const updatedDrafts = [...state.drafts];
+      const pos = updatedDrafts
+        .map(elem => {
+          console.log(elem.logId);
+          return elem.logId;
+        })
+        .indexOf(action.payload.logId);
+      const response = confirm("Are you sure you want to delete this record?");
+      if (response) {
+        updatedDrafts.splice(pos, 1);
+        return { drafts: updatedDrafts };
+      }
     default:
       return state;
   }
@@ -47,6 +100,10 @@ export const fetchDrafts = dispatch => {
 
 export const editFile = payload => dispatch => {
   return dispatch({ type: actionTypes.ON_EDIT, payload });
+};
+
+export const deleteLog = payload => dispatch => {
+  return dispatch({ type: actionTypes.DELETE_LOG, payload });
 };
 
 export function initializeStore(initialState = initialState) {

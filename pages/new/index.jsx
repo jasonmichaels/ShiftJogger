@@ -4,6 +4,7 @@ import Link from "next/link";
 import { connect } from "react-redux";
 import { saveDraft } from "../../store";
 import { createRandomString } from "../../utils/utils";
+import { FormStyleParent } from "../../components/FormStyles";
 
 const initialState = {
   title: "",
@@ -24,24 +25,23 @@ class New extends Component {
   };
 
   componentDidMount = () => {
-    const { fileToEdit } = this.props;
-    console.log(fileToEdit);
-    if (fileToEdit) {
-      const { title, date, shiftStart, shiftEnd, comments } = fileToEdit[0];
-      this.setState({
-        title,
-        date,
-        shiftStart,
-        shiftEnd,
-        comments
-      });
-    }
+    const { fileToEdit, editing } = this.props;
+    if (!editing) return;
+    const { title, date, shiftStart, shiftEnd, comments, logId } = fileToEdit;
+    this.setState({
+      title,
+      date,
+      shiftStart,
+      shiftEnd,
+      comments,
+      logId
+    });
   };
 
   onSave = e => {
     const { dispatch } = this.props;
     e.preventDefault();
-    const { title, date, shiftEnd, shiftStart, comments } = this.state;
+    const { title, date, shiftEnd, shiftStart, comments, logId } = this.state;
     dispatch(
       saveDraft({
         title,
@@ -50,56 +50,73 @@ class New extends Component {
         shiftStart,
         comments,
         timeStamp: Date.now(),
-        logId: createRandomString(20)
+        logId: logId === null ? createRandomString(20) : logId
       })
     );
     this.setState(initialState);
   };
 
   render() {
+    const { title, date, shiftStart, shiftEnd, comments } = this.state;
+    const isEnabled =
+      title !== "" && shiftStart !== "" && shiftEnd !== "" && date !== "";
     return (
       <>
         <HeaderTextStyle>New</HeaderTextStyle>
         <h1>NEW/EDIT SHIFT</h1>
-        <form>
+        <FormStyleParent>
           <input
+            autoFocus
+            className="title"
             onChange={e => this.handleChange(e, "title")}
-            value={this.state.title}
+            value={title}
             type="text"
+            placeholder="Enter a title for your work log..."
           />
           <input
+            className="date"
             onChange={e => this.handleChange(e, "date")}
-            value={this.state.date}
+            value={date}
             type="date"
           />
           <input
+            className="shifStart"
             onChange={e => this.handleChange(e, "shiftStart")}
-            value={this.state.shiftStart}
+            value={shiftStart}
             type="date"
           />
           <input
+            className="shiftEnd"
             onChange={e => this.handleChange(e, "shiftEnd")}
-            value={this.state.shiftEnd}
+            value={shiftEnd}
             type="date"
           />
           <textarea
+            className="comments"
             onChange={e => this.handleChange(e, "comments")}
-            value={this.state.comments}
+            value={comments}
             type="text"
+            placeholder="Leave a note!"
           />
-          <input type="submit" onClick={this.onSave} value="Save" />
+          <input
+            className="submit"
+            type="submit"
+            onClick={this.onSave}
+            value="Save Draft"
+            disabled={!isEnabled}
+          />
           <Link href="/">
-            <button>Go Back</button>
+            <button className="back">Go Back</button>
           </Link>
-        </form>
+        </FormStyleParent>
       </>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const { fileToEdit } = state;
-  return { fileToEdit };
+  const { fileToEdit, editing } = state;
+  return { fileToEdit, editing };
 };
 
 export default connect(mapStateToProps)(New);
