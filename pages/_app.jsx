@@ -12,7 +12,7 @@ class MyApp extends App {
       <>
         <Head>
           <title>Shift Logger</title>
-          {/* <link rel="stylesheet" href="https://bootswatch.com/4/spacelab/bootstrap.min.css"></link> */}
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <Container>
           <Provider store={reduxStore}>
