@@ -9,6 +9,9 @@ export const HeaderStyle = styled.header`
   font-size: 1em;
 `;
 
-export const HeaderTextStyle = styled.h2`
+export const HeaderTextStyle = styled.h1`
   padding-left: 1rem;
+  & ~ * {
+    text-align: center;
+  }
 `;
