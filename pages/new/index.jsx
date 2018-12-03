@@ -73,24 +73,33 @@ class New extends Component {
             type="text"
             placeholder="Enter a title for your work log..."
           />
-          <input
-            className="date"
-            onChange={e => this.handleChange(e, "date")}
-            value={date}
-            type="date"
-          />
-          <input
-            className="shifStart"
-            onChange={e => this.handleChange(e, "shiftStart")}
-            value={shiftStart}
-            type="date"
-          />
-          <input
-            className="shiftEnd"
-            onChange={e => this.handleChange(e, "shiftEnd")}
-            value={shiftEnd}
-            type="date"
-          />
+          <label>
+            Date
+            <input
+              className="date"
+              onChange={e => this.handleChange(e, "date")}
+              value={date}
+              type="date"
+            />
+          </label>
+          <label>
+            Start Date
+            <input
+              className="shifStart"
+              onChange={e => this.handleChange(e, "shiftStart")}
+              value={shiftStart}
+              type="date"
+            />
+          </label>
+          <label>
+            Start End
+            <input
+              className="shiftEnd"
+              onChange={e => this.handleChange(e, "shiftEnd")}
+              value={shiftEnd}
+              type="date"
+            />
+          </label>  
           <textarea
             className="comments"
             onChange={e => this.handleChange(e, "comments")}
