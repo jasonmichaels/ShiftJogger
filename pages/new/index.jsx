@@ -71,6 +71,7 @@ class New extends Component {
             onChange={e => this.handleChange(e, "title")}
             value={title}
             type="text"
+            placeholder="Enter a title for your work log..."
           />
           <input
             className="date"
@@ -95,12 +96,13 @@ class New extends Component {
             onChange={e => this.handleChange(e, "comments")}
             value={comments}
             type="text"
+            placeholder="Leave a note!"
           />
           <input
             className="submit"
             type="submit"
             onClick={this.onSave}
-            value="Save"
+            value="Save Draft"
             disabled={!isEnabled}
           />
           <Link href="/">
