@@ -3,6 +3,7 @@ import { HeaderTextStyle } from "./HeaderStyles";
 import { connect } from "react-redux";
 import Link from "next/link";
 import { editFile, deleteLog } from "../store";
+import Router from 'next/router'
 
 class Grid extends Component {
   state = {
@@ -75,7 +76,7 @@ class Grid extends Component {
                   <td>
                     <Link
                       href={{
-                        pathname: "/draft",
+                        pathname: "/new",
                         query: { log: `${draft.logId}` }
                       }}>
                       <span onClick={() => this.handleEdit(draft)}>✏️</span>

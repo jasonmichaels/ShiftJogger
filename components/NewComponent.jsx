@@ -61,6 +61,14 @@ class New extends Component {
     })
   };
 
+  handleRedirect = () => {
+    // work on go-back redirect
+    // current behavior: going to edit and clicking Go Back, then
+    // going back to New (not Edit) leaves fields populated with 
+    // last Edit content (if not saved during that edit).
+    
+  }
+
   render() {
     const { title, date, shiftStart, shiftEnd, comments } = this.state;
     const isEnabled =
@@ -118,9 +126,9 @@ class New extends Component {
             value="Save Draft"
             disabled={!isEnabled}
           />
-          <Link href="/">
-            <button className="back">Go Back</button>
-          </Link>
+
+          <button onClick={this.handleRedirect} className="back">Go Back</button>
+
         </FormStyleParent>
       </>
     );
