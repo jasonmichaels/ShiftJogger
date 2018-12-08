@@ -1,7 +1,8 @@
-import { HeaderTextStyle } from "../../components/HeaderStyles";
+import React from 'react';
+import GridComponent from '../../components/GridComponent';
 
 const Draft = () => (
-    <HeaderTextStyle>SENT</HeaderTextStyle>
+    <GridComponent type="sent"/>
 );
 
 export default Draft;
