@@ -63,10 +63,6 @@ class New extends Component {
   };
 
   handleRedirect = () => {
-    // work on go-back redirect
-    // current behavior: going to edit and clicking Go Back, then
-    // going back to New (not Edit) leaves fields populated with
-    // last Edit content (if not saved during that edit).
     const { dispatch } = this.props;
     dispatch(goBack());
     Router.push({
