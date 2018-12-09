@@ -3,7 +3,6 @@ import { HeaderTextStyle } from "./HeaderStyles";
 import { connect } from "react-redux";
 import Link from "next/link";
 import { editFile, deleteLog } from "../store";
-import Router from "next/router";
 
 class Grid extends Component {
   state = {
@@ -46,8 +45,11 @@ class Grid extends Component {
   };
   handleDelete = draft => {
     const { dispatch } = this.props;
-    this.setState({ deleting: !this.state.deleting });
-    dispatch(deleteLog({ draft }));
+    const response = confirm("Are you sure you want to delete this log?");
+    if (response) {
+      this.setState({ deleting: !this.state.deleting });
+      dispatch(deleteLog({ draft }));
+    }
   };
   render() {
     const { query, drafts } = this.state;

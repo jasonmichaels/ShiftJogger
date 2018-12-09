@@ -75,15 +75,12 @@ export const reducer = (state = initialState, action) => {
           return elem.logId;
         })
         .indexOf(action.payload.logId);
-      // should have this in React, not in store, carry response in payload for sanity-checking
-      const response = confirm("Are you sure you want to delete this record?");
-      if (response) {
-        updatedDrafts.splice(pos, 1);
-        return {
-          ...state,
-          drafts: updatedDrafts
-        };
-      }
+      updatedDrafts.splice(pos, 1);
+      return {
+        ...state,
+        drafts: updatedDrafts
+      };
+
     case actionTypes.GO_BACK:
       return {
         ...state,
