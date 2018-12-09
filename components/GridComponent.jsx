@@ -3,18 +3,28 @@ import { HeaderTextStyle } from "./HeaderStyles";
 import { connect } from "react-redux";
 import Link from "next/link";
 import { editFile, deleteLog } from "../store";
-import Router from 'next/router'
+import Router from "next/router";
 
 class Grid extends Component {
   state = {
+    query: "",
     drafts: [],
+    deleting: false,
     fileToEdit: {}
   };
   componentDidMount = () => {
-    const { drafts } = this.props;
-    this.setState({ drafts });
+    const { drafts, deleting } = this.props;
+    this.setState({ drafts, deleting });
+  };
+
+  componentWillReceiveProps = props => {
+    this.setState({
+      drafts: props.drafts,
+      deleting: false
+    });
   };
   handleQuery = query => {
+    this.setState({ query });
     const draftsCopy = [];
     const { drafts } = this.props;
     if (query === "") {
@@ -31,27 +41,25 @@ class Grid extends Component {
     }
   };
   handleEdit = draft => {
-    console.log(draft);
     const { dispatch } = this.props;
     dispatch(editFile({ draft }));
   };
   handleDelete = draft => {
     const { dispatch } = this.props;
+    this.setState({ deleting: !this.state.deleting });
     dispatch(deleteLog({ draft }));
   };
   render() {
-        
+    const { query, drafts } = this.state;
     return (
       <div className="drafts">
         <HeaderTextStyle>{this.props.type}</HeaderTextStyle>
         <input
           type="text"
-          value={this.state.query}
+          value={query}
           onChange={e => this.handleQuery(e.target.value)}
           placeholder={
-            this.state.drafts.length > 0
-              ? "Search previous logs..."
-              : "Nothing to search!"
+            drafts.length > 0 ? "Search previous logs..." : "Nothing to search!"
           }
         />
         <table>
@@ -65,8 +73,8 @@ class Grid extends Component {
               <th>Edit Log</th>
               <th>Delete Log</th>
             </tr>
-            {this.state.drafts &&
-              this.state.drafts.map(draft => (
+            {drafts &&
+              drafts.map(draft => (
                 <tr key={draft.logId}>
                   <td>{draft.title}</td>
                   <td>{draft.date}</td>
@@ -83,9 +91,11 @@ class Grid extends Component {
                     </Link>
                   </td>
                   <td>
-                    <Link href="/">
+                    {!this.state.deleting ? (
                       <span onClick={() => this.handleDelete(draft)}>X</span>
-                    </Link>
+                    ) : (
+                      <p>Deleting...</p>
+                    )}
                   </td>
                 </tr>
               ))}

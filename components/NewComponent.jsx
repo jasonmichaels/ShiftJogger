@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { HeaderTextStyle } from "./HeaderStyles";
-import Link from "next/link";
 import { connect } from "react-redux";
-import { saveDraft } from "../store";
+import { saveDraft, goBack } from "../store";
 import { createRandomString } from "../utils/utils";
 import { FormStyleParent } from "./FormStyles";
-import Router from 'next/router'
+import Router from "next/router";
 
 const initialState = {
   title: "",
@@ -20,10 +19,12 @@ class New extends Component {
   state = initialState;
 
   handleChange = (e, type) => {
-    
-    this.setState({
-      [type]: e.target.value
-    }, () => console.log(this.state));
+    this.setState(
+      {
+        [type]: e.target.value
+      },
+      () => console.log(this.state)
+    );
   };
 
   componentDidMount = () => {
@@ -57,17 +58,21 @@ class New extends Component {
     );
     this.setState(initialState);
     Router.push({
-      pathname: '/draft'
-    })
+      pathname: "/draft"
+    });
   };
 
   handleRedirect = () => {
     // work on go-back redirect
     // current behavior: going to edit and clicking Go Back, then
-    // going back to New (not Edit) leaves fields populated with 
+    // going back to New (not Edit) leaves fields populated with
     // last Edit content (if not saved during that edit).
-    
-  }
+    const { dispatch } = this.props;
+    dispatch(goBack());
+    Router.push({
+      pathname: "/draft"
+    });
+  };
 
   render() {
     const { title, date, shiftStart, shiftEnd, comments } = this.state;
@@ -87,7 +92,7 @@ class New extends Component {
           />
           <label className="label">
             Date:
-            <input 
+            <input
               className="date"
               onChange={e => this.handleChange(e, "date")}
               value={date}
@@ -111,7 +116,7 @@ class New extends Component {
               value={shiftEnd}
               type="time"
             />
-          </label>  
+          </label>
           <textarea
             className="comments"
             onChange={e => this.handleChange(e, "comments")}
@@ -127,8 +132,12 @@ class New extends Component {
             disabled={!isEnabled}
           />
 
-          <button onClick={this.handleRedirect} className="back">Go Back</button>
-
+          <input
+            type="button"
+            onClick={this.handleRedirect}
+            value="Go Back"
+            className="back"
+          />
         </FormStyleParent>
       </>
     );
