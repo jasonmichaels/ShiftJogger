@@ -20,16 +20,6 @@ const User = require("../../models/User");
 
 // in server.js, the base route is already given, directing to this router.
 // once here, the request will be routed to one of the following methods and routes.
-// ./routes/api/users and that will lead here, where /test finishes off the URL.
-
-// @route   GET api/users/test
-// @desc    Tests users route
-// @access  Public
-router.get("/test", (req, res) =>
-  res.json({
-    msg: "Users Works"
-  })
-);
 
 // @route   GET api/users/register
 // @desc    register user
