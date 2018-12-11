@@ -10,9 +10,9 @@ module.exports = validateLogInput = data => {
 
   data.title = !isEmpty(data.title) ? data.title : "";
 
-  Validator.isEmpty(data.text)
-    ? (errors.text = "Title is a required field")
-    : !Validator.isLength(data.text, { min: 10, max: 30 })
+  Validator.isEmpty(data.title)
+    ? (errors.title = "Title is a required field")
+    : !Validator.isLength(data.title, { min: 6, max: 100 })
     ? (errors.title = "Log titles must be between 10 and 30 characters")
     : null;
 

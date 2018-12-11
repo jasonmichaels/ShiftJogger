@@ -21,7 +21,7 @@ module.exports = passport => {
     new JwtStrategy(options, (jwt_payload, done) => {
       // jwt_payload includes `iat`, or issued at date, as well as expiry date
       // based on the jwt.sign object `expiresIn` property value
-      // console.log(jwt_payload);
+      console.log("Passport, line 24", jwt_payload);
       // findById is a mongoose method
       User.findById(jwt_payload.id)
         .then(user => {

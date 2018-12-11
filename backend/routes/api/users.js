@@ -10,6 +10,7 @@ const passport = require("passport");
 // load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const validateLogInput = require("../../validation/logs");
 
 // may not need mongoose since the users model utilizes it
 const mongoose = require("mongoose");
@@ -74,7 +75,7 @@ router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   // check validation
-  if (isValid) {
+  if (!isValid) {
     return res.status(400).json(errors);
   }
   // send form via req
@@ -144,6 +145,130 @@ router.get(
       name: req.user.name,
       email: req.user.email
     });
+  }
+);
+
+// @route   GET api/users/logs
+// @desc    Create l
+// @access  Private
+
+router.post(
+  "/logs",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateLogInput(req.body);
+    console.log("Logs, line 30", req.user.id);
+    if (!isValid) {
+      // if errors, send 400 with errors obj
+      return res.status(400).json(errors);
+    }
+    User.findOne({ email: req.user.email }).then(user => {
+      console.log("users, line 171", user);
+      const newLog = {
+        title: req.body.title,
+        date: req.body.date,
+        shiftStart: req.body.shiftStart,
+        shiftEnd: req.body.shiftEnd,
+        comments: req.body.comments,
+        sent: req.body.sent,
+        user: req.user.id
+      };
+      // add log to user logs array
+      user.logs.unshift(newLog);
+      user.save().then(user => res.json(user));
+    });
+  }
+);
+
+// @route   GET api/users/logs
+// @desc    Get user's logs
+// @access  Private
+
+router.get(
+  "/logs",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findOne({ email: req.user.email })
+      .then(user => res.json(user.logs))
+      .catch(err =>
+        res.status(404).json({ noLogsFound: "No logs found" + err })
+      );
+  }
+);
+
+// @route   GET api/users/logs/:log_id
+// @desc    Get a specific log from user
+// @access  Private
+
+router.get(
+  "/logs/:log_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log(req);
+    User.findOne({ email: req.user.email })
+      .then(user => {
+        if (user) {
+          const logId = req.params.log_id;
+          user.logs.map(log => {
+            if (log.id === logId) res.json(log);
+          });
+        }
+      })
+      .catch(err =>
+        res.status(404).json({ noLogsFound: "No logs found" + err })
+      );
+  }
+);
+
+// @route   Delete api/users/logs/:log_id
+// @desc    Delete a specific log from user
+// @access  Private
+
+router.delete(
+  "/logs/:log_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findOne({ _id: req.user.id })
+      .then(user => {
+        if (user) {
+          user.logs.map(log => {
+            if (log.id === req.params.log_id) {
+              const logId = req.params.log_id;
+              const removeIndex = log.id.toString().indexOf(logId);
+              user.logs.splice(removeIndex, 1);
+              user.save().then(user => res.json(user));
+            }
+          });
+        }
+      })
+      .catch(err =>
+        res.status(404).json({ logNotFound: "No log found!" + err })
+      );
+  }
+);
+
+// @route   Post api/users/logs/send/:log_id
+// @desc    Send a specific log from user
+// @access  Private
+router.delete(
+  "/logs/:log_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findOne({ _id: req.user.id })
+      .then(user => {
+        if (user) {
+          user.logs.map(log => {
+            if (log.id === req.params.log_id) {
+              log.send = true;
+              // do the sending, such as calling third-party API here
+              user.save().then(user => res.json(user));
+            }
+          });
+        }
+      })
+      .catch(err =>
+        res.status(404).json({ unableToSend: "Couldn't send log!" + err })
+      );
   }
 );
 

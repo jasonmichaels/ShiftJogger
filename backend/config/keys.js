@@ -1,6 +1,6 @@
 module.exports = {
   mongoURL:
-    "mongodb://drunkenkismet:p3evUyus@ds227674.mlab.com:27674/shift-jogger",
+    "***REMOVED***",
   secretOrKey: "secret"
 };
 
