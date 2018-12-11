@@ -12,7 +12,7 @@ const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = keys.secretOrKey;
 
-// `passport` is parameter, which is passed as passport in server.js, line 33
+// `passport` is parameter, which is passed as passport in server.js
 // will only be used on protected routes, via passport
 module.exports = passport => {
   // gives back jwt payload and `done`

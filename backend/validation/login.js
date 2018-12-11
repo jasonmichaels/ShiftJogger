@@ -4,7 +4,7 @@ const isEmpty = require("./is-empty");
 module.exports = validateLoginInput = data => {
   // errors object used to supply information to login form
   // if fields don't meet basic requirements, messages displayed client-side
-  // from fields object (if applicable)
+  // from fields object (if applicable) in React app
   let errors = {};
 
   // since Validator's `isEmpty` only tests strings,

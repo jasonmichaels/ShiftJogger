@@ -74,8 +74,9 @@ router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   // check validation
-  !isValid ? res.status(400).json(errors) : null;
-
+  if (isValid) {
+    return res.status(400).json(errors);
+  }
   // send form via req
   const email = req.body.email;
   const password = req.body.password;
@@ -86,7 +87,8 @@ router.post("/login", (req, res) => {
     // check for user
     if (!user) {
       errors.email = "User not found";
-      return res.status(404).json(errors); // not found w/ errors displayed client-side
+      // not found w/ errors displayed client-side
+      return res.status(404).json(errors);
     }
     // if user, match password
     // bcrypt to compare plain text password (first param)
@@ -107,6 +109,7 @@ router.post("/login", (req, res) => {
           payload,
           keys.secretOrKey,
           {
+            // need to determine best expiry timeframe
             expiresIn: 6000
           },
           (err, token) => {
@@ -136,7 +139,6 @@ router.get(
   (req, res) => {
     // req.user will return the full user, including password --
     // don't want to return that!
-    // res.json(req.user);
     res.json({
       id: req.user.id,
       name: req.user.name,

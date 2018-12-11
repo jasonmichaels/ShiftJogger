@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // create schema
 
-const LogsSchema = new Schema({
+const LogSchema = new Schema({
   // associate user with profile
   user: {
     type: Schema.Types.ObjectId,
@@ -32,7 +32,11 @@ const LogsSchema = new Schema({
       },
       sent: {
         type: Boolean,
-        default: false
+        default: false,
+        date: {
+          type: Date,
+          default: null
+        }
       }
     }
   ],
@@ -42,4 +46,4 @@ const LogsSchema = new Schema({
   }
 });
 
-module.exports = Logs = mongoose.model("logs", LogsSchema);
+module.exports = Log = mongoose.model("logs", LogSchema);
