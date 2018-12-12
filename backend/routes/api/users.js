@@ -251,7 +251,7 @@ router.delete(
 // @desc    Send a specific log from user
 // @access  Private
 router.delete(
-  "/logs/:log_id",
+  "/logs/send/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     User.findOne({ _id: req.user.id })
