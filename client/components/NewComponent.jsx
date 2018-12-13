@@ -42,12 +42,14 @@ class New extends Component {
     const { dispatch } = this.props;
     e.preventDefault();
     const { title, date, shiftEnd, shiftStart, comments, logId } = this.state;
+    const newShiftStart = this.convertTime(shiftStart);
+    const newShiftEnd = this.convertTime(shiftEnd);
     dispatch(
       saveDraft({
         title,
         date,
-        shiftEnd,
-        shiftStart,
+        shiftStart: newShiftStart,
+        shiftEnd: newShiftEnd,
         comments,
         timeStamp: Date.now(),
         logId: logId === null ? createRandomString(20) : logId
@@ -57,6 +59,24 @@ class New extends Component {
     Router.push({
       pathname: "/draft"
     });
+  };
+
+  convertTime = s => {
+    const secNum = parseInt(s, 10);
+    let hours = Math.floor(secNum / 3600);
+    let minutes = Math.floor((secNum - hours * 3600) / 60);
+    let seconds = secNum - hours * 3600 - minutes * 60;
+
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    if (seconds < 10) {
+      seconds = `0${seconds}`;
+    }
+    return `${hours}:${minutes}:${seconds}`;
   };
 
   handleRedirect = () => {

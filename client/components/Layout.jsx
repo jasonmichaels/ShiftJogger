@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     box-sizing: border-box;
     margin: 0;
+    height: 100vh;
+    width: 100vw;
   }
 `;
 
