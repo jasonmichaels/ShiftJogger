@@ -73,13 +73,27 @@ class Grid extends Component {
         <table className="table">
           <tbody>
             <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Date</th>
-              <th scope="col">Shift Start</th>
-              <th scope="col">Shift End</th>
-              <th scope="col">Comments</th>
-              <th scope="col">Edit Log</th>
-              <th scope="col">Delete Log</th>
+              <th scope="col" className="text-center">
+                Title
+              </th>
+              <th scope="col" className="text-center">
+                Date
+              </th>
+              <th scope="col" className="text-center">
+                Shift Start
+              </th>
+              <th scope="col" className="text-center">
+                Shift End
+              </th>
+              <th scope="col" className="text-center">
+                Comments
+              </th>
+              <th scope="col" className="text-center">
+                Edit Log
+              </th>
+              <th scope="col" className="text-center">
+                Delete Log
+              </th>
             </tr>
             {drafts &&
               drafts.map(draft => (
