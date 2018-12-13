@@ -12,12 +12,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Grid = styled.div`
-  width: 100vw;
+  width: 90vw;
+  height: 100vh;
   @media (min-width: 850px) {
     display: grid;
     grid-template-columns: 15vw auto;
     grid-template-rows: auto;
-  }  
+  }
 `;
 
 export default class Layout extends Component {

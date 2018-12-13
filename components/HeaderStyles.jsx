@@ -13,7 +13,7 @@ export const AppTitle = styled.h1`
 `;
 
 export const HeaderTextStyle = styled.h2`
-  margin: 0;
+  margin: 3rem 0;
   text-align: center;
   padding-left: 1rem;
   & ~ * {
