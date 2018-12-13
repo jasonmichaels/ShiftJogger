@@ -56,24 +56,30 @@ class Grid extends Component {
     return (
       <div className="drafts">
         <HeaderTextStyle>{this.props.type}</HeaderTextStyle>
-        <input
-          type="text"
-          value={query}
-          onChange={e => this.handleQuery(e.target.value)}
-          placeholder={
-            drafts.length > 0 ? "Search previous logs..." : "Nothing to search!"
-          }
-        />
-        <table>
+        <div className="form-group">
+          <input
+            className="form-control"
+            type="text"
+            value={query}
+            onChange={e => this.handleQuery(e.target.value)}
+            placeholder={
+              drafts.length > 0
+                ? "Search previous logs..."
+                : "Nothing to search!"
+            }
+          />
+        </div>
+
+        <table className="table">
           <tbody>
             <tr>
-              <th>Title</th>
-              <th>Date</th>
-              <th>Shift Start</th>
-              <th>Shift End</th>
-              <th>Comments</th>
-              <th>Edit Log</th>
-              <th>Delete Log</th>
+              <th scope="col">Title</th>
+              <th scope="col">Date</th>
+              <th scope="col">Shift Start</th>
+              <th scope="col">Shift End</th>
+              <th scope="col">Comments</th>
+              <th scope="col">Edit Log</th>
+              <th scope="col">Delete Log</th>
             </tr>
             {drafts &&
               drafts.map(draft => (
