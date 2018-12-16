@@ -68,9 +68,9 @@ export const editLog = (id, history) => dispatch => {
 
 // set loading state
 
-export const setPostLoading = () => {
+export const setLogLoading = () => {
   return {
-    type: actionTypes.POST_LOADING
+    type: actionTypes.LOG_LOADING
   };
 };
 
@@ -87,7 +87,7 @@ export const goBack = id => dispatch => {
     .delete(`/api/logs/${id}`)
     .then(res => {
       dispatch({
-        type: actionTypes.DELETE_POST,
+        type: actionTypes.DELETE_LOG,
         payload: id
       });
     })
