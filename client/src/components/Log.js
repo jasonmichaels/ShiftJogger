@@ -1,0 +1,227 @@
+import React, { Component } from "react";
+import { HeaderTextStyle } from "./HeaderStyles";
+import styled from "styled-components";
+import { addLog, goBack } from "../reduxors/actions/logActions";
+import { connect } from "react-redux";
+import { TextField } from "./common/TextField";
+import TimePicker from "react-bootstrap-time-picker";
+import { isEmpty } from "../helpers/isEmpty";
+
+const FormStyle = styled.form`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "title title"
+    "time message"
+    "buttons buttons";
+  grid-template-rows: auto;
+  grid-gap: 1.5rem;
+  align-content: space-between;
+  & select,
+  input {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+const initialState = {
+  title: "",
+  date: "",
+  shiftStart: "",
+  shiftEnd: "",
+  comments: "",
+  errors: {}
+};
+class Log extends Component {
+  state = initialState;
+
+  handleChange = (e, type) => {
+    if (!type) {
+      this.setState({ [e.target.name]: e.target.value });
+    } else {
+      this.setState({
+        [type]: e
+      });
+    }
+  };
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  };
+
+  componentDidMount = () => {
+    if (!isEmpty(this.props.log)) {
+      const { title, date, shiftStart, shiftEnd, comments } = this.props.log;
+      this.setState({
+        title,
+        date,
+        shiftStart,
+        shiftEnd,
+        comments
+      });
+    }
+  };
+
+  onSave = e => {
+    const { dispatch, log } = this.props;
+    e.preventDefault();
+    const { title, date, shiftEnd, shiftStart, comments } = this.state;
+    dispatch(
+      addLog(
+        {
+          title,
+          date,
+          shiftStart: this.convertTime(shiftStart),
+          shiftEnd: this.convertTime(shiftEnd),
+          comments
+        },
+        !isEmpty(log) ? log._id : "new"
+      )
+    );
+    this.setState(initialState);
+  };
+
+  convertTime = s => {
+    const secNum = parseInt(s, 10);
+    let hours = Math.floor(secNum / 3600);
+    let minutes = Math.floor((secNum - hours * 3600) / 60);
+    let seconds = secNum - hours * 3600 - minutes * 60;
+
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    if (seconds < 10) {
+      seconds = `0${seconds}`;
+    }
+    return `${hours}:${minutes}:${seconds}`;
+  };
+
+  handleRedirect = () => {
+    const { dispatch } = this.props;
+    dispatch(goBack());
+    this.props.history.push({
+      pathname: "/drafts"
+    });
+  };
+
+  render() {
+    const { title, date, shiftStart, shiftEnd, comments, errors } = this.state;
+    const isEnabled =
+      title !== "" && shiftStart !== "" && shiftEnd !== "" && date !== "";
+    return (
+      <>
+        <HeaderTextStyle>NEW/EDIT SHIFT</HeaderTextStyle>
+
+        <FormStyle
+          onSubmit={this.onSave}
+          style={{ width: "80%", maxWidth: "1000px", margin: "0 auto" }}>
+          <div className="form-group mb-0" style={{ gridArea: "title" }}>
+            <TextField
+              name="title"
+              autoFocus
+              className="form-control"
+              handleChange={this.handleChange}
+              value={title}
+              type="text"
+              placeholder="Enter a title for your work log..."
+              inputType="input"
+              error={errors.title}
+            />
+          </div>
+          <div
+            style={{
+              gridArea: "time"
+            }}>
+            <div className="form-group">
+              <TextField
+                name="date"
+                handleChange={this.handleChange}
+                value={date}
+                type="date"
+                inputType="input"
+                error={errors.date}
+              />
+            </div>
+            <div className="form-group">
+              <TimePicker
+                name="shiftStart"
+                onChange={e => this.handleChange(e, "shiftStart")}
+                value={shiftStart}
+                type="time"
+                step={15}
+                style={{ height: "48px" }}
+              />
+              {errors.shiftStart && (
+                <div className="invalid-feedback">{errors.shiftStart}</div>
+              )}
+            </div>
+            <div className="form-group">
+              <TimePicker
+                name="shiftEnd"
+                onChange={e => this.handleChange(e, "shiftEnd")}
+                value={shiftEnd}
+                type="time"
+                step={15}
+                style={{ height: "48px" }}
+              />
+              {errors.shiftEnd && (
+                <div className="invalid-feedback">{errors.shiftEnd}</div>
+              )}
+            </div>
+          </div>
+
+          <div className="form-row" style={{ gridArea: "message" }}>
+            <div
+              className="form-group"
+              style={{ width: "100%", height: "100%" }}>
+              <TextField
+                rows={6}
+                name="comments"
+                className="form-control"
+                inputType="textarea"
+                handleChange={this.handleChange}
+                value={comments}
+                placeholder="Leave a note!"
+              />
+            </div>
+          </div>
+          <div
+            className="form-group"
+            style={{ margin: "0", gridArea: "buttons" }}>
+            <button
+              className={!isEnabled ? "btn btn-light" : "btn btn-info"}
+              style={{ marginRight: "5px", width: "80px" }}
+              type="submit"
+              onClick={this.onSave}
+              disabled={!isEnabled}>
+              Save
+            </button>
+
+            <button
+              type="button"
+              onClick={this.handleRedirect}
+              className="btn btn-secondary mx-4 my-4"
+              style={{ marginLeft: "5px" }}>
+              Go Back
+            </button>
+          </div>
+        </FormStyle>
+      </>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  const { auth } = state;
+  const { log } = state.log;
+  return { auth, log };
+};
+
+export default connect(mapStateToProps)(Log);
