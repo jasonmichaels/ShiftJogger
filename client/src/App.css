@@ -2,8 +2,13 @@ img {
   width: 100%;
 }
 
+.navbar {
+  margin-top: 0;
+  padding-top: 3px;
+}
+
 .landing {
-  background: url('https://www.uattend.co.uk/wp-content/uploads/2017/06/time-fraud.jpg') no-repeat;
+  background: url('./img/time-runner.jpg') no-repeat;
   background-size: cover;
   background-position: top;
   min-height: 100%;

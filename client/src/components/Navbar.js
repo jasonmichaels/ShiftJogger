@@ -64,8 +64,8 @@ class Navbar extends Component {
       </ul>
     );
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4 navbar-fixed-top">
-        <div className="container-fluid">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark navbar-fixed-top">
+        <div className="container">
           <Link className="navbar-brand" to="/">
             ShiftJogger
           </Link>
