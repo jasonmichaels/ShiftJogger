@@ -12,9 +12,6 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const validateLogInput = require("../../validation/logs");
 
-// may not need mongoose since the users model utilizes it
-const mongoose = require("mongoose");
-
 // load user model
 // capitalize for schema
 const User = require("../../models/User");
@@ -32,7 +29,9 @@ router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
   // check validation
-  !isValid ? res.status(400).json(errors) : null;
+  if (!isValid) {
+    res.status(400).json(errors);
+  }
   User.findOne({
     // access what req is sending through req.body,
     // then individual props of the body
@@ -60,7 +59,9 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             // user gets sent back and turned into a JSON object
-            .then(user => res.json(user))
+            .then(user => {
+              res.json(user);
+            })
             .catch(err => console.log(err));
         });
       });
@@ -148,22 +149,20 @@ router.get(
   }
 );
 
-// @route   GET api/users/logs
-// @desc    Create l
+// @route   POST api/users/logs
+// @desc    Create log
 // @access  Private
 
 router.post(
-  "/logs",
+  "/logs/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateLogInput(req.body);
-    console.log("Logs, line 30", req.user.id);
     if (!isValid) {
       // if errors, send 400 with errors obj
       return res.status(400).json(errors);
     }
     User.findOne({ email: req.user.email }).then(user => {
-      console.log("users, line 171", user);
       const newLog = {
         title: req.body.title,
         date: req.body.date,
@@ -173,8 +172,18 @@ router.post(
         sent: req.body.sent,
         user: req.user.id
       };
-      // add log to user logs array
-      user.logs.unshift(newLog);
+      if (req.params.log_id !== "new") {
+        const logId = req.params.log_id;
+        user.logs.map((log, i) => {
+          if (log.id === req.params.log_id) {
+            const removeIndex = log.id.toString().indexOf(logId);
+            user.logs.splice(removeIndex, 1);
+            user.logs.splice(removeIndex, 0, newLog);
+          }
+        });
+      } else {
+        user.logs.unshift(newLog);
+      }
       user.save().then(user => res.json(user));
     });
   }
@@ -204,7 +213,6 @@ router.get(
   "/logs/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req);
     User.findOne({ email: req.user.email })
       .then(user => {
         if (user) {

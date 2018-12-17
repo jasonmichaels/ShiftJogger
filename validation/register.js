@@ -3,6 +3,7 @@ const isEmpty = require("./is-empty");
 
 // takes a data object
 module.exports = validateRegisterInput = data => {
+  console.log(data);
   // same as in login, registration fields (all field validation logic is placeholder -- i.e., basic -- for now)
   let errors = {};
 
