@@ -15,7 +15,7 @@ class Register extends Component {
   componentDidMount = () => {
     const { isAuthenticated } = this.props.auth;
     if (isAuthenticated) {
-      this.props.history.push("/drafts");
+      this.props.history.push("/dashboard");
     }
   };
 

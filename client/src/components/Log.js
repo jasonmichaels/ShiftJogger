@@ -87,7 +87,6 @@ class Log extends Component {
       )
     );
     this.setState(initialState);
-    this.handleRedirect();
   };
 
   convertTime = s => {
@@ -209,7 +208,8 @@ class Log extends Component {
               className={!isEnabled ? "btn btn-light" : "btn btn-info"}
               style={{ marginRight: "5px", width: "80px" }}
               type="submit"
-              onClick={this.onSave}>
+              onClick={this.onSave}
+              disabled={isEnabled ? null : "disabled"}>
               Save
             </button>
 
