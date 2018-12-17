@@ -57,9 +57,9 @@ class Register extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
+              <h1 className="display-4 text-center my-4">Join ShiftJogger</h1>
               <p className="lead text-center">
-                Create Your ShiftJogger Account
+                Create your account here. It's fast and easy!
               </p>
               <form noValidate onSubmit={e => this.handleSubmit(e)}>
                 <TextField
@@ -98,7 +98,7 @@ class Register extends Component {
                   handleChange={this.handleChange}
                   inputType="input"
                 />
-                <button className="btn btn-info btn-block mt-4">
+                <button className="btn btn-dark text-white btn-block mt-4">
                   Register
                 </button>
               </form>

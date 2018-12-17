@@ -6,6 +6,8 @@ import {
   logoutUser,
   clearCurrentProfile
 } from "../reduxors/actions/authActions";
+import { NavGuestLinks } from "./NavGuestLinks";
+import { NavAuthLinks } from "./NavAuthLinks";
 
 class Navbar extends Component {
   handleLogoutClick = e => {
@@ -17,52 +19,7 @@ class Navbar extends Component {
   };
   render() {
     const { isAuthenticated, user } = this.props.auth;
-    const authLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item" style={{ marginRight: "3px" }}>
-          <Link className="nav-link" to="/logs/new">
-            New Log
-          </Link>
-        </li>
-        <li className="nav-item" style={{ marginRight: "3px" }}>
-          <Link className="nav-link" to="/drafts">
-            Drafts
-          </Link>
-        </li>
-        <li className="nav-item" style={{ marginRight: "3px" }}>
-          <Link className="nav-link" to="/sent">
-            Sent
-          </Link>
-        </li>
-        <li className="nav-item">
-          <button
-            style={{
-              backgroundColor: "transparent",
-              border: "none",
-              outline: "none",
-              cursor: "pointer"
-            }}
-            className="nav-link"
-            onClick={this.handleLogoutClick}>
-            {user.name ? `Log out, ${user.name.split(" ")[0]}?` : "Log Out"}
-          </button>
-        </li>
-      </ul>
-    );
-    const guestLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/auth/register">
-            Sign Up
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/auth/login">
-            Login
-          </Link>
-        </li>
-      </ul>
-    );
+
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark navbar-fixed-top">
         <div className="container">
@@ -85,7 +42,14 @@ class Navbar extends Component {
                 </Link>
               </li>
             </ul>
-            {isAuthenticated ? authLinks : guestLinks}
+            {isAuthenticated ? (
+              <NavAuthLinks
+                name={user.name}
+                handleLogoutClick={this.handleLogoutClick}
+              />
+            ) : (
+              <NavGuestLinks />
+            )}
           </div>
         </div>
       </nav>

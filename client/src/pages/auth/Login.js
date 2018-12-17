@@ -45,7 +45,9 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
+              <h1 className="display-4 text-center my-4">
+                Welcome to ShiftJogger
+              </h1>
               <p className="lead text-center">
                 Sign in to your ShiftJogger account
               </p>
@@ -68,7 +70,10 @@ class Login extends Component {
                   value={password}
                   handleChange={this.handleChange}
                 />
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <input
+                  type="submit"
+                  className="btn btn-dark text-white btn-block mt-4"
+                />
               </form>
             </div>
           </div>
