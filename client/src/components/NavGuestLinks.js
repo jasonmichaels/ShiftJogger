@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const NavGuestLinks = ({ isAuthenticated }) => (
+export const NavGuestLinks = () => (
   <ul className="navbar-nav ml-auto">
     <li className="nav-item">
       <Link className="nav-link" to="/auth/register">
