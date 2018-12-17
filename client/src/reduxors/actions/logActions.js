@@ -5,12 +5,20 @@ import axios from "axios";
 
 export const addLog = (log, id) => dispatch => {
   // dispatch(clearErrors());
-  axios.post(`/api/users/logs/${id}`, log).then(res => {
-    dispatch({
-      type: actionTypes.ADD_LOG,
-      payload: res.data.logs
-    });
-  });
+  axios
+    .post(`/api/users/logs/${id}`, log)
+    .then(res => {
+      dispatch({
+        type: actionTypes.ADD_LOG,
+        payload: res.data.logs
+      });
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_ERRORS,
+        payload: err.response.data
+      })
+    );
 };
 
 export const getLogs = () => dispatch => {

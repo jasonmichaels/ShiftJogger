@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { TextField } from "./common/TextField";
 import TimePicker from "react-bootstrap-time-picker";
 import { isEmpty } from "../helpers/isEmpty";
+import { withRouter } from "react-router-dom";
 
 const FormStyle = styled.form`
   display: grid;
@@ -30,6 +31,7 @@ const initialState = {
   shiftStart: "",
   shiftEnd: "",
   comments: "",
+  pageState: "",
   errors: {}
 };
 class Log extends Component {
@@ -46,6 +48,7 @@ class Log extends Component {
   };
 
   componentWillReceiveProps = nextProps => {
+    console.log(nextProps);
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
@@ -61,12 +64,13 @@ class Log extends Component {
         date,
         shiftStart,
         shiftEnd,
-        comments
+        comments,
+        pageState: "edit"
       });
     }
   };
 
-  onSave = e => {
+  handleSubmit = e => {
     const { dispatch, log } = this.props;
     e.preventDefault();
     const { title, date, shiftEnd, shiftStart, comments } = this.state;
@@ -83,6 +87,7 @@ class Log extends Component {
       )
     );
     this.setState(initialState);
+    this.handleRedirect();
   };
 
   convertTime = s => {
@@ -112,15 +117,23 @@ class Log extends Component {
   };
 
   render() {
-    const { title, date, shiftStart, shiftEnd, comments, errors } = this.state;
-    const isEnabled =
-      title !== "" && shiftStart !== "" && shiftEnd !== "" && date !== "";
+    const {
+      title,
+      date,
+      shiftStart,
+      shiftEnd,
+      comments,
+      pageState,
+      errors
+    } = this.state;
+    const isEnabled = title !== "" && date !== "";
+    const header = pageState === "edit" ? "Edit" : "New";
     return (
       <>
-        <HeaderTextStyle>NEW/EDIT SHIFT</HeaderTextStyle>
+        <HeaderTextStyle>{header} Log</HeaderTextStyle>
 
         <FormStyle
-          onSubmit={this.onSave}
+          onSubmit={this.handleSubmit}
           style={{ width: "80%", maxWidth: "1000px", margin: "0 auto" }}>
           <div className="form-group mb-0" style={{ gridArea: "title" }}>
             <TextField
@@ -171,9 +184,6 @@ class Log extends Component {
                 step={15}
                 style={{ height: "48px" }}
               />
-              {errors.shiftEnd && (
-                <div className="invalid-feedback">{errors.shiftEnd}</div>
-              )}
             </div>
           </div>
 
@@ -199,8 +209,7 @@ class Log extends Component {
               className={!isEnabled ? "btn btn-light" : "btn btn-info"}
               style={{ marginRight: "5px", width: "80px" }}
               type="submit"
-              onClick={this.onSave}
-              disabled={!isEnabled}>
+              onClick={this.onSave}>
               Save
             </button>
 
@@ -219,9 +228,9 @@ class Log extends Component {
 }
 
 const mapStateToProps = state => {
-  const { auth } = state;
+  const { auth, errors } = state;
   const { log } = state.log;
-  return { auth, log };
+  return { auth, errors, log };
 };
 
-export default connect(mapStateToProps)(Log);
+export default connect(mapStateToProps)(withRouter(Log));
