@@ -20,18 +20,20 @@ const Footer = ({ auth }) => {
   console.log(auth);
   return (
     <StyledFooter className="footer" isAuthenticated={auth.isAuthenticated}>
-      <Link to={`https://github.com/chingu-voyage7/Geckos-Team-18`}>
+      <a
+        href="https://github.com/chingu-voyage7/Geckos-Team-18"
+        target="_blank">
         <p className="text-center text-white">GitHub</p>
-      </Link>
+      </a>
       <Link to={auth.isAuthenticated ? "/drafts" : "/landing"}>
         <p className="text-white text-center">
           ShiftJogger &copy; {new Date().getFullYear()}
         </p>
       </Link>
 
-      <Link to={`www.something.come/team`}>
+      <a href="www.something.come/team" target="_blank">
         <p className="text-center text-white">Contributors</p>
-      </Link>
+      </a>
     </StyledFooter>
   );
 };
