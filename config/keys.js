@@ -1,8 +1,5 @@
-module.exports = {
-  mongoURL:
-    "***REMOVED***",
-  secretOrKey: "secret"
-};
-
-// base formatting for mongodb key
-// "mongodb://<dbuser>:<dbpassword>@ds227674.mlab.com:27674/shift-jogger"
+if (process.env.NODE_ENV === "production") {
+  module.exports = require("./keys_prod");
+} else {
+  module.exports = require("./keys_dev");
+}

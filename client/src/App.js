@@ -8,7 +8,7 @@ import { store } from "./store";
 
 import Navbar from "./components/Navbar";
 import { Footer } from "./components/Footer";
-import { Dashboard } from "./components/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
 import Private from "./components/common/Private";
 import Log from "./pages/main-app/Log";
 import Drafts from "./pages/main-app/Drafts";
@@ -49,9 +49,15 @@ class App extends Component {
         <Router>
           <div
             className="App"
-            style={{ width: "100vw", height: "100vh", position: "relative" }}>
-            <Navbar />
-            <div className="container">
+            style={{
+              width: "100vw",
+              height: "100vh",
+              position: "relative",
+              padding: 0,
+              margin: 0
+            }}>
+            <>
+              <Navbar />
               <Route exact path="/" component={Landing} style={{}} />
 
               <Route exact path="/auth/register" component={Register} />
@@ -70,8 +76,8 @@ class App extends Component {
                 <Private exact path="/sent" component={Sent} />
               </Switch>
               <Route exact path="/not-found" component={NotFound} />
-            </div>
-            <Footer />
+              <Footer />
+            </>
           </div>
         </Router>
       </Provider>

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "keywords": [],
@@ -18,7 +18,7 @@
     "moment": "^2.23.0",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
-    "react-bootstrap-time-picker": "^1.0.3",
+    "react-datetime": "^2.16.3",
     "react-dom": "^16.6.3",
     "react-moment": "^0.8.4",
     "react-redux": "^5.1.1",
@@ -30,9 +30,6 @@
     "styled-components": "^4.1.2"
   },
   "proxy": "http://localhost:5000",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
