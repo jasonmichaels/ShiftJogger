@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { DraftsInsights } from "./DraftsInsights";
 import { SentInsights } from "./SentInsights";
-import { GlobalInsights } from "./GlobalInsights";
+import GlobalInsights from "./GlobalInsights";
 import { Greetings } from "./Greetings";
 
 import { getLogs } from "../../reduxors/actions/logActions";
