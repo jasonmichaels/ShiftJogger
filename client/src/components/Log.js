@@ -4,11 +4,8 @@ import styled from "styled-components";
 import { addLog, goBack } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 import { TextField } from "./common/TextField";
-import DateTime from "react-datetime";
 import { isEmpty } from "../helpers/isEmpty";
 import { withRouter } from "react-router-dom";
-
-import "./logStyles.css";
 
 const FormStyle = styled.form`
   display: grid;

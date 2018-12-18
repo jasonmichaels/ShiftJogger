@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   logoutUser,
   clearCurrentProfile
-} from "../reduxors/actions/authActions";
+} from "../../reduxors/actions/authActions";
 import { NavGuestLinks } from "./NavGuestLinks";
 import { NavAuthLinks } from "./NavAuthLinks";
 

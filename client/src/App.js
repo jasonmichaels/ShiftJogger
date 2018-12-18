@@ -6,7 +6,7 @@ import { setCurrentUser, logoutUser } from "./reduxors/actions/authActions";
 import { clearCurrentProfile } from "./reduxors/actions/authActions";
 import { store } from "./store";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Nav/Navbar";
 import { Footer } from "./components/Footer";
 import Dashboard from "./components/dashboard/Dashboard";
 import Private from "./components/common/Private";
@@ -58,24 +58,23 @@ class App extends Component {
             }}>
             <>
               <Navbar />
-              <Route exact path="/" component={Landing} style={{}} />
-
-              <Route exact path="/auth/register" component={Register} />
-              <Route exact path="/auth/login" component={Login} />
-
               <Switch>
+                <Route exact path="/" component={Landing} style={{}} />
+
+                <Route exact path="/auth/register" component={Register} />
+
+                <Route exact path="/auth/login" component={Login} />
+
                 <Private exact path="/dashboard" component={Dashboard} />
-              </Switch>
-              <Switch>
+
                 <Private exact path="/logs/:id" component={Log} />
-              </Switch>
-              <Switch>
+
                 <Private exact path="/drafts" component={Drafts} />
-              </Switch>
-              <Switch>
+
                 <Private exact path="/sent" component={Sent} />
+
+                <Route component={NotFound} />
               </Switch>
-              <Route exact path="/not-found" component={NotFound} />
               <Footer />
             </>
           </div>

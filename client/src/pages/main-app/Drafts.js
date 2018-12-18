@@ -1,5 +1,5 @@
 import React from "react";
-import GridComponent from "../../components/GridComponent";
+import GridComponent from "../../components/Table";
 
 const Draft = () => <GridComponent type="draft" />;
 
