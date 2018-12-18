@@ -59,20 +59,13 @@ class App extends Component {
             <>
               <Navbar />
               <Switch>
-                <Route exact path="/" component={Landing} style={{}} />
-
+                <Route exact path="/" component={Landing} />
                 <Route exact path="/auth/register" component={Register} />
-
                 <Route exact path="/auth/login" component={Login} />
-
                 <Private exact path="/dashboard" component={Dashboard} />
-
                 <Private exact path="/logs/:id" component={Log} />
-
                 <Private exact path="/drafts" component={Drafts} />
-
                 <Private exact path="/sent" component={Sent} />
-
                 <Route component={NotFound} />
               </Switch>
               <Footer />

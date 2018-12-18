@@ -46,7 +46,6 @@ class Grid extends Component {
     this.props.dispatch(deleteLog(id));
   };
   render() {
-    console.log(this.props);
     const { type } = this.props;
     const { query, logs } = this.state;
     return (
@@ -67,27 +66,19 @@ class Grid extends Component {
         <table className="table">
           <tbody>
             <tr>
-              <th scope="col" className="text-center">
-                Title
-              </th>
-              <th scope="col" className="text-center">
-                Date
-              </th>
-              <th scope="col" className="text-center">
-                Shift Start
-              </th>
-              <th scope="col" className="text-center">
-                Shift End
-              </th>
-              <th scope="col" className="text-center">
-                Comments
-              </th>
-              <th scope="col" className="text-center">
-                Edit Log
-              </th>
-              <th scope="col" className="text-center">
-                Delete Log
-              </th>
+              {[
+                "Title",
+                "Date",
+                "Shift Start",
+                "Shift End",
+                "Comments",
+                "Edit",
+                "Delete"
+              ].map(heading => (
+                <th key={heading} scope="col" className="text-center">
+                  {heading}
+                </th>
+              ))}
               <th scope="col" className="text-center">
                 {type === "sent" ? "Sent" : "Send"}
               </th>

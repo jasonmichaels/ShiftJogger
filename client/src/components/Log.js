@@ -37,7 +37,6 @@ class Log extends Component {
   state = initialState;
 
   handleChange = e => {
-    console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -77,15 +76,14 @@ class Log extends Component {
           shiftEnd,
           comments
         },
-        !isEmpty(log) ? log._id : "new"
+        !isEmpty(log) ? log._id : "new",
+        this.props.history
       )
     );
     this.setState(initialState);
   };
 
   handleRedirect = () => {
-    const { dispatch } = this.props;
-    dispatch(goBack());
     this.props.history.push({
       pathname: "/drafts"
     });

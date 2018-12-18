@@ -3,7 +3,7 @@ import axios from "axios";
 
 // add log
 
-export const addLog = (log, id) => dispatch => {
+export const addLog = (log, id, history) => dispatch => {
   // dispatch(clearErrors());
   axios
     .post(`/api/users/logs/${id}`, log)
@@ -12,6 +12,7 @@ export const addLog = (log, id) => dispatch => {
         type: actionTypes.ADD_LOG,
         payload: res.data.logs
       });
+      history.push("/dashboard");
     })
     .catch(err =>
       dispatch({
