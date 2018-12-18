@@ -1,35 +1,59 @@
-import React from "react";
-import Moment from "react-moment";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import moment from "moment";
 
-export const GlobalInsights = ({ user, logs }) => {
-  const times = [];
-  logs.forEach((log, i) => {
-    const toAppend = {};
-    const hours = log.shiftStart.split(":")[0];
-    const minutes = log.shiftStart.split(":")[1];
-    const seconds = log.shiftStart.split(":")[2];
-    toAppend.hours = hours;
-    toAppend.minutes = minutes;
-    toAppend.seconds = seconds;
-    times.push(toAppend);
-  });
-  console.log(times);
-  const totalTime = times.reduce(
-    (prev, cur) => moment.duration(cur).add(prev),
-    moment.duration(times[0])
-  );
-  console.log(totalTime);
-  return (
-    <>
-      <p>
-        You have logged {totalTime._data.days} days, {totalTime._data.hours}{" "}
-        hours, and {totalTime._data.minutes} minutes so far.
-      </p>
-      <small>
-        Note that ShiftJogger will soon add functionality to filter dates and to
-        archive logs!
-      </small>
-    </>
-  );
-};
+class GlobalInsights extends Component {
+  state = {
+    times: [],
+    hours: "",
+    minutes: ""
+  };
+
+  componentWillReceiveProps = nextProps => {
+    const { logs } = nextProps;
+    const initialDiffs = logs.map(log => {
+      const end = log.shiftEnd;
+      const start = log.shiftStart;
+      const diff = moment(end, "HH:mm").diff(moment(start, "HH:mm"));
+      const duration = moment.duration(diff);
+      const total =
+        Math.floor(duration.asHours()) + moment.utc(diff).format(":mm");
+      return total;
+    });
+    console.log(initialDiffs);
+    const totalDiffs = initialDiffs.reduce((prev, cur) => {
+      return moment.duration(cur).add(prev);
+    }, 0);
+    console.log(totalDiffs);
+    this.setState({
+      hours: totalDiffs._data.hours,
+      minutes:
+        totalDiffs._data.minutes < 10
+          ? `0${totalDiffs._data.minutes}`
+          : totalDiffs._data.minutes
+    });
+  };
+
+  render() {
+    const { hours, minutes } = this.state;
+    return (
+      <>
+        <p>
+          You have logged {hours} {hours === 1 ? "hour" : "hours"} and{" "}
+          {minutes < 10 ? minutes.toString().replace("0", "") : minutes}{" "}
+          {minutes === "01" ? "minute" : "minutes"} so far.
+        </p>
+        <small>
+          Note that ShiftJogger will soon add functionality to filter dates and
+          to archive logs!
+        </small>
+      </>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  logs: state.log.logs
+});
+
+export default connect(mapStateToProps)(GlobalInsights);
