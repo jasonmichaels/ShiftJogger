@@ -1,37 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import styled from "styled-components";
 
-export const Footer = () => {
+const StyledFooter = styled.footer`
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: fixed;
+  bottom: 0;
+  background-color: ${props =>
+    props.isAuthenticated ? "black" : "transparent"};
+  & * {
+    margin: 0.25rem 0;
+    align
+  }
+`;
+
+const Footer = ({ auth }) => {
+  console.log(auth);
   return (
-    <div
-      className="row"
-      style={{
-        position: "fixed",
-        bottom: 0,
-        left: "50%",
-        right: "50%",
-        transform: "translate(-50%, -50%)",
-        width: "100%"
-      }}>
-      <footer
-        className="footer"
-        style={{
-          display: "grid",
-          width: "100%",
-          gridTemplateColumns: "1fr 1fr 1fr"
-        }}>
-        <Link
-          to={`https://github.com/chingu-voyage7/Geckos-Team-18`}
-          style={{ margin: "0 auto" }}>
-          <p className="text-center text-white">GitHub</p>
-        </Link>
+    <StyledFooter className="footer" isAuthenticated={auth.isAuthenticated}>
+      <Link to={`https://github.com/chingu-voyage7/Geckos-Team-18`}>
+        <p className="text-center text-white">GitHub</p>
+      </Link>
+      <Link to={auth.isAuthenticated ? "/drafts" : "/landing"}>
         <p className="text-white text-center">
           ShiftJogger &copy; {new Date().getFullYear()}
         </p>
-        <Link to={`www.something.come/team`} style={{ margin: "0 auto" }}>
-          <p className="text-center text-white">Contributors</p>
-        </Link>
-      </footer>
-    </div>
+      </Link>
+
+      <Link to={`www.something.come/team`}>
+        <p className="text-center text-white">Contributors</p>
+      </Link>
+    </StyledFooter>
   );
 };
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Footer);

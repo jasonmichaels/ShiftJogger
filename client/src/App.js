@@ -7,7 +7,7 @@ import { clearCurrentProfile } from "./reduxors/actions/authActions";
 import { store } from "./store";
 
 import Navbar from "./components/Nav/Navbar";
-import { Footer } from "./components/Footer";
+import Footer from "./components/Footer";
 import Dashboard from "./components/dashboard/Dashboard";
 import Private from "./components/common/Private";
 import Log from "./pages/main-app/Log";

@@ -22,6 +22,16 @@ const StyledDashboard = styled.div`
     "lower-left lower-right";
   margin: 0 auto;
   padding: 0;
+
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "upper-left"
+      "lower-left"
+      "upper-right"
+      "lower-right";
+  }
   & * {
     text-align: center;
   }
@@ -75,7 +85,7 @@ class Dashboard extends Component {
         className="dashboard"
         style={{
           width: "100%",
-          height: "calc(100% - 150px)"
+          height: "75%"
         }}>
         <div className="text-center h1 my-4">Dashboard</div>
         <StyledDashboard>
@@ -86,10 +96,10 @@ class Dashboard extends Component {
             <DraftsInsights unsent={unsent} />
           </div>
           <div className="lower-left">
-            <GlobalInsights user={user} logs={logs} />
+            <SentInsights sent={sent} />
           </div>
           <div className="lower-right">
-            <SentInsights sent={sent} />
+            <GlobalInsights user={user} logs={logs} />
           </div>
         </StyledDashboard>
       </div>

@@ -12,6 +12,32 @@ class GlobalInsights extends Component {
   componentWillReceiveProps = nextProps => {
     const { logs } = nextProps;
     const initialDiffs = logs.map(log => {
+      /* 
+         the following is initial logic to help fix 
+         diffs when logs are from different days. 
+         alternatively, and probably better, is to 
+         conditionally render another date input for a 
+         shift's end date upon a checkbox being ticked.
+      */
+      // const startTest =
+      //   moment(new Date()) -
+      //   moment(
+      //     `${log.date.split("T")[0]}T${log.shiftStart}`,
+      //     "YYYY-MM-DD HH:mm",
+      //     "UTC"
+      //   );
+      // const endTest =
+      //   moment(new Date()) -
+      //   moment(
+      //     `${log.date.split("T")[0]}T${log.shiftEnd}`,
+      //     "YYYY-MM-DD HH:mm",
+      //     "UTC"
+      //   );
+      // console.log(
+      //   log.shiftStart,
+      //   log.shiftEnd,
+      //   moment(startTest).diff(endTest)
+      // );
       const end = log.shiftEnd;
       const start = log.shiftStart;
       const diff = moment(end, "HH:mm").diff(moment(start, "HH:mm"));
