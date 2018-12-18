@@ -13,7 +13,6 @@ const StyledFooter = styled.footer`
     props.isAuthenticated ? "black" : "transparent"};
   & * {
     margin: 0.25rem 0;
-    align
   }
 `;
 
