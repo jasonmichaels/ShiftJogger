@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import { getLogs, editLog, deleteLog } from "../reduxors/actions/logActions";
 import Moment from "react-moment";
 import { withRouter } from "react-router-dom";
+import { LoadAndDelete } from "./common/LoadAndDelete";
 
 class Grid extends Component {
   state = {
     query: "",
     logs: [],
-    deleting: false
+    deleting: false,
+    activeId: null
   };
   componentDidMount = () => {
     this.props.dispatch(getLogs());
@@ -18,7 +20,10 @@ class Grid extends Component {
   componentWillReceiveProps = nextProps => {
     this.setState({
       errors: nextProps.errors,
-      logs: nextProps.logs
+      logs: nextProps.logs.filter(log =>
+        this.props.type === "sent" ? !log.sent : log
+      ),
+      deleting: false
     });
   };
 
@@ -43,6 +48,7 @@ class Grid extends Component {
     this.props.dispatch(editLog(id, this.props.history));
   };
   handleDelete = id => {
+    this.setState({ deleting: true, activeId: id });
     this.props.dispatch(deleteLog(id));
   };
   render() {
@@ -103,12 +109,16 @@ class Grid extends Component {
                       </span>
                     </td>
                     <td style={{ cursor: "pointer" }}>
-                      {!this.state.deleting ? (
+                      {this.state.activeId !== log._id ? (
                         <span onClick={() => this.handleDelete(log._id)}>
                           X
                         </span>
                       ) : (
-                        <p>Deleting...</p>
+                        this.state.activeId === log._id && (
+                          <span>
+                            <LoadAndDelete />
+                          </span>
+                        )
                       )}
                     </td>
                     <td style={{ cursor: "pointer" }}>
@@ -137,12 +147,12 @@ class Grid extends Component {
                         </span>
                       </td>
                       <td style={{ cursor: "pointer" }}>
-                        {!this.state.deleting ? (
+                        {this.state.activeId !== log._id ? (
                           <span onClick={() => this.handleDelete(log._id)}>
                             X
                           </span>
                         ) : (
-                          <p>Deleting...</p>
+                          this.state.activeId === log._id && <LoadAndDelete />
                         )}
                       </td>
                       <td>Date Sent...</td>
@@ -159,8 +169,8 @@ class Grid extends Component {
 
 const mapStateToProps = state => {
   const { logs } = state.log;
-  const { auth } = state;
-  return { logs, auth };
+  const { auth, deleting } = state;
+  return { logs, auth, deleting };
 };
 
 export default connect(mapStateToProps)(withRouter(Grid));

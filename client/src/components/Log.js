@@ -22,6 +22,19 @@ const FormStyle = styled.form`
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
   }
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "time"
+      "message"
+      "buttons";
+    & select,
+    input {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
 `;
 
 const initialState = {
@@ -37,6 +50,9 @@ class Log extends Component {
   state = initialState;
 
   handleChange = e => {
+    this.setState({
+      errors: {}
+    });
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -59,6 +75,10 @@ class Log extends Component {
         shiftEnd,
         comments,
         pageState: "edit"
+      });
+    } else {
+      this.setState({
+        initialState
       });
     }
   };
@@ -180,8 +200,7 @@ class Log extends Component {
               className={!isEnabled ? "btn btn-light" : "btn btn-info"}
               style={{ marginRight: "5px", width: "80px" }}
               type="submit"
-              onClick={this.onSave}
-              disabled={isEnabled ? null : "disabled"}>
+              onClick={this.onSave}>
               Save
             </button>
 

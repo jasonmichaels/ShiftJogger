@@ -2,18 +2,11 @@ import { actionTypes } from "../types";
 
 const initialState = {
   logs: [],
-  log: {},
-  loading: false,
-  editing: false
+  log: {}
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LOG_LOADING:
-      return {
-        ...state,
-        loading: true
-      };
     case actionTypes.GET_LOGS:
       return {
         ...state,
@@ -28,19 +21,18 @@ export default (state = initialState, action) => {
     case actionTypes.DELETE_LOG:
       return {
         ...state,
-        logs: state.logs.filter(log => log._id !== action.payload)
+        logs: state.logs.filter(log => log._id !== action.payload),
+        log: {}
       };
     case actionTypes.GET_LOG:
       return {
         ...state,
-        log: action.payload,
-        loading: false
+        log: action.payload
       };
     case actionTypes.EDIT_LOG:
       return {
         ...state,
-        log: action.payload,
-        editing: true
+        log: action.payload
       };
     default:
       return state;

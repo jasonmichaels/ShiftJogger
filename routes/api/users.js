@@ -149,7 +149,7 @@ router.get(
   }
 );
 
-// @route   POST api/users/logs
+// @route   POST api/users/logs/:log_id or .../new
 // @desc    Create log
 // @access  Private
 
@@ -157,6 +157,7 @@ router.post(
   "/logs/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log(req.body);
     const { errors, isValid } = validateLogInput(req.body);
     if (!isValid) {
       // if errors, send 400 with errors obj

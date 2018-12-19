@@ -22,6 +22,7 @@ const Footer = ({ auth }) => {
     <StyledFooter className="footer" isAuthenticated={auth.isAuthenticated}>
       <a
         href="https://github.com/chingu-voyage7/Geckos-Team-18"
+        rel="noopener noreferrer"
         target="_blank">
         <p className="text-center text-white">GitHub</p>
       </a>

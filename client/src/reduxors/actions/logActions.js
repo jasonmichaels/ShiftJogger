@@ -75,35 +75,10 @@ export const editLog = (id, history) => dispatch => {
     );
 };
 
-// set loading state
-
-export const setLogLoading = () => {
-  return {
-    type: actionTypes.LOG_LOADING
-  };
-};
-
 // clear errors from forms
 
 export const clearErrors = () => {
   return {
     type: actionTypes.CLEAR_ERRORS
   };
-};
-
-export const goBack = id => dispatch => {
-  axios
-    .delete(`/api/logs/${id}`)
-    .then(res => {
-      dispatch({
-        type: actionTypes.DELETE_LOG,
-        payload: id
-      });
-    })
-    .catch(err =>
-      dispatch({
-        type: actionTypes.GET_ERRORS,
-        payload: err.response.data
-      })
-    );
 };

@@ -11,7 +11,7 @@ module.exports = validateLogInput = data => {
 
   data.title = !isEmpty(data.title) ? data.title : "";
   data.date = !isEmpty(data.date) ? data.date : "";
-
+  console.log(`logs, line 14: ${data.date}`);
   Validator.isEmpty(data.title)
     ? (errors.title = "Title is a required field")
     : !Validator.isLength(data.title, { min: 6, max: 100 })
@@ -19,7 +19,7 @@ module.exports = validateLogInput = data => {
     : null;
 
   Validator.isEmpty(data.date)
-    ? (errors.title = "Log date is a required field.")
+    ? (errors.date = "Log date is a required field.")
     : null;
 
   Validator.isEmpty(data.shiftStart)

@@ -38,8 +38,7 @@ const UserSchema = new Schema({
         required: true
       },
       shiftEnd: {
-        type: String,
-        required: true
+        type: String
       },
       comments: {
         type: String
