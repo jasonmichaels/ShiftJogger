@@ -11,7 +11,6 @@ import { NavAuthLinks } from "./NavAuthLinks";
 
 class Navbar extends Component {
   handleLogoutClick = e => {
-    console.log("logging out");
     e.preventDefault();
     this.props.clearCurrentProfile();
     this.props.logoutUser();

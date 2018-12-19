@@ -20,7 +20,6 @@ class Register extends Component {
   };
 
   componentWillReceiveProps = nextProps => {
-    console.log(nextProps);
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
@@ -33,7 +32,6 @@ class Register extends Component {
   };
 
   handleSubmit = e => {
-    console.log("submitted");
     e.preventDefault();
     const newUser = {
       name: this.state.name,

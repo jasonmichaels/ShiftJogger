@@ -17,7 +17,6 @@ const StyledFooter = styled.footer`
 `;
 
 const Footer = ({ auth }) => {
-  console.log(auth);
   return (
     <StyledFooter className="footer" isAuthenticated={auth.isAuthenticated}>
       <a

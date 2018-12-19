@@ -157,7 +157,6 @@ router.post(
   "/logs/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req.body);
     const { errors, isValid } = validateLogInput(req.body);
     if (!isValid) {
       // if errors, send 400 with errors obj
