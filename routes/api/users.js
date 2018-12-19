@@ -11,6 +11,9 @@ const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const validateLogInput = require("../../validation/logs");
+const validateSendInput = require("../../validation/send");
+
+validateSendInput;
 
 // load user model
 // capitalize for schema
@@ -199,6 +202,41 @@ router.get(
   (req, res) => {
     User.findOne({ email: req.user.email })
       .then(user => res.json(user.logs))
+      .catch(err =>
+        res.status(404).json({ noLogsFound: "No logs found" + err })
+      );
+  }
+);
+
+// @route   POST api/users/send/:log_id
+// @desc    Generate PDF and send email by log ID
+// @access  Private
+
+router.post(
+  "/send/:log_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const userId = req.body.userId;
+    User.findOne({ _id: userId })
+      .then(user => {
+        const { errors, isValid } = validateSendInput(req.body);
+        if (!isValid) {
+          // if errors, send 400 with errors obj
+          return res.status(400).json(errors);
+        }
+        const logId = req.params.log_id;
+        user.logs.map(log => {
+          if (log.id === logId) {
+            log.sent = true;
+            return log;
+          }
+          return log;
+        });
+        user.save().then(user => {
+          console.log(`line 239: found user: ${user}`);
+          res.json(user.logs);
+        });
+      })
       .catch(err =>
         res.status(404).json({ noLogsFound: "No logs found" + err })
       );

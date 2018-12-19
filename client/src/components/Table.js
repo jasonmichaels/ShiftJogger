@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { HeaderTextStyle } from "./HeaderStyles";
 import { connect } from "react-redux";
-import { getLogs, editLog, deleteLog } from "../reduxors/actions/logActions";
+import {
+  getLogs,
+  editLog,
+  deleteLog,
+  prepSend
+} from "../reduxors/actions/logActions";
 import Moment from "react-moment";
 import { withRouter } from "react-router-dom";
 import { LoadAndDelete } from "./common/LoadAndDelete";
@@ -50,6 +55,10 @@ class Grid extends Component {
   handleDelete = id => {
     this.setState({ deleting: true, activeId: id });
     this.props.dispatch(deleteLog(id));
+  };
+
+  handleSend = id => {
+    this.props.dispatch(prepSend(id, this.props.history));
   };
   render() {
     const { type } = this.props;

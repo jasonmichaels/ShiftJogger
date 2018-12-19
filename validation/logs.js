@@ -1,6 +1,5 @@
 const Validator = require("validator");
 const isEmpty = require("./is-empty");
-const moment = require("moment");
 
 module.exports = validateLogInput = data => {
   let errors = {};

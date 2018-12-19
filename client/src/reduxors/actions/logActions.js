@@ -75,6 +75,62 @@ export const editLog = (id, history) => dispatch => {
     );
 };
 
+export const getLog = (id, history) => dispatch => {
+  axios
+    .get(`/api/users/logs/${id}`)
+    .then(res => {
+      dispatch({
+        type: actionTypes.GET_LOG,
+        payload: res.data
+      });
+      history.push(`/send/${id}`);
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_LOG,
+        payload: {}
+      })
+    );
+};
+
+export const prepSend = (id, history) => dispatch => {
+  axios
+    .get(`/api/users/logs/${id}`)
+    .then(res => {
+      dispatch({
+        type: actionTypes.GET_LOG,
+        payload: res.data
+      });
+      history.push(`/send/${id}`);
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_LOG,
+        payload: {}
+      })
+    );
+};
+
+export const sendLog = (userData, logId, history) => dispatch => {
+  console.log(userData, logId);
+  clearErrors();
+  axios
+    .post(`/api/users/send/${logId}`, userData)
+    .then(res => {
+      dispatch({
+        type: actionTypes.SEND_LOG,
+        payload: res.data.logs
+      });
+      history.push("/sent");
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 // clear errors from forms
 
 export const clearErrors = () => {

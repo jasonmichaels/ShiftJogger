@@ -13,6 +13,7 @@ import Private from "./components/common/Private";
 import Log from "./pages/main-app/Log";
 import Drafts from "./pages/main-app/Drafts";
 import Sent from "./pages/main-app/Sent";
+import SendForm from "./components/send/SendForm";
 
 import Landing from "./pages/landing/Landing";
 import Register from "./pages/auth/Register";
@@ -66,6 +67,7 @@ class App extends Component {
                 <Private exact path="/logs/:id" component={Log} />
                 <Private exact path="/drafts" component={Drafts} />
                 <Private exact path="/sent" component={Sent} />
+                <Private exact path="/send/:id" component={SendForm} />
                 <Route component={NotFound} />
               </Switch>
               <Footer />

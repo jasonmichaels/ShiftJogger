@@ -8,7 +8,7 @@ img {
 }
 
 .landing {
-  background: url('./img/time-runner.jpg') no-repeat;
+  background: url('./img/time-runner-tran-bg.png') no-repeat;
   background-size: cover;
   background-position: top;
   min-height: 100%;

@@ -198,8 +198,7 @@ class Log extends Component {
             <button
               className={!isEnabled ? "btn btn-light" : "btn btn-info"}
               style={{ marginRight: "5px", width: "80px" }}
-              type="submit"
-              onClick={this.onSave}>
+              type="submit">
               Save
             </button>
 

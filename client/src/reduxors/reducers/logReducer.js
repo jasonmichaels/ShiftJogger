@@ -34,6 +34,11 @@ export default (state = initialState, action) => {
         ...state,
         log: action.payload
       };
+    case actionTypes.SEND_LOG:
+      return {
+        ...state,
+        logs: action.payload
+      };
     default:
       return state;
   }
