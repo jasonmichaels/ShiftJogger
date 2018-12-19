@@ -48,11 +48,9 @@ class GlobalInsights extends Component {
           Math.floor(duration.asHours()) + moment.utc(diff).format(":mm");
         return total;
       });
-      console.log(initialDiffs);
       const totalDiffs = initialDiffs.reduce((prev, cur) => {
         return moment.duration(cur).add(prev);
       }, 0);
-      console.log(totalDiffs);
       this.setState({
         hours: totalDiffs._data.hours,
         minutes:

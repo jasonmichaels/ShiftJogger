@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
   position: fixed;
   bottom: 0;
   background-color: ${props =>
-    props.isAuthenticated ? "black" : "transparent"};
+    props.isAuthenticated ? "rgba(52, 58, 64, 0.9)" : "transparent"};
   & * {
     margin: 0.25rem 0;
   }
@@ -18,7 +18,9 @@ const StyledFooter = styled.footer`
 
 const Footer = ({ auth }) => {
   return (
-    <StyledFooter className="footer" isAuthenticated={auth.isAuthenticated}>
+    <StyledFooter
+      className="footer bg-dark"
+      isAuthenticated={auth.isAuthenticated}>
       <a
         href="https://github.com/chingu-voyage7/Geckos-Team-18"
         rel="noopener noreferrer"
