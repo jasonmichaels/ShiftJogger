@@ -13,7 +13,8 @@ export const TextField = ({
   disabled,
   link,
   inputType,
-  rows
+  rows,
+  autoComplete
 }) => {
   const InputType = `${inputType}`;
   return (
@@ -29,6 +30,11 @@ export const TextField = ({
         value={value}
         onChange={handleChange}
         disabled={disabled}
+        autoComplete={
+          autoComplete !== null || autoComplete !== undefined
+            ? autoComplete
+            : null
+        }
       />
       {info && (
         <small className="form-text text-muted">

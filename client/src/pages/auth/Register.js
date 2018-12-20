@@ -77,6 +77,7 @@ class Register extends Component {
                   type="text"
                   handleChange={this.handleChange}
                   inputType="input"
+                  autoComplete="username"
                 />
                 <TextField
                   name="password"
@@ -86,6 +87,7 @@ class Register extends Component {
                   type="password"
                   handleChange={this.handleChange}
                   inputType="input"
+                  autoComplete="new-password"
                 />
                 <TextField
                   name="password2"
@@ -95,6 +97,7 @@ class Register extends Component {
                   type="password"
                   handleChange={this.handleChange}
                   inputType="input"
+                  autoComplete="new-password"
                 />
                 <button className="btn btn-dark text-white btn-block mt-4">
                   Register
