@@ -63,12 +63,26 @@ class GlobalInsights extends Component {
 
   render() {
     const { hours, minutes } = this.state;
+    console.log(hours, minutes);
+    const actualHours =
+      hours === "00" || hours === null || hours === undefined || hours === ""
+        ? "zero hours"
+        : hours === 1
+        ? "one hour"
+        : `${hours} hours`;
+    const actualMinutes =
+      minutes === "00" ||
+      minutes === null ||
+      minutes === undefined ||
+      minutes === ""
+        ? null
+        : minutes === 1
+        ? "and one minute"
+        : `and ${minutes} minutes`;
     return (
       <>
         <p>
-          You have logged {hours} {hours === 1 ? "hour" : "hours"} and{" "}
-          {minutes < 10 ? minutes.toString().replace("0", "") : minutes}{" "}
-          {minutes === "01" ? "minute" : "minutes"} so far.
+          You have logged {actualHours} {actualMinutes} so far!
         </p>
         <small>
           Note that ShiftJogger will soon add functionality to filter dates and
