@@ -3,13 +3,14 @@ import { HeaderTextStyle } from "./HeaderStyles";
 import { connect } from "react-redux";
 import {
   getLogs,
-  editLog,
+  getLog,
   deleteLog,
   prepSend
 } from "../reduxors/actions/logActions";
 import Moment from "react-moment";
 import { withRouter } from "react-router-dom";
 import { LoadAndDelete } from "./common/LoadAndDelete";
+import { isEmpty } from "../helpers/isEmpty";
 
 class Grid extends Component {
   state = {
@@ -22,15 +23,29 @@ class Grid extends Component {
     this.props.dispatch(getLogs());
   };
 
-  componentWillReceiveProps = nextProps => {
-    this.setState({
-      errors: nextProps.errors,
-      logs: nextProps.logs.filter(log =>
-        this.props.type === "sent" ? !log.sent : log
-      ),
-      deleting: false
-    });
-  };
+  // componentDidUpdate = () => {
+  //   const { logs, errors } = this.props;
+  //   if (!isEmpty(errors)) {
+  //     this.setState({
+  //       errors
+  //     });
+  //   }
+  //   if (!isEmpty(logs)) {
+  //     this.setState({
+  //       logs: logs.filter(log =>
+  //         this.props.type === "sent" ? log.sent : !log.sent
+  //       ),
+  //       deleting: false
+  //     });
+  //   }
+  //   // this.setState({
+  //   //   errors: errors,
+  //   //   logs: logs.filter(log =>
+  //   //     this.props.type === "sent" ? log.sent : !log.sent
+  //   //   ),
+  //   //   deleting: false
+  //   // });
+  // };
 
   handleQuery = query => {
     const logs = [...this.props.logs];
@@ -50,7 +65,7 @@ class Grid extends Component {
   };
 
   handleEdit = id => {
-    this.props.dispatch(editLog(id, this.props.history));
+    this.props.dispatch(getLog(id, this.props.history));
   };
   handleDelete = id => {
     this.setState({ deleting: true, activeId: id });
@@ -61,8 +76,8 @@ class Grid extends Component {
     this.props.dispatch(prepSend(id, this.props.history));
   };
   render() {
-    const { type } = this.props;
-    const { query, logs } = this.state;
+    const { type, logs } = this.props;
+    const { query } = this.state;
     return (
       <div className="logs" style={{ marginTop: "1rem" }}>
         <HeaderTextStyle>

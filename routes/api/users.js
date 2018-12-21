@@ -152,12 +152,12 @@ router.get(
   }
 );
 
-// @route   POST api/users/logs/:log_id or .../new
+// @route   POST api/users/logs/add/:log_id or .../new
 // @desc    Create log
 // @access  Private
 
 router.post(
-  "/logs/:log_id",
+  "/logs/add",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateLogInput(req.body);
@@ -175,20 +175,54 @@ router.post(
         sent: req.body.sent,
         user: req.user.id
       };
-      if (req.params.log_id !== "new") {
+      user.logs.unshift(newLog);
+      user.save().then(user => res.json(user));
+    });
+  }
+);
+
+// @route   POST api/users/logs/edit/:log_id
+// @desc    Splice old log and replace with edited log
+// @access  Private
+
+router.post(
+  "/logs/edit/:log_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log(req);
+    const { errors, isValid } = validateLogInput(req.body);
+    if (!isValid) {
+      // if errors, send 400 with errors obj
+      return res.status(400).json(errors);
+    }
+    console.log(req.user);
+    User.findOne({ email: req.user.email })
+      .then(user => {
+        console.log(user);
+        const newLog = {
+          title: req.body.title,
+          date: req.body.date,
+          shiftStart: req.body.shiftStart,
+          shiftEnd: req.body.shiftEnd,
+          comments: req.body.comments,
+          sent: req.body.sent,
+          user: req.user.id
+        };
         const logId = req.params.log_id;
         user.logs.map((log, i) => {
-          if (log.id === req.params.log_id) {
+          console.log("Line 212 user.js: " + req.params);
+          if (log.id === logId) {
             const removeIndex = log.id.toString().indexOf(logId);
             user.logs.splice(removeIndex, 1);
             user.logs.splice(removeIndex, 0, newLog);
           }
         });
-      } else {
-        user.logs.unshift(newLog);
-      }
-      user.save().then(user => res.json(user));
-    });
+
+        user.save().then(user => res.json(user));
+      })
+      .catch(err =>
+        res.status(404).json({ noLogsFound: "No logs found" + err })
+      );
   }
 );
 
@@ -233,7 +267,6 @@ router.post(
           return log;
         });
         user.save().then(user => {
-          console.log(`line 239: found user: ${user}`);
           res.json(user.logs);
         });
       })
@@ -261,7 +294,7 @@ router.get(
         }
       })
       .catch(err =>
-        res.status(404).json({ noLogsFound: "No logs found" + err })
+        res.status(404).json({ noLogsFound: "No logs found: " + err })
       );
   }
 );

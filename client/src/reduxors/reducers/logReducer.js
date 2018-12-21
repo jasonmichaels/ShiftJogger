@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
     case actionTypes.ADD_LOG:
       return {
         ...state,
-        logs: [action.payload, ...state.logs],
+        logs: [...action.payload],
         log: {}
       };
     case actionTypes.DELETE_LOG:
@@ -30,14 +30,21 @@ export default (state = initialState, action) => {
         log: action.payload
       };
     case actionTypes.EDIT_LOG:
+      console.log(action.payload);
       return {
         ...state,
-        log: action.payload
+        logs: action.payload.logs,
+        log: {}
       };
     case actionTypes.SEND_LOG:
       return {
         ...state,
         logs: action.payload
+      };
+    case actionTypes.GO_BACK:
+      return {
+        ...state,
+        log: {}
       };
     default:
       return state;

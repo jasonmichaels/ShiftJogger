@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { HeaderTextStyle } from "./HeaderStyles";
 import styled from "styled-components";
-import { addLog } from "../reduxors/actions/logActions";
+import { addLog, editLog, goBack } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 import { TextField } from "./common/TextField";
 import { isEmpty } from "../helpers/isEmpty";
@@ -85,27 +85,47 @@ class Log extends Component {
   handleSubmit = e => {
     const { dispatch, log } = this.props;
     e.preventDefault();
-    const { title, date, shiftEnd, shiftStart, comments } = this.state;
-    dispatch(
-      addLog(
-        {
+    const {
+      title,
+      date,
+      shiftEnd,
+      shiftStart,
+      comments,
+      pageState
+    } = this.state;
+    if (pageState === "edit") {
+      dispatch(
+        editLog({
           title,
           date,
           shiftStart,
           shiftEnd,
           comments
-        },
-        !isEmpty(log) ? log._id : "new",
+        }),
+        log._id,
         this.props.history
-      )
-    );
+      );
+    } else {
+      dispatch(
+        addLog(
+          {
+            title,
+            date,
+            shiftStart,
+            shiftEnd,
+            comments
+          },
+          this.props.history
+        )
+      );
+    }
+
     this.setState(initialState);
   };
 
   handleRedirect = () => {
-    this.props.history.push({
-      pathname: "/drafts"
-    });
+    const { dispatch, history } = this.props;
+    dispatch(goBack(history));
   };
 
   render() {

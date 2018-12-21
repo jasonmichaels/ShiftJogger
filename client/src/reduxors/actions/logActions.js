@@ -3,10 +3,10 @@ import axios from "axios";
 
 // add log
 
-export const addLog = (log, id, history) => dispatch => {
+export const addLog = (log, history) => dispatch => {
   // dispatch(clearErrors());
   axios
-    .post(`/api/users/logs/${id}`, log)
+    .post(`/api/users/logs/add`, log)
     .then(res => {
       dispatch({
         type: actionTypes.ADD_LOG,
@@ -14,10 +14,29 @@ export const addLog = (log, id, history) => dispatch => {
       });
       history.push("/dashboard");
     })
-    .catch(err =>
+    .catch(err => {
       dispatch({
         type: actionTypes.GET_ERRORS,
         payload: err.response.data
+      });
+    });
+};
+
+export const getLog = (id, history) => dispatch => {
+  axios
+    .get(`/api/users/logs/${id}`)
+    .then(res => {
+      console.log(res.data);
+      dispatch({
+        type: actionTypes.GET_LOG,
+        payload: res.data
+      });
+      history.push(`/logs/${id}`);
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_LOG,
+        payload: {}
       })
     );
 };
@@ -40,6 +59,16 @@ export const getLogs = () => dispatch => {
     );
 };
 
+export const goBack = history => dispatch => {
+  dispatch({
+    type: actionTypes.GO_BACK,
+    payload: {}
+  });
+  history.push({
+    pathname: "/drafts"
+  });
+};
+
 export const deleteLog = id => dispatch => {
   axios
     .delete(`/api/users/logs/${id}`)
@@ -53,42 +82,6 @@ export const deleteLog = id => dispatch => {
       dispatch({
         type: actionTypes.GET_ERRORS,
         payload: err.response.data
-      })
-    );
-};
-
-export const editLog = (id, history) => dispatch => {
-  axios
-    .get(`/api/users/logs/${id}`)
-    .then(res => {
-      dispatch({
-        type: actionTypes.GET_LOG,
-        payload: res.data
-      });
-      history.push(`/logs/${id}`);
-    })
-    .catch(err =>
-      dispatch({
-        type: actionTypes.GET_LOG,
-        payload: {}
-      })
-    );
-};
-
-export const getLog = (id, history) => dispatch => {
-  axios
-    .get(`/api/users/logs/${id}`)
-    .then(res => {
-      dispatch({
-        type: actionTypes.GET_LOG,
-        payload: res.data
-      });
-      history.push(`/send/${id}`);
-    })
-    .catch(err =>
-      dispatch({
-        type: actionTypes.GET_LOG,
-        payload: {}
       })
     );
 };
@@ -112,7 +105,6 @@ export const prepSend = (id, history) => dispatch => {
 };
 
 export const sendLog = (userData, logId, history) => dispatch => {
-  console.log(userData, logId);
   clearErrors();
   axios
     .post(`/api/users/send/${logId}`, userData)
@@ -137,4 +129,22 @@ export const clearErrors = () => {
   return {
     type: actionTypes.CLEAR_ERRORS
   };
+};
+
+export const editLog = (log, id, history) => dispatch => {
+  axios
+    .post(`/api/users/logs/edit/${id}`, log)
+    .then(res => {
+      dispatch({
+        type: actionTypes.EDIT_LOG,
+        payload: res.data
+      });
+      history.push("/dashboard");
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_ERRORS,
+        payload: err
+      })
+    );
 };
