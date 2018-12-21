@@ -50,18 +50,11 @@ class Log extends Component {
   state = initialState;
 
   handleChange = e => {
+    console.log(e.target.value);
     this.setState({
       errors: {}
     });
     this.setState({ [e.target.name]: e.target.value });
-  };
-
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.errors) {
-      this.setState({
-        errors: nextProps.errors
-      });
-    }
   };
 
   componentDidMount = () => {
@@ -95,15 +88,17 @@ class Log extends Component {
     } = this.state;
     if (pageState === "edit") {
       dispatch(
-        editLog({
-          title,
-          date,
-          shiftStart,
-          shiftEnd,
-          comments
-        }),
-        log._id,
-        this.props.history
+        editLog(
+          {
+            title,
+            date,
+            shiftStart,
+            shiftEnd,
+            comments
+          },
+          log._id,
+          this.props.history
+        )
       );
     } else {
       dispatch(
@@ -135,9 +130,9 @@ class Log extends Component {
       shiftStart,
       shiftEnd,
       comments,
-      pageState,
-      errors
+      pageState
     } = this.state;
+    const { errors } = this.props;
     const isEnabled = title !== "" && date !== "";
     const header = pageState === "edit" ? "Edit" : "New";
     return (

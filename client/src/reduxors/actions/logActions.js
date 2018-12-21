@@ -26,17 +26,35 @@ export const getLog = (id, history) => dispatch => {
   axios
     .get(`/api/users/logs/${id}`)
     .then(res => {
-      console.log(res.data);
       dispatch({
         type: actionTypes.GET_LOG,
         payload: res.data
       });
       history.push(`/logs/${id}`);
     })
-    .catch(err =>
+    .catch(err => {
       dispatch({
         type: actionTypes.GET_LOG,
         payload: {}
+      });
+      console.log(err);
+    });
+};
+
+export const editLog = (log, id, history) => dispatch => {
+  axios
+    .post(`/api/users/logs/edit/${id}`, log)
+    .then(res => {
+      dispatch({
+        type: actionTypes.EDIT_LOG,
+        payload: res.data
+      });
+      history.push("/dashboard");
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_ERRORS,
+        payload: err
       })
     );
 };
@@ -129,22 +147,4 @@ export const clearErrors = () => {
   return {
     type: actionTypes.CLEAR_ERRORS
   };
-};
-
-export const editLog = (log, id, history) => dispatch => {
-  axios
-    .post(`/api/users/logs/edit/${id}`, log)
-    .then(res => {
-      dispatch({
-        type: actionTypes.EDIT_LOG,
-        payload: res.data
-      });
-      history.push("/dashboard");
-    })
-    .catch(err =>
-      dispatch({
-        type: actionTypes.GET_ERRORS,
-        payload: err
-      })
-    );
 };

@@ -30,7 +30,6 @@ export default (state = initialState, action) => {
         log: action.payload
       };
     case actionTypes.EDIT_LOG:
-      console.log(action.payload);
       return {
         ...state,
         logs: action.payload.logs,

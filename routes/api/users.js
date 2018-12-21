@@ -189,16 +189,13 @@ router.post(
   "/logs/edit/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req);
     const { errors, isValid } = validateLogInput(req.body);
     if (!isValid) {
       // if errors, send 400 with errors obj
       return res.status(400).json(errors);
     }
-    console.log(req.user);
     User.findOne({ email: req.user.email })
       .then(user => {
-        console.log(user);
         const newLog = {
           title: req.body.title,
           date: req.body.date,
@@ -206,12 +203,11 @@ router.post(
           shiftEnd: req.body.shiftEnd,
           comments: req.body.comments,
           sent: req.body.sent,
-          user: req.user.id
+          user: req.user._id
         };
         const logId = req.params.log_id;
         user.logs.map((log, i) => {
-          console.log("Line 212 user.js: " + req.params);
-          if (log.id === logId) {
+          if (log._id.toString() === logId) {
             const removeIndex = log.id.toString().indexOf(logId);
             user.logs.splice(removeIndex, 1);
             user.logs.splice(removeIndex, 0, newLog);
@@ -221,7 +217,7 @@ router.post(
         user.save().then(user => res.json(user));
       })
       .catch(err =>
-        res.status(404).json({ noLogsFound: "No logs found" + err })
+        res.status(404).json({ noLogFound: "No log found: " + err })
       );
   }
 );
