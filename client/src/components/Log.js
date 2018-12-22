@@ -1,117 +1,113 @@
 import React, { Component } from "react";
-import { HeaderTextStyle } from "./HeaderStyles";
-import styled from "styled-components";
+import { HeaderTextStyle } from "./styled-components/HeaderStyles";
 import { addLog, editLog, goBack } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 import { TextField } from "./common/TextField";
 import { isEmpty } from "../helpers/isEmpty";
 import { withRouter } from "react-router-dom";
 
-const FormStyle = styled.form`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "title title"
-    "time message"
-    "buttons buttons";
-  grid-template-rows: auto;
-  grid-gap: 1.5rem;
-  align-content: space-between;
-  & select,
-  input {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-  @media screen and (max-width: 550px) {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "title"
-      "time"
-      "message"
-      "buttons";
-    & select,
-    input {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-  }
-`;
+import { FormStyle } from "./styled-components/logStyles";
 
 const initialState = {
   title: "",
   date: "",
+  dateEnd: "",
   shiftStart: "",
   shiftEnd: "",
   comments: "",
   pageState: "",
+  checked: false,
   errors: {}
 };
 class Log extends Component {
   state = initialState;
 
   handleChange = e => {
-    console.log(e.target.value);
     this.setState({
       errors: {}
     });
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  componentDidMount = () => {
-    if (!isEmpty(this.props.log)) {
-      const { title, date, shiftStart, shiftEnd, comments } = this.props.log;
-      this.setState({
-        title,
-        date,
-        shiftStart,
-        shiftEnd,
-        comments,
-        pageState: "edit"
-      });
-    } else {
-      this.setState({
-        initialState
-      });
+  returnDate = date => {
+    const removeIndex = date.indexOf("T");
+    const newDate = date.slice(0, removeIndex);
+    return newDate;
+  };
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.type === "new") {
+      this.setState(initialState);
     }
   };
 
+  componentWillMount = () => {
+    let doTheStateDance;
+    if (isEmpty(this.props.log)) {
+      return (doTheStateDance = initialState);
+    } else if (!isEmpty(this.props.log)) {
+      const {
+        title,
+        date,
+        dateEnd,
+        checked,
+        shiftStart,
+        shiftEnd,
+        comments
+      } = this.props.log;
+      doTheStateDance = {
+        title,
+        date: this.returnDate(date),
+        dateEnd: dateEnd !== null ? this.returnDate(dateEnd) : "",
+        shiftStart,
+        shiftEnd,
+        comments,
+        checked,
+        pageState: "edit"
+      };
+    }
+    this.setState(doTheStateDance);
+  };
+
   handleSubmit = e => {
-    const { dispatch, log } = this.props;
+    const { addLog, editLog, log } = this.props;
     e.preventDefault();
     const {
       title,
       date,
+      dateEnd,
+      checked,
       shiftEnd,
       shiftStart,
       comments,
       pageState
     } = this.state;
     if (pageState === "edit") {
-      dispatch(
-        editLog(
-          {
-            title,
-            date,
-            shiftStart,
-            shiftEnd,
-            comments
-          },
-          log._id,
-          this.props.history
-        )
+      editLog(
+        {
+          title,
+          date,
+          dateEnd,
+          checked,
+          shiftStart,
+          shiftEnd,
+          comments
+        },
+        log._id,
+        this.props.history
       );
     } else {
-      dispatch(
-        addLog(
-          {
-            title,
-            date,
-            shiftStart,
-            shiftEnd,
-            comments
-          },
-          this.props.history
-        )
+      addLog(
+        {
+          title,
+          date,
+          dateEnd,
+          checked,
+          shiftStart,
+          shiftEnd,
+          comments
+        },
+        this.props.history
       );
     }
 
@@ -119,18 +115,27 @@ class Log extends Component {
   };
 
   handleRedirect = () => {
-    const { dispatch, history } = this.props;
-    dispatch(goBack(history));
+    const { goBack, history } = this.props;
+    this.setState(initialState);
+    goBack("drafts", history);
+  };
+
+  handleCheck = e => {
+    this.setState({
+      checked: e.target.checked
+    });
   };
 
   render() {
     const {
       title,
       date,
+      dateEnd,
       shiftStart,
       shiftEnd,
       comments,
-      pageState
+      pageState,
+      checked
     } = this.state;
     const { errors } = this.props;
     const isEnabled = title !== "" && date !== "";
@@ -154,50 +159,66 @@ class Log extends Component {
               inputType="input"
               error={errors.title}
             />
+            <input
+              id="time-checkbox"
+              name="checkbox"
+              type="checkbox"
+              defaultChecked={checked}
+              onChange={this.handleCheck}
+            />
+            <label htmlFor="time-checkbox">
+              <small>Does this log span more than one day?</small>
+            </label>
           </div>
           <div
             style={{
               gridArea: "time"
             }}>
-            <div className="form-group">
-              <TextField
-                name="date"
-                handleChange={this.handleChange}
-                value={date}
-                type="date"
-                inputType="input"
-                error={errors.date}
-              />
-            </div>
-            <div className="form-group">
-              <TextField
-                name="shiftStart"
-                type="time"
-                inputType="input"
-                handleChange={this.handleChange}
-                value={shiftStart}
-                style={{ height: "48px" }}
-                error={errors.shiftStart}
-              />
-            </div>
-            <div className="form-group">
-              <TextField
-                name="shiftEnd"
-                type="time"
-                inputType="input"
-                handleChange={this.handleChange}
-                value={shiftEnd}
-                style={{ height: "48px" }}
-              />
-            </div>
+            <TextField
+              name="date"
+              handleChange={this.handleChange}
+              value={date}
+              type="date"
+              inputType="input"
+              error={errors.date}
+              info={"Enter shift start date"}
+            />
+
+            <TextField
+              name="dateEnd"
+              handleChange={this.handleChange}
+              value={dateEnd}
+              type="date"
+              inputType="input"
+              error={errors.date}
+              disabled={!checked}
+              info={"Enter shift end date"}
+            />
+            <TextField
+              name="shiftStart"
+              type="time"
+              inputType="input"
+              handleChange={this.handleChange}
+              value={shiftStart}
+              style={{ height: "48px" }}
+              error={errors.shiftStart}
+              info={"Enter shift start time"}
+            />
+            <TextField
+              name="shiftEnd"
+              type="time"
+              inputType="input"
+              handleChange={this.handleChange}
+              value={shiftEnd}
+              style={{ height: "48px" }}
+              info={"Enter shift end time"}
+            />
           </div>
 
           <div className="form-row" style={{ gridArea: "message" }}>
-            <div
-              className="form-group"
-              style={{ width: "100%", height: "100%" }}>
+            <div style={{ width: "100%", height: "100%" }}>
               <TextField
-                rows={6}
+                rows={!checked ? 8 : 10}
                 name="comments"
                 className="form-control"
                 inputType="textarea"
@@ -207,9 +228,7 @@ class Log extends Component {
               />
             </div>
           </div>
-          <div
-            className="form-group"
-            style={{ margin: "0", gridArea: "buttons" }}>
+          <div style={{ margin: "0", gridArea: "buttons" }}>
             <button
               className={!isEnabled ? "btn btn-light" : "btn btn-info"}
               style={{ marginRight: "5px", width: "80px" }}
@@ -231,10 +250,18 @@ class Log extends Component {
   }
 }
 
+Log.defaultProps = {
+  type: "new"
+};
+
 const mapStateToProps = state => {
+  console.log(state);
   const { auth, errors } = state;
   const { log } = state.log;
   return { auth, errors, log };
 };
 
-export default connect(mapStateToProps)(withRouter(Log));
+export default connect(
+  mapStateToProps,
+  { addLog, editLog, goBack }
+)(withRouter(Log));

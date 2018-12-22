@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const NavAuthLinks = ({ name, handleLogoutClick }) => (
+export const NavAuthLinks = ({ name, handleLogoutClick, handleRedirect }) => (
   <ul className="navbar-nav ml-auto">
     <li className="nav-item" style={{ marginRight: "3px" }}>
-      <Link className="nav-link" to="/logs/new">
+      <Link
+        style={{ cursor: "pointer" }}
+        className="nav-link"
+        to="/logs/new"
+        onClick={() => handleRedirect(null)}>
         New Log
       </Link>
     </li>
@@ -14,9 +18,12 @@ export const NavAuthLinks = ({ name, handleLogoutClick }) => (
       </Link>
     </li>
     <li className="nav-item" style={{ marginRight: "3px" }}>
-      <Link className="nav-link" to="/sent">
+      <a
+        style={{ cursor: "pointer" }}
+        className="nav-link"
+        onClick={() => handleRedirect("sent")}>
         Sent
-      </Link>
+      </a>
     </li>
     <li className="nav-item">
       <button

@@ -12,7 +12,6 @@ class GlobalInsights extends Component {
 
   render() {
     const { hours, minutes } = this.state;
-    console.log(hours, minutes);
     const actualHours =
       hours === "00" || hours === null || hours === undefined || hours === ""
         ? "zero hours"

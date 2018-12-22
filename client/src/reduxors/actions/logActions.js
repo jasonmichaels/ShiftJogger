@@ -77,13 +77,15 @@ export const getLogs = () => dispatch => {
     );
 };
 
-export const goBack = history => dispatch => {
+export const goBack = (path, history) => dispatch => {
+  console.log(path, history);
   dispatch({
     type: actionTypes.GO_BACK,
     payload: {}
   });
+  if (path === null) return;
   history.push({
-    pathname: "/drafts"
+    pathname: `/${path}`
   });
 };
 

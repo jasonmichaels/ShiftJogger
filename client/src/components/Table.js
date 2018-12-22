@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HeaderTextStyle } from "./HeaderStyles";
+import { HeaderTextStyle } from "./styled-components/HeaderStyles";
 import { connect } from "react-redux";
 import {
   getLogs,
@@ -10,9 +10,8 @@ import {
 import Moment from "react-moment";
 import { withRouter } from "react-router-dom";
 import { LoadAndDelete } from "./common/LoadAndDelete";
-import { isEmpty } from "../helpers/isEmpty";
 
-class Grid extends Component {
+class Table extends Component {
   state = {
     query: "",
     logs: [],
@@ -20,32 +19,8 @@ class Grid extends Component {
     activeId: null
   };
   componentDidMount = () => {
-    this.props.dispatch(getLogs());
+    this.props.getLogs();
   };
-
-  // componentDidUpdate = () => {
-  //   const { logs, errors } = this.props;
-  //   if (!isEmpty(errors)) {
-  //     this.setState({
-  //       errors
-  //     });
-  //   }
-  //   if (!isEmpty(logs)) {
-  //     this.setState({
-  //       logs: logs.filter(log =>
-  //         this.props.type === "sent" ? log.sent : !log.sent
-  //       ),
-  //       deleting: false
-  //     });
-  //   }
-  //   // this.setState({
-  //   //   errors: errors,
-  //   //   logs: logs.filter(log =>
-  //   //     this.props.type === "sent" ? log.sent : !log.sent
-  //   //   ),
-  //   //   deleting: false
-  //   // });
-  // };
 
   handleQuery = query => {
     const logs = [...this.props.logs];
@@ -65,15 +40,21 @@ class Grid extends Component {
   };
 
   handleEdit = id => {
-    this.props.dispatch(getLog(id, this.props.history));
+    this.props.getLog(id, this.props.history);
   };
   handleDelete = id => {
     this.setState({ deleting: true, activeId: id });
-    this.props.dispatch(deleteLog(id));
+    this.props.deleteLog(id);
   };
 
   handleSend = id => {
-    this.props.dispatch(prepSend(id, this.props.history));
+    this.props.prepSend(id, this.props.history);
+  };
+
+  returnDate = (date, time) => {
+    const removeIndex = date.indexOf("T");
+    const newDate = date.slice(0, removeIndex + 1).concat(time);
+    return <Moment format="MM/DD/YYYY" date={newDate} />;
   };
   render() {
     const { type, logs } = this.props;
@@ -81,7 +62,7 @@ class Grid extends Component {
     return (
       <div className="logs" style={{ marginTop: "1rem" }}>
         <HeaderTextStyle>
-          {type === "draft" ? "Drafts" : "Sent"}
+          {type === "drafts" ? "Drafts" : "Sent"}
         </HeaderTextStyle>
         <div className="form-group">
           <input
@@ -99,6 +80,7 @@ class Grid extends Component {
               {[
                 "Title",
                 "Date",
+                "End Date",
                 "Shift Start",
                 "Shift End",
                 "Comments",
@@ -115,11 +97,16 @@ class Grid extends Component {
             </tr>
             {logs &&
               logs.map(log =>
-                log.sent === false && type === "draft" ? (
+                log.sent === false && type === "drafts" ? (
                   <tr key={log._id}>
                     <td>{log.title}</td>
+                    <td>{this.returnDate(log.date, log.shiftStart)}</td>
                     <td>
-                      <Moment format="MM/DD/YYYY">{log.date}</Moment>
+                      {log.dateEnd ? (
+                        this.returnDate(log.dateEnd, log.shiftEnd)
+                      ) : (
+                        <span>--</span>
+                      )}
                     </td>
                     <td>{log.shiftStart}</td>
                     <td>{log.shiftEnd}</td>
@@ -197,4 +184,7 @@ const mapStateToProps = state => {
   return { logs, auth, deleting };
 };
 
-export default connect(mapStateToProps)(withRouter(Grid));
+export default connect(
+  mapStateToProps,
+  { getLogs, getLog, deleteLog, prepSend }
+)(withRouter(Table));

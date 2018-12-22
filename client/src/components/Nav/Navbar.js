@@ -1,20 +1,21 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {
-  logoutUser,
-  clearCurrentProfile
-} from "../../reduxors/actions/authActions";
+import { logoutUser } from "../../reduxors/actions/authActions";
+import { goBack } from "../../reduxors/actions/logActions";
 import { NavGuestLinks } from "./NavGuestLinks";
 import { NavAuthLinks } from "./NavAuthLinks";
 
 class Navbar extends Component {
   handleLogoutClick = e => {
     e.preventDefault();
-    this.props.clearCurrentProfile();
     this.props.logoutUser();
     window.location.href = "/auth/login";
+  };
+  handleRedirect = path => {
+    const { history, goBack } = this.props;
+    goBack(path, history);
   };
   render() {
     const { isAuthenticated, user } = this.props.auth;
@@ -46,6 +47,7 @@ class Navbar extends Component {
             {isAuthenticated ? (
               <NavAuthLinks
                 name={user.name}
+                handleRedirect={this.handleRedirect}
                 handleLogoutClick={this.handleLogoutClick}
               />
             ) : (
@@ -63,11 +65,12 @@ Navbar.propTypes = {
   auth: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
+const mapStateToProps = state => {
+  const { auth } = state;
+  return { auth };
+};
 
 export default connect(
   mapStateToProps,
-  { logoutUser, clearCurrentProfile }
-)(Navbar);
+  { logoutUser, goBack }
+)(withRouter(Navbar));

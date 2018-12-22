@@ -35,6 +35,12 @@ const UserSchema = new Schema({
         type: Date,
         required: true
       },
+      dateEnd: {
+        type: Date
+      },
+      checked: {
+        type: Boolean
+      },
       shiftStart: {
         type: String,
         required: true

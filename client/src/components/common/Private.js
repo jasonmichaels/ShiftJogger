@@ -17,11 +17,13 @@ const Private = ({ component: Component, auth, ...rest }) => (
 );
 
 Private.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  component: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
+const mapStateToProps = state => {
+  const { auth } = state;
+  return { auth };
+};
 
 export default connect(mapStateToProps)(Private);

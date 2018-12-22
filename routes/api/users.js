@@ -169,6 +169,8 @@ router.post(
       const newLog = {
         title: req.body.title,
         date: req.body.date,
+        dateEnd: req.body.dateEnd,
+        checked: req.body.checked,
         shiftStart: req.body.shiftStart,
         shiftEnd: req.body.shiftEnd,
         comments: req.body.comments,
@@ -199,6 +201,8 @@ router.post(
         const newLog = {
           title: req.body.title,
           date: req.body.date,
+          dateEnd: req.body.dateEnd,
+          checked: req.body.checked,
           shiftStart: req.body.shiftStart,
           shiftEnd: req.body.shiftEnd,
           comments: req.body.comments,

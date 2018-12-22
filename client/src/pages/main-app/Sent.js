@@ -1,6 +1,6 @@
 import React from "react";
-import GridComponent from "../../components/Table";
+import Table from "../../components/Table";
 
-const Drafts = () => <GridComponent type="sent" />;
+const Sent = () => <Table type="sent" />;
 
-export default Drafts;
+export default Sent;

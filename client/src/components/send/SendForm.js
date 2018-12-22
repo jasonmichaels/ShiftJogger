@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { TextField } from "../common/TextField";
-import { HeaderTextStyle } from "../HeaderStyles";
+import { HeaderTextStyle } from "../styled-components/HeaderStyles";
 import { getLog, sendLog } from "../../reduxors/actions/logActions";
 import { isEmpty } from "../../helpers/isEmpty";
 
@@ -19,7 +19,6 @@ class SendForm extends Component {
   componentDidMount = () => {
     this.props.dispatch(getLog);
     const { log, auth } = this.props;
-    console.log(this.props);
 
     if (!isEmpty(log) && auth.isAuthenticated) {
       this.setState({ log, user: auth.user });
@@ -44,7 +43,6 @@ class SendForm extends Component {
     const { dispatch } = this.props;
     e.preventDefault();
     const { destEmail, fromEmail, subject, user, log } = this.state;
-    console.log(user);
     dispatch(
       sendLog(
         {
@@ -121,7 +119,6 @@ class SendForm extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   const { auth, errors, user } = state;
   const { log } = state.log;
   return { auth, errors, user, log };

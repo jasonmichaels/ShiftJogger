@@ -10,7 +10,7 @@ import Navbar from "./components/Nav/Navbar";
 import Footer from "./components/Footer";
 import Dashboard from "./components/dashboard/Dashboard";
 import Private from "./components/common/Private";
-import Log from "./pages/main-app/Log";
+import Log from "./components/Log";
 import Drafts from "./pages/main-app/Drafts";
 import Sent from "./pages/main-app/Sent";
 import SendForm from "./components/send/SendForm";
@@ -64,7 +64,7 @@ class App extends Component {
                 <Route exact path="/auth/register" component={Register} />
                 <Route exact path="/auth/login" component={Login} />
                 <Private exact path="/dashboard" component={Dashboard} />
-                <Private exact path="/logs/:id" component={Log} />
+                <Private key={1} exact path="/logs/:id" component={Log} />
                 <Private exact path="/drafts" component={Drafts} />
                 <Private exact path="/sent" component={Sent} />
                 <Private exact path="/send/:id" component={SendForm} />

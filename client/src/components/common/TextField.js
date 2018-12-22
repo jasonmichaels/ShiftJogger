@@ -11,7 +11,6 @@ export const TextField = ({
   type,
   handleChange,
   disabled,
-  link,
   inputType,
   rows,
   autoComplete
@@ -22,7 +21,7 @@ export const TextField = ({
       <InputType
         rows={rows ? rows : null}
         type={type}
-        className={classnames("form-control form-control-lg", {
+        className={classnames("form-control form-control-lg mb-0", {
           "is-invalid": error
         })}
         placeholder={placeholder}
@@ -36,14 +35,7 @@ export const TextField = ({
             : null
         }
       />
-      {info && (
-        <small className="form-text text-muted">
-          {info}{" "}
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            Gravatar
-          </a>
-        </small>
-      )}
+      {info && <small className="form-text text-muted">{info} </small>}
       {error && <div className="invalid-feedback">{error}</div>}
     </div>
   );
@@ -57,7 +49,7 @@ TextField.propTypes = {
   info: PropTypes.string,
   type: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  disabled: PropTypes.string
+  disabled: PropTypes.bool
 };
 
 TextField.defaultProps = {
