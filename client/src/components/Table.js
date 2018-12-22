@@ -11,13 +11,11 @@ import Moment from "react-moment";
 import { withRouter } from "react-router-dom";
 import { LoadAndDelete } from "./common/LoadAndDelete";
 
-import { withStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import moment from "moment";
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import { CardComponent } from "./CardComponent";
+import { isEmpty } from "../helpers/isEmpty";
 
 const styles = theme => ({
   root: {
@@ -63,8 +61,18 @@ class Table extends Component {
     deleting: false,
     activeId: null
   };
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.props.getLogs();
+  };
+
+  componentDidMount = () => {
+    this.setState({
+      logs: this.props.logs
+    });
+  };
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return !isEmpty(nextProps.logs);
   };
 
   handleQuery = query => {
@@ -137,66 +145,18 @@ class Table extends Component {
 
     return (
       <Typography className={classes.pos} color="textSecondary">
-        {hours === 1 ? <span>{hours} hour</span> : <span>{hours} hours</span>}
+        {hours === 1 ? (
+          <span>{hours.toFixed(2)} hour</span>
+        ) : (
+          <span>{hours.toFixed(2)} hours</span>
+        )}
       </Typography>
     );
   };
 
-  makeCards = logs => {
-    const { classes } = this.props;
-    return (
-      <div className={classes.root}>
-        {logs.map(log => (
-          <Card key={log._id} className={classes.card}>
-            <CardContent>
-              <Typography
-                className={classes.title}
-                color="textSecondary"
-                gutterBottom>
-                {log.title}
-              </Typography>
-              <Typography variant="h6" component="h4">
-                {log.date && this.returnDate(log.date, log.shiftStart)}
-                {log.dateEnd ? (
-                  <span> to {this.returnDate(log.dateEnd, log.shiftEnd)}</span>
-                ) : null}
-              </Typography>
-              <Typography className={classes.pos} color="textSecondary">
-                {this.getTime(log.shiftStart)} to{" "}
-                {log.shiftEnd !== ""
-                  ? this.getTime(log.shiftEnd)
-                  : "In Progress"}
-              </Typography>
-              {log.shiftEnd !== "" ? (
-                this.getDiff(
-                  { startTime: log.shiftStart, startDay: log.date },
-                  {
-                    endTime: log.shiftEnd,
-                    endDay: log.dateEnd !== null ? log.dateEnd : log.date
-                  }
-                )
-              ) : (
-                <Typography className={classes.pos} color="textSecondary">
-                  Finish the log to track your completed hours!
-                </Typography>
-              )}
-            </CardContent>
-            <CardActions className={classes.actions}>
-              <Button size="small" onClick={() => this.handleEdit(log._id)}>
-                Edit Log
-              </Button>
-              <Button size="small">Send Log</Button>
-            </CardActions>
-          </Card>
-        ))}
-        ;
-      </div>
-    );
-  };
-
   render() {
-    const { type, logs } = this.props;
-    const { query } = this.state;
+    const { type, classes } = this.props;
+    const { query, logs } = this.state;
     return (
       <div className="logs" style={{ marginTop: "1rem" }}>
         <HeaderTextStyle>
@@ -216,7 +176,20 @@ class Table extends Component {
             placeholder={logs.length > 0 ? "Search logs" : "Nothing to search!"}
           />
         </div>
-        {this.makeCards(logs)}
+        <div className={classes.root}>
+          {logs &&
+            logs.map(log => (
+              <CardComponent
+                key={log._id}
+                log={log}
+                classes={classes}
+                returnDate={this.returnDate}
+                handleEdit={this.handleEdit}
+                getTime={this.getTime}
+                getDiff={this.getDiff}
+              />
+            ))}
+        </div>
         {/* 
         <table className="table">
           <tbody>
