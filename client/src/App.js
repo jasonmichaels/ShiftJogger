@@ -10,7 +10,7 @@ import { setAuthToken } from "./helpers/utils";
 import { setCurrentUser, logoutUser } from "./reduxors/actions/authActions";
 import { store } from "./store";
 // local component imports
-import Navbar from "./components/nav/Navbar";
+import Navbar from "./components/Nav/Navbar";
 import Footer from "./components/Footer";
 import Dashboard from "./components/dashboard/Dashboard";
 import Private from "./components/common/Private";
