@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { TextField } from "../common/TextField";
-import { HeaderTextStyle } from "../styled-components/headerStyles";
+import { HeaderTextStyle } from "../componentStyles/headerStyles";
 import { getLog, sendLog } from "../../reduxors/actions/logActions";
 import { isEmpty } from "../../helpers/isEmpty";
 

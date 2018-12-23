@@ -8,7 +8,7 @@ import { Greetings } from "./Greetings";
 import {
   StyledDashboard,
   DashboardParent
-} from "../styled-components/dashboardStyles";
+} from "../componentStyles/dashboardStyles";
 
 import { getLogs } from "../../reduxors/actions/logActions";
 

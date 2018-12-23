@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../reduxors/actions/authActions";
-import { TextField } from "../../components/common/TextField";
+import { TextField } from "../common/TextField";
 import { isEmpty } from "../../helpers/isEmpty";
 
 class Login extends Component {

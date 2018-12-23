@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { TextField } from "../../components/common/TextField";
+import { TextField } from "../common/TextField";
 import { registerUser } from "../../reduxors/actions/authActions";
 import PropTypes from "prop-types";
 

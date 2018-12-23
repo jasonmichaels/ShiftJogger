@@ -4,9 +4,9 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { LoadAndDelete } from "../components/common/LoadAndDelete";
+import { LoadAndDelete } from "./common/LoadAndDelete";
 import { returnDateCard, getTime, getDiff } from "../helpers/time";
-import { CardStyles } from "./styled-components/tableStyles";
+import { CardStyles } from "./componentStyles/tableStyles";
 
 const CardComponent = ({ log, handleEdit, handleDelete, activeId }) => {
   return (

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HeaderTextStyle } from "./styled-components/headerStyles";
+import { HeaderTextStyle } from "./componentStyles/headerStyles";
 import { addLog, editLog, goBack } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 import { TextField } from "./common/TextField";
@@ -7,7 +7,7 @@ import { isEmpty } from "../helpers/isEmpty";
 import { withRouter } from "react-router-dom";
 import { returnDate } from "../helpers/time";
 
-import { FormStyle } from "./styled-components/logStyles";
+import { FormStyle } from "./componentStyles/logStyles";
 
 const initialState = {
   title: "",

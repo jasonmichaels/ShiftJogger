@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HeaderTextStyle } from "./styled-components/headerStyles";
+import { HeaderTextStyle } from "./componentStyles/headerStyles";
 import { connect } from "react-redux";
 import {
   getLogs,
@@ -9,7 +9,7 @@ import {
   searchLogs
 } from "../reduxors/actions/logActions";
 import { withRouter } from "react-router-dom";
-import { StyledCardRoot } from "./styled-components/tableStyles";
+import { StyledCardRoot } from "./componentStyles/tableStyles";
 
 import CardComponent from "./CardComponent";
 

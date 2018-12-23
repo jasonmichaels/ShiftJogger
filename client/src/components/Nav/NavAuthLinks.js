@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { StyledNavButton } from "../styled-components/navStyles";
+import { StyledNavButton } from "../componentStyles/navStyles";
 
 export const NavAuthLinks = ({ name, handleLogoutClick, handleRedirect }) => (
   <ul className="navbar-nav ml-auto">
