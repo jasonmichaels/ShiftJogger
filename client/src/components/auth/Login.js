@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../reduxors/actions/authActions";
 import { TextField } from "../../components/common/TextField";
+import { isEmpty } from "../../helpers/isEmpty";
 
 class Login extends Component {
   state = {
@@ -11,15 +12,15 @@ class Login extends Component {
     errors: {}
   };
   componentDidMount = () => {
-    if (this.props.auth.isAuthenticated) {
+    if (this.props.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
   };
   componentWillReceiveProps = nextProps => {
-    if (nextProps.auth.isAuthenticated) {
+    if (nextProps.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
-    if (nextProps.errors) {
+    if (!isEmpty(nextProps.errors)) {
       this.setState({
         errors: nextProps.errors
       });
@@ -85,14 +86,15 @@ class Login extends Component {
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   errors: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors
-});
+const mapStateToProps = state => {
+  const { isAuthenticated } = state.auth;
+  const { errors } = state;
+  return { isAuthenticated, errors };
+};
 
 export default connect(
   mapStateToProps,

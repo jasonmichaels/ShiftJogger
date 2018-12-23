@@ -40,7 +40,7 @@ class Log extends Component {
   componentWillMount = () => {
     let doTheStateDance;
     if (isEmpty(this.props.log)) {
-      return (doTheStateDance = initialState);
+      doTheStateDance = initialState;
     } else if (!isEmpty(this.props.log)) {
       const {
         title,
@@ -53,8 +53,8 @@ class Log extends Component {
       } = this.props.log;
       doTheStateDance = {
         title,
-        dateStart: this.returnDate(dateStart),
-        dateEnd: dateEnd !== null ? this.returnDate(dateEnd) : "",
+        dateStart: returnDate(dateStart),
+        dateEnd: dateEnd !== null ? returnDate(dateEnd) : "",
         shiftStart,
         shiftEnd,
         comments,

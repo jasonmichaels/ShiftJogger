@@ -60,7 +60,7 @@ export const editLog = (log, id, history) => dispatch => {
 };
 
 export const getLogs = () => dispatch => {
-  // dispatch(clearErrors());
+  clearErrors();
   axios
     .get(`/api/users/logs`)
     .then(res => {
@@ -90,12 +90,19 @@ export const goBack = (path, history) => dispatch => {
 };
 
 export const deleteLog = id => dispatch => {
+  dispatch(setActiveID(id));
   axios
     .delete(`/api/users/logs/${id}`)
     .then(res => {
       dispatch({
         type: actionTypes.DELETE_LOG,
-        payload: id
+        payload: res.data
+      });
+    })
+    .then(() => {
+      dispatch({
+        type: actionTypes.SET_ACTIVE_ID,
+        payload: ""
       });
     })
     .catch(err =>
@@ -104,6 +111,13 @@ export const deleteLog = id => dispatch => {
         payload: err.response.data
       })
     );
+};
+
+export const setActiveID = id => dispatch => {
+  dispatch({
+    type: actionTypes.SET_ACTIVE_ID,
+    payload: id
+  });
 };
 
 export const prepSend = (id, history) => dispatch => {
@@ -143,10 +157,28 @@ export const sendLog = (userData, logId, history) => dispatch => {
     );
 };
 
+export const searchLogs = query => dispatch => {
+  axios
+    .post(`/api/users/logs/search/${query}`)
+    .then(res => {
+      dispatch({
+        type: actionTypes.GET_LOGS,
+        payload: res.data
+      });
+    })
+    .catch(err =>
+      dispatch({
+        type: actionTypes.GET_LOGS,
+        payload: {}
+      })
+    );
+};
+
 // clear errors from forms
 
 export const clearErrors = () => {
   return {
-    type: actionTypes.CLEAR_ERRORS
+    type: actionTypes.CLEAR_ERRORS,
+    payload: {}
   };
 };

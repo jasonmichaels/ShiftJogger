@@ -235,7 +235,10 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     User.findOne({ email: req.user.email })
-      .then(user => res.json(user.logs))
+      .then(user => {
+        user.logs.map(log => (log.displayed = true));
+        user.save().then(user => res.json(user.logs));
+      })
       .catch(err =>
         res.status(404).json({ noLogsFound: "No logs found" + err })
       );
@@ -307,15 +310,15 @@ router.delete(
   "/logs/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const logId = req.params.log_id;
     User.findOne({ _id: req.user.id })
       .then(user => {
         if (user) {
           user.logs.map(log => {
-            if (log.id === req.params.log_id) {
-              const logId = req.params.log_id;
+            if (log.id === logId) {
               const removeIndex = log.id.toString().indexOf(logId);
               user.logs.splice(removeIndex, 1);
-              user.save().then(user => res.json(user));
+              user.save().then(user => res.json(user.logs));
             }
           });
         }
@@ -329,7 +332,7 @@ router.delete(
 // @route   Post api/users/logs/send/:log_id
 // @desc    Send a specific log from user
 // @access  Private
-router.delete(
+router.post(
   "/logs/send/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
@@ -347,6 +350,30 @@ router.delete(
       })
       .catch(err =>
         res.status(404).json({ unableToSend: "Couldn't send log!" + err })
+      );
+  }
+);
+
+router.post(
+  "/logs/search/:query",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findOne({ email: req.user.email })
+      .then(user => {
+        user.logs.filter(log => {
+          console.log(req.params.query);
+          if (
+            log.title.toLowerCase().includes(req.params.query.toLowerCase())
+          ) {
+            log.displayed = true;
+          } else {
+            log.displayed = false;
+          }
+        });
+        user.save().then(user => res.json(user.logs));
+      })
+      .catch(err =>
+        res.status(404).json({ noLogsFound: "No logs found" + err })
       );
   }
 );

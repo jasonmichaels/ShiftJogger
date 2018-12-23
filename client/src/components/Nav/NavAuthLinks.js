@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { StyledNavButton } from "../styled-components/navStyles";
 
 export const NavAuthLinks = ({ name, handleLogoutClick, handleRedirect }) => (
   <ul className="navbar-nav ml-auto">
@@ -18,28 +19,20 @@ export const NavAuthLinks = ({ name, handleLogoutClick, handleRedirect }) => (
       </Link>
     </li>
     <li className="nav-item" style={{ marginRight: "3px" }}>
-      <a
-        style={{ cursor: "pointer" }}
+      <StyledNavButton
         className="nav-link"
         onClick={() => handleRedirect("sent")}>
         Sent
-      </a>
+      </StyledNavButton>
     </li>
     <li className="nav-item">
-      <button
-        style={{
-          backgroundColor: "transparent",
-          border: "none",
-          outline: "none",
-          cursor: "pointer",
-          marginLeft: "1rem",
-          borderLeft: "1px solid #fff",
-          paddingLeft: "1rem"
-        }}
+      <StyledNavButton
         className="nav-link"
+        bLeft="1px solid #fff"
+        pRight="1rem"
         onClick={handleLogoutClick}>
         {name ? `Log out, ${name.split(" ")[0]}?` : "Log Out"}
-      </button>
+      </StyledNavButton>
     </li>
   </ul>
 );

@@ -55,6 +55,10 @@ const UserSchema = new Schema({
         type: Boolean,
         default: false
       },
+      displayed: {
+        type: Boolean,
+        default: true
+      },
       date: {
         type: Date,
         default: Date.now

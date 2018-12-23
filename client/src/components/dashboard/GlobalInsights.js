@@ -1,51 +1,34 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import moment from "moment";
+import React from "react";
 import { isEmpty } from "../../helpers/isEmpty";
+import * as time from "../../helpers/time";
 
-class GlobalInsights extends Component {
-  state = {
-    times: [],
-    hours: "",
-    minutes: ""
-  };
-
-  componentWillMount = () => {};
-
-  render() {
-    const { hours, minutes } = this.state;
-    const actualHours =
-      hours === "00" || hours === null || hours === undefined || hours === ""
-        ? "zero hours"
-        : hours === 1
-        ? "one hour"
-        : `${hours} hours`;
-    const actualMinutes =
-      minutes === "00" ||
-      minutes === null ||
-      minutes === undefined ||
-      minutes === ""
-        ? null
-        : minutes === 1
-        ? "and one minute"
-        : `and ${minutes} minutes`;
-    return (
-      <>
-        <p>
-          You have logged {actualHours} {actualMinutes} so far!
-        </p>
-        <small>
-          Note that ShiftJogger will soon add functionality to filter dates and
-          to archive logs!
-        </small>
-      </>
+const GlobalInsights = ({ logs }) => {
+  const diffs = logs.map(log => {
+    return time.getDiff(
+      { startTime: log.shiftStart, startDay: log.dateStart },
+      {
+        endTime: log.shiftEnd,
+        endDay: log.dateEnd !== null ? log.dateEnd : log.dateStart
+      }
     );
-  }
-}
+  });
+  const totalHours = diffs.reduce((prev, curr, i) => {
+    return prev + curr;
+  }, 0);
 
-const mapStateToProps = state => {
-  const { logs } = state.log;
-  return { logs };
+  return (
+    <>
+      {totalHours === 0.0 ? (
+        "You haven't logged any hours yet!"
+      ) : (
+        <p>You have logged {totalHours.toFixed(2)} so far!</p>
+      )}
+      <small>
+        Note that ShiftJogger will soon add functionality to filter dates and to
+        archive logs!
+      </small>
+    </>
+  );
 };
 
-export default connect(mapStateToProps)(GlobalInsights);
+export default GlobalInsights;

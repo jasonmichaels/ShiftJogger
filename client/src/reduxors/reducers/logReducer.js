@@ -2,7 +2,8 @@ import { actionTypes } from "../types";
 
 const initialState = {
   logs: [],
-  log: {}
+  log: {},
+  activeId: ""
 };
 
 export default (state = initialState, action) => {
@@ -21,7 +22,7 @@ export default (state = initialState, action) => {
     case actionTypes.DELETE_LOG:
       return {
         ...state,
-        logs: state.logs.filter(log => log._id !== action.payload),
+        logs: action.payload,
         log: {}
       };
     case actionTypes.GET_LOG:
@@ -44,6 +45,17 @@ export default (state = initialState, action) => {
       return {
         ...state,
         log: {}
+      };
+    case actionTypes.SET_ACTIVE_ID:
+      return {
+        ...state,
+        activeId: action.payload
+      };
+    case actionTypes.SEARCH_LOGS:
+      console.log(action.payload);
+      return {
+        ...state,
+        logs: action.payload
       };
     default:
       return state;

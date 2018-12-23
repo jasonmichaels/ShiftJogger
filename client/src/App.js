@@ -15,13 +15,13 @@ import Footer from "./components/Footer";
 import Dashboard from "./components/dashboard/Dashboard";
 import Private from "./components/common/Private";
 import Log from "./components/Log";
-import Drafts from "./pages/main-app/Drafts";
-import Sent from "./pages/main-app/Sent";
+import Drafts from "./components/main-app/Drafts";
+import Sent from "./components/main-app/Sent";
 import SendForm from "./components/send/SendForm";
-import Landing from "./pages/landing/Landing";
-import Register from "./pages/auth/Register";
-import Login from "./pages/auth/Login";
-import NotFound from "./pages/not-found/NotFound";
+import Landing from "./components/landing/Landing";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import NotFound from "./components/not-found/NotFound";
 
 // style imports
 import "./App.css";

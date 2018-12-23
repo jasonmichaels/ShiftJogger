@@ -34,7 +34,7 @@ class Dashboard extends Component {
             <SentInsights sent={sent} />
           </div>
           <div className="lower-right">
-            <GlobalInsights user={user} logs={logs} />
+            <GlobalInsights logs={logs} />
           </div>
         </StyledDashboard>
       </DashboardParent>
