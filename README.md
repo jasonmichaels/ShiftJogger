@@ -23,7 +23,7 @@ In production, if you utilize Heroku (we do), these will go under the app's Sett
 
 ## Installation
 
-To run, clone or download the repo to you local machine. Note that the root directory contains the server files, with the client-side (React, etc.) files housed in the `client` folder. As such, barring changes to the development process in our `package.json` scripts, you'll want to start at the root with `npm i` to install the server's dependencies, and then change directories to the client folder and issue the same command in your terminal.
+To run, clone or download the repo to your local machine. Note that the root directory contains the server files, with the client-side (React, etc.) files housed in the `client` folder. As such, barring changes to the development process in our `package.json` scripts, you'll want to start at the root with `npm i` to install the back-end dependencies, and then navigate to the root of the client folder and run `npm i` to install the front-end dependencies.
 
 To run the app in development, following installation of all server-side and client-side dependencies, navigate to the root directory and enter `npm run dev`. This will queue up the server, which by default listens on `localhost:5000`, as well as the client app, which runs on `localhost:3000` by default.
 
