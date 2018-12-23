@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HeaderTextStyle } from "./styled-components/headerStyles";
+import { HeaderTextStyle } from "../components/styled-components/headerStyles";
 import { addLog, editLog, goBack } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 import { TextField } from "./common/TextField";
