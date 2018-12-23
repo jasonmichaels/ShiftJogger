@@ -5,87 +5,23 @@ import { DraftsInsights } from "./DraftsInsights";
 import { SentInsights } from "./SentInsights";
 import GlobalInsights from "./GlobalInsights";
 import { Greetings } from "./Greetings";
+import {
+  StyledDashboard,
+  DashboardParent
+} from "../styled-components/dashboardStyles";
 
 import { getLogs } from "../../reduxors/actions/logActions";
-
-import styled from "styled-components";
-
-const StyledDashboard = styled.div`
-  max-width: 1000px;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    "upper-left upper-right"
-    "lower-left lower-right";
-  margin: 0 auto;
-  padding: 0;
-
-  @media screen and (max-width: 550px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "upper-left"
-      "lower-left"
-      "upper-right"
-      "lower-right";
-  }
-  & * {
-    text-align: center;
-  }
-  & .upper-left {
-    width: 100%;
-    height: 100%;
-    grid-area: upper-left;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    padding: 2rem;
-    font-size: 2rem;
-  }
-  & .upper-right {
-    width: 100%;
-    height: 100%;
-    grid-area: upper-right;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-  }
-  & .lower-left {
-    width: 100%;
-    height: 100%;
-    grid-area: lower-left;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-  }
-  & .lower-right {
-    width: 100%;
-    height: 100%;
-    grid-area: lower-right;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-  }
-`;
 
 class Dashboard extends Component {
   componentDidMount = () => {
     this.props.getLogs();
   };
   render() {
-    const { logs } = this.props;
-    const unsent = logs.filter(log => log.sent === false);
+    const { logs, user } = this.props;
+    const unsent = logs.filter(log => !log.sent);
     const sent = logs.filter(log => log.sent);
-    const { user } = this.props.auth;
     return (
-      <div
-        className="dashboard"
-        style={{
-          width: "100%",
-          height: "75%"
-        }}>
+      <DashboardParent className="dashboard">
         <div className="text-center h1 my-4">Dashboard</div>
         <StyledDashboard>
           <div className="upper-left">
@@ -101,16 +37,16 @@ class Dashboard extends Component {
             <GlobalInsights user={user} logs={logs} />
           </div>
         </StyledDashboard>
-      </div>
+      </DashboardParent>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  user: state.user,
-  auth: state.auth,
-  logs: state.log.logs
-});
+const mapStateToProps = state => {
+  const { user } = state.auth;
+  const { logs } = state.log;
+  return { user, logs };
+};
 
 export default connect(
   mapStateToProps,

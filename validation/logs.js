@@ -9,15 +9,15 @@ module.exports = validateLogInput = data => {
   // so, if not there at all, convert to empty string
 
   data.title = !isEmpty(data.title) ? data.title : "";
-  data.date = !isEmpty(data.date) ? data.date : "";
+  data.dateStart = !isEmpty(data.dateStart) ? data.dateStart : "";
   Validator.isEmpty(data.title)
     ? (errors.title = "Title is a required field")
     : !Validator.isLength(data.title, { min: 6, max: 100 })
     ? (errors.title = "Log titles must be between 10 and 30 characters")
     : null;
 
-  Validator.isEmpty(data.date)
-    ? (errors.date = "Log date is a required field.")
+  Validator.isEmpty(data.dateStart)
+    ? (errors.dateStart = "Log date is a required field.")
     : null;
 
   Validator.isEmpty(data.shiftStart)

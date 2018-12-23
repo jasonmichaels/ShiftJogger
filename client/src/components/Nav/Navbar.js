@@ -26,7 +26,7 @@ class Navbar extends Component {
           <Link
             className="navbar-brand"
             to={isAuthenticated ? "/dashboard" : "/"}>
-            ShiftJogger
+            {isAuthenticated ? "Dashboard" : "ShiftJogger"}
           </Link>
           <button
             className="navbar-toggler"

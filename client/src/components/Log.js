@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import { HeaderTextStyle } from "./styled-components/HeaderStyles";
+import { HeaderTextStyle } from "./styled-components/headerStyles";
 import { addLog, editLog, goBack } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 import { TextField } from "./common/TextField";
 import { isEmpty } from "../helpers/isEmpty";
 import { withRouter } from "react-router-dom";
+import { returnDate } from "../helpers/time";
 
 import { FormStyle } from "./styled-components/logStyles";
 
 const initialState = {
   title: "",
-  date: "",
+  dateStart: "",
   dateEnd: "",
   shiftStart: "",
   shiftEnd: "",
@@ -23,16 +24,11 @@ class Log extends Component {
   state = initialState;
 
   handleChange = e => {
-    this.setState({
-      errors: {}
-    });
+    const { errors } = this.state;
+    if (!isEmpty(errors)) {
+      this.setState({ errors: {} });
+    }
     this.setState({ [e.target.name]: e.target.value });
-  };
-
-  returnDate = date => {
-    const removeIndex = date.indexOf("T");
-    const newDate = date.slice(0, removeIndex);
-    return newDate;
   };
 
   componentWillReceiveProps = nextProps => {
@@ -48,7 +44,7 @@ class Log extends Component {
     } else if (!isEmpty(this.props.log)) {
       const {
         title,
-        date,
+        dateStart,
         dateEnd,
         checked,
         shiftStart,
@@ -57,7 +53,7 @@ class Log extends Component {
       } = this.props.log;
       doTheStateDance = {
         title,
-        date: this.returnDate(date),
+        dateStart: this.returnDate(dateStart),
         dateEnd: dateEnd !== null ? this.returnDate(dateEnd) : "",
         shiftStart,
         shiftEnd,
@@ -74,7 +70,7 @@ class Log extends Component {
     e.preventDefault();
     const {
       title,
-      date,
+      dateStart,
       dateEnd,
       checked,
       shiftEnd,
@@ -86,7 +82,7 @@ class Log extends Component {
       editLog(
         {
           title,
-          date,
+          dateStart,
           dateEnd,
           checked,
           shiftStart,
@@ -100,7 +96,7 @@ class Log extends Component {
       addLog(
         {
           title,
-          date,
+          dateStart,
           dateEnd,
           checked,
           shiftStart,
@@ -129,7 +125,7 @@ class Log extends Component {
   render() {
     const {
       title,
-      date,
+      dateStart,
       dateEnd,
       shiftStart,
       shiftEnd,
@@ -138,7 +134,7 @@ class Log extends Component {
       checked
     } = this.state;
     const { errors } = this.props;
-    const isEnabled = title !== "" && date !== "";
+    const isEnabled = title !== "" && dateStart !== "";
     const header = pageState === "edit" ? "Edit" : "New";
     return (
       <>
@@ -175,12 +171,12 @@ class Log extends Component {
               gridArea: "time"
             }}>
             <TextField
-              name="date"
+              name="dateStart"
               handleChange={this.handleChange}
-              value={date}
+              value={dateStart}
               type="date"
               inputType="input"
-              error={errors.date}
+              error={errors.dateStart}
               info={"Enter shift start date"}
             />
 

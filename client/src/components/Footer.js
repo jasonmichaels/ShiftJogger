@@ -16,23 +16,20 @@ const StyledFooter = styled.footer`
   }
 `;
 
-const Footer = ({ auth }) => {
+const Footer = ({ isAuthenticated }) => {
   return (
-    <StyledFooter
-      className="footer bg-dark"
-      isAuthenticated={auth.isAuthenticated}>
+    <StyledFooter className="footer bg-dark" isAuthenticated={isAuthenticated}>
       <a
         href="https://github.com/chingu-voyage7/Geckos-Team-18"
         rel="noopener noreferrer"
         target="_blank">
         <p className="text-center text-white">GitHub</p>
       </a>
-      <Link to={auth.isAuthenticated ? "/drafts" : "/landing"}>
+      <Link to={isAuthenticated ? "/dashboard" : "/landing"}>
         <p className="text-white text-center">
           ShiftJogger &copy; {new Date().getFullYear()}
         </p>
       </Link>
-
       <a href="www.something.come/team" target="_blank">
         <p className="text-center text-white">Contributors</p>
       </a>
@@ -40,8 +37,9 @@ const Footer = ({ auth }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
+const mapStateToProps = state => {
+  const { isAuthenticated } = state.auth;
+  return { isAuthenticated };
+};
 
 export default connect(mapStateToProps)(Footer);

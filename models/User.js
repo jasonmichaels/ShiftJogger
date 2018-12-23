@@ -31,7 +31,7 @@ const UserSchema = new Schema({
         type: String,
         required: true
       },
-      date: {
+      dateStart: {
         type: Date,
         required: true
       },

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HeaderTextStyle } from "./styled-components/HeaderStyles";
+import { HeaderTextStyle } from "./styled-components/headerStyles";
 import { connect } from "react-redux";
 import {
   getLogs,
@@ -65,14 +65,13 @@ class Table extends Component {
     this.props.getLogs();
   };
 
-  componentDidMount = () => {
+  componentWillReceiveProps = nextProps => {
     this.setState({
-      logs: this.props.logs
+      errors: nextProps.errors,
+      logs: nextProps.logs.filter(log =>
+        this.props.type === "sent" ? log.sent : !log.sent
+      )
     });
-  };
-
-  shouldComponentUpdate = (nextProps, nextState) => {
-    return !isEmpty(nextProps.logs);
   };
 
   handleQuery = query => {
@@ -141,7 +140,6 @@ class Table extends Component {
     const momentEnd = moment(end, "YYYY-MM-DD HH:mm");
     const duration = moment.duration(momentEnd.diff(momentStart));
     const hours = duration.asHours();
-    const minutes = duration.asMinutes();
 
     return (
       <Typography className={classes.pos} color="textSecondary">
@@ -156,7 +154,7 @@ class Table extends Component {
 
   render() {
     const { type, classes } = this.props;
-    const { query, logs } = this.state;
+    const { query, logs, activeId } = this.state;
     return (
       <div className="logs" style={{ marginTop: "1rem" }}>
         <HeaderTextStyle>
@@ -185,8 +183,10 @@ class Table extends Component {
                 classes={classes}
                 returnDate={this.returnDate}
                 handleEdit={this.handleEdit}
+                handleDelete={this.handleDelete}
                 getTime={this.getTime}
                 getDiff={this.getDiff}
+                activeId={activeId}
               />
             ))}
         </div>

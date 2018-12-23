@@ -10,6 +10,8 @@ class GlobalInsights extends Component {
     minutes: ""
   };
 
+  componentWillMount = () => {};
+
   render() {
     const { hours, minutes } = this.state;
     const actualHours =
@@ -41,8 +43,9 @@ class GlobalInsights extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  logs: state.log.logs
-});
+const mapStateToProps = state => {
+  const { logs } = state.log;
+  return { logs };
+};
 
 export default connect(mapStateToProps)(GlobalInsights);

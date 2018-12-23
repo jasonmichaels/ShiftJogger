@@ -1,5 +1,5 @@
 import { actionTypes } from "../types";
-import { setAuthToken } from "../../utils/utils";
+import { setAuthToken } from "../../helpers/utils";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 

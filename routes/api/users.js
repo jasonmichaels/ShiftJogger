@@ -168,7 +168,7 @@ router.post(
     User.findOne({ email: req.user.email }).then(user => {
       const newLog = {
         title: req.body.title,
-        date: req.body.date,
+        dateStart: req.body.dateStart,
         dateEnd: req.body.dateEnd,
         checked: req.body.checked,
         shiftStart: req.body.shiftStart,
@@ -200,7 +200,7 @@ router.post(
       .then(user => {
         const newLog = {
           title: req.body.title,
-          date: req.body.date,
+          dateStart: req.body.dateStart,
           dateEnd: req.body.dateEnd,
           checked: req.body.checked,
           shiftStart: req.body.shiftStart,

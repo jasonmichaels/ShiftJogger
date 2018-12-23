@@ -4,6 +4,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { LoadAndDelete } from "../components/common/LoadAndDelete";
 
 const style = theme => ({});
 
@@ -12,8 +13,10 @@ export const CardComponent = ({
   classes,
   returnDate,
   handleEdit,
+  handleDelete,
   getTime,
-  getDiff
+  getDiff,
+  activeId
 }) => (
   <Card key={log._id} className={classes.card}>
     <CardContent>
@@ -21,7 +24,7 @@ export const CardComponent = ({
         {log.title}
       </Typography>
       <Typography variant="h6" component="h4">
-        {log.date && returnDate(log.date, log.shiftStart)}
+        {log.dateStart && returnDate(log.dateStart, log.shiftStart)}
         {log.dateEnd ? (
           <span> to {returnDate(log.dateEnd, log.shiftEnd)}</span>
         ) : null}
@@ -32,10 +35,10 @@ export const CardComponent = ({
       </Typography>
       {log.shiftEnd !== "" ? (
         getDiff(
-          { startTime: log.shiftStart, startDay: log.date },
+          { startTime: log.shiftStart, startDay: log.dateStart },
           {
             endTime: log.shiftEnd,
-            endDay: log.dateEnd !== null ? log.dateEnd : log.date
+            endDay: log.dateEnd !== null ? log.dateEnd : log.dateStart
           }
         )
       ) : (
@@ -48,6 +51,11 @@ export const CardComponent = ({
       <Button size="small" onClick={() => handleEdit(log._id)}>
         Edit Log
       </Button>
+      {activeId !== log._id ? (
+        <Button onClick={() => handleDelete(log._id)}>Delete Log</Button>
+      ) : (
+        activeId === log._id && <LoadAndDelete />
+      )}
       <Button size="small">Send Log</Button>
     </CardActions>
   </Card>
