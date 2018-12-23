@@ -361,7 +361,6 @@ router.post(
     User.findOne({ email: req.user.email })
       .then(user => {
         user.logs.filter(log => {
-          console.log(req.params.query);
           if (
             log.title.toLowerCase().includes(req.params.query.toLowerCase())
           ) {

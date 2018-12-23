@@ -37,7 +37,6 @@ export const getLog = (id, history) => dispatch => {
         type: actionTypes.GET_LOG,
         payload: {}
       });
-      console.log(err);
     });
 };
 
@@ -78,7 +77,6 @@ export const getLogs = () => dispatch => {
 };
 
 export const goBack = (path, history) => dispatch => {
-  console.log(path, history);
   dispatch({
     type: actionTypes.GO_BACK,
     payload: {}

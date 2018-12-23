@@ -12,7 +12,6 @@ import { withRouter } from "react-router-dom";
 import { StyledCardRoot } from "./styled-components/tableStyles";
 
 import CardComponent from "./CardComponent";
-import { isEmpty } from "../helpers/isEmpty";
 
 class Table extends Component {
   state = {

@@ -1,5 +1,4 @@
 import React from "react";
-import { isEmpty } from "../../helpers/isEmpty";
 import * as time from "../../helpers/time";
 
 const GlobalInsights = ({ logs }) => {

@@ -251,7 +251,6 @@ Log.defaultProps = {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   const { auth, errors } = state;
   const { log } = state.log;
   return { auth, errors, log };

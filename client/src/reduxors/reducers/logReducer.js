@@ -52,7 +52,6 @@ export default (state = initialState, action) => {
         activeId: action.payload
       };
     case actionTypes.SEARCH_LOGS:
-      console.log(action.payload);
       return {
         ...state,
         logs: action.payload
