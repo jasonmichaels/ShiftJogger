@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { TextField } from "../common/TextField";
 import { HeaderTextStyle } from "../componentStyles/headerStyles";
 import { getLog, sendLog } from "../../reduxors/actions/logActions";
-import { isEmpty } from "../../helpers/isEmpty";
 
 const initialState = {
   destEmail: "",
@@ -17,12 +16,7 @@ class SendForm extends Component {
   state = initialState;
 
   componentDidMount = () => {
-    this.props.dispatch(getLog);
-    const { log, auth } = this.props;
-
-    if (!isEmpty(log) && auth.isAuthenticated) {
-      this.setState({ log, user: auth.user });
-    }
+    this.props.getLog();
   };
 
   componentWillReceiveProps = nextProps => {
@@ -35,26 +29,26 @@ class SendForm extends Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.get
+      [e.target.name]: e.target.value
     });
   };
 
   handleSubmit = e => {
-    const { dispatch } = this.props;
+    const { sendLog, history, log, user } = this.props;
+    console.log(this.props);
+    console.log(log);
     e.preventDefault();
-    const { destEmail, fromEmail, subject, user, log } = this.state;
-    dispatch(
-      sendLog(
-        {
-          destEmail,
-          fromEmail,
-          subject,
-          userId: user.id,
-          log
-        },
-        log._id,
-        this.props.history
-      )
+    const { destEmail, fromEmail, subject } = this.state;
+    sendLog(
+      {
+        destEmail,
+        fromEmail,
+        subject,
+        log,
+        user
+      },
+      log._id,
+      history
     );
     this.setState(initialState);
   };
@@ -119,9 +113,13 @@ class SendForm extends Component {
 }
 
 const mapStateToProps = state => {
-  const { auth, errors, user } = state;
+  const { auth, errors } = state;
+  const { user } = state.auth;
   const { log } = state.log;
   return { auth, errors, user, log };
 };
 
-export default connect(mapStateToProps)(SendForm);
+export default connect(
+  mapStateToProps,
+  { sendLog, getLog }
+)(SendForm);

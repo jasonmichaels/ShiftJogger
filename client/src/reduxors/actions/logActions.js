@@ -137,22 +137,24 @@ export const prepSend = (id, history) => dispatch => {
 };
 
 export const sendLog = (userData, logId, history) => dispatch => {
+  console.log(userData, logId, history);
   clearErrors();
   axios
-    .post(`/api/users/send/${logId}`, userData)
+    .post(`/api/users/logs/send/${logId}`, userData)
     .then(res => {
       dispatch({
         type: actionTypes.SEND_LOG,
-        payload: res.data.logs
+        payload: res.data
       });
       history.push("/sent");
     })
-    .catch(err =>
+    .catch(err => {
+      console.log(err);
       dispatch({
         type: actionTypes.GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+        payload: err
+      });
+    });
 };
 
 export const searchLogs = query => dispatch => {

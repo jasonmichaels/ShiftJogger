@@ -10,7 +10,6 @@ import {
 } from "../reduxors/actions/logActions";
 import { withRouter } from "react-router-dom";
 import { StyledCardRoot } from "./componentStyles/tableStyles";
-
 import CardComponent from "./CardComponent";
 
 class Table extends Component {

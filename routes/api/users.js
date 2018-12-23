@@ -13,8 +13,9 @@ const validateLoginInput = require("../../validation/login");
 const validateLogInput = require("../../validation/logs");
 const validateSendInput = require("../../validation/send");
 
-validateSendInput;
-
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(keys.SENDGRID_API_KEY);
+console.log(keys.SENDGRID_API_KEY);
 // load user model
 // capitalize for schema
 const User = require("../../models/User");
@@ -330,27 +331,39 @@ router.delete(
 );
 
 // @route   Post api/users/logs/send/:log_id
-// @desc    Send a specific log from user
+// @desc    Send a specific log from user via Mail Chimp
 // @access  Private
 router.post(
   "/logs/send/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    User.findOne({ _id: req.user.id })
+    console.log("req received on server", req.body);
+    User.findOne({ _id: req.body.user.id })
       .then(user => {
+        console.log("user found on server");
         if (user) {
           user.logs.map(log => {
-            if (log.id === req.params.log_id) {
-              log.send = true;
+            if (log._id.toString() === req.body.log._id) {
+              console.log("matching log found on server");
               // do the sending, such as calling third-party API here
-              user.save().then(user => res.json(user));
+              const msg = {
+                to: `${req.body.destEmail}`,
+                from: `${req.body.fromEmail}`,
+                subject: `${req.body.subject}`,
+                text: "tester text",
+                html: "<strong>This is a test</strong>"
+              };
+              sgMail.send(msg);
+              log.sent = true;
             }
+            user.save().then(user => res.json(user.logs));
           });
         }
       })
-      .catch(err =>
-        res.status(404).json({ unableToSend: "Couldn't send log!" + err })
-      );
+      .catch(err => {
+        console.log(err);
+        res.status(404).json({ userNotFound: "Couldn't find user" });
+      });
   }
 );
 
