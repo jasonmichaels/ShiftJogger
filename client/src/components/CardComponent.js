@@ -12,12 +12,51 @@ import { prepSend } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 
 class CardComponent extends Component {
+  componentDidMount = () => {
+    console.log(this.props.log);
+  };
   handlePrepSend = id => {
     const { history } = this.props;
     this.props.prepSend(id, history);
   };
+
+  returnButtons = log => {
+    const {
+      handleEdit,
+      handleDelete,
+      handleViewPDF,
+      activeId,
+      type
+    } = this.props;
+    if (type === "drafts") {
+      return (
+        <>
+          <Button size="small" onClick={() => handleEdit(log._id)}>
+            Edit Log
+          </Button>
+          {activeId === log._id ? (
+            <LoadAndDelete />
+          ) : (
+            <Button onClick={() => handleDelete(log._id)}>Delete Log</Button>
+          )}
+          <Button size="small" onClick={() => this.handlePrepSend(log._id)}>
+            Send Log
+          </Button>
+        </>
+      );
+    } else {
+      return (
+        <Button
+          size="small"
+          onClick={() => handleViewPDF(log._id)}
+          style={{ margin: "0 auto" }}>
+          View PDF
+        </Button>
+      );
+    }
+  };
   render() {
-    const { log, handleEdit, handleDelete, activeId } = this.props;
+    const { log } = this.props;
     return (
       <CardStyles>
         <Card className="card">
@@ -51,17 +90,7 @@ class CardComponent extends Component {
             )}
           </CardContent>
           <CardActions className="actions">
-            <Button size="small" onClick={() => handleEdit(log._id)}>
-              Edit Log
-            </Button>
-            {activeId === log._id ? (
-              <LoadAndDelete />
-            ) : (
-              <Button onClick={() => handleDelete(log._id)}>Delete Log</Button>
-            )}
-            <Button size="small" onClick={() => this.handlePrepSend(log._id)}>
-              Send Log
-            </Button>
+            {this.returnButtons(log)}
           </CardActions>
         </Card>
       </CardStyles>

@@ -15,7 +15,6 @@ const validateSendInput = require("../../validation/send");
 
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(keys.SENDGRID_API_KEY);
-console.log(keys.SENDGRID_API_KEY);
 // load user model
 // capitalize for schema
 const User = require("../../models/User");
@@ -337,14 +336,11 @@ router.post(
   "/logs/send/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log("req received on server", req.body);
     User.findOne({ _id: req.body.user.id })
       .then(user => {
-        console.log("user found on server");
         if (user) {
           user.logs.map(log => {
             if (log._id.toString() === req.body.log._id) {
-              console.log("matching log found on server");
               // do the sending, such as calling third-party API here
               const msg = {
                 to: `${req.body.destEmail}`,
@@ -361,7 +357,6 @@ router.post(
         }
       })
       .catch(err => {
-        console.log(err);
         res.status(404).json({ userNotFound: "Couldn't find user" });
       });
   }

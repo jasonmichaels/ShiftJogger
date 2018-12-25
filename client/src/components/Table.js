@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { HeaderTextStyle } from "./componentStyles/headerStyles";
 import { connect } from "react-redux";
 import {
   getLogs,
@@ -9,8 +8,8 @@ import {
   searchLogs
 } from "../reduxors/actions/logActions";
 import { withRouter } from "react-router-dom";
-import { StyledCardRoot } from "./componentStyles/tableStyles";
-import CardComponent from "./CardComponent";
+
+import { TableContent } from "../components/common/TableContent";
 
 class Table extends Component {
   state = {
@@ -42,49 +41,35 @@ class Table extends Component {
     this.props.prepSend(id, this.props.history);
   };
 
+  handleViewPDF = id => {
+    console.log(id);
+  };
   render() {
     const { type, logs, activeId } = this.props;
     const { query } = this.state;
     return (
       <div className="logs" style={{ marginTop: "1rem" }}>
-        <HeaderTextStyle>
-          {type === "drafts" ? "Drafts" : "Sent"}
-        </HeaderTextStyle>
-        <div
-          style={{
-            margin: "0 auto",
-            width: "90%",
-            maxWidth: "calc(1000px - (1rem * 2))"
-          }}>
-          <input
-            className="form-control"
-            type="text"
-            value={query}
-            onChange={e => this.handleQuery(e.target.value)}
-            placeholder={
-              logs !== undefined ? "Search logs by title" : "Nothing to search!"
-            }
+        {type === "drafts" ? (
+          <TableContent
+            logs={logs.filter(log => !log.sent)}
+            activeId={activeId}
+            query={query}
+            handleQuery={this.handleQuery}
+            handleEdit={this.handleEdit}
+            type={type}
+            handleDelete={this.handleDelete}
+            handleSend={this.handleSend}
           />
-        </div>
-        <StyledCardRoot>
-          {logs.length > 0 ? (
-            logs.map(log => {
-              return (
-                log.displayed && (
-                  <CardComponent
-                    key={log._id}
-                    log={log}
-                    handleEdit={this.handleEdit}
-                    handleDelete={this.handleDelete}
-                    activeId={activeId}
-                  />
-                )
-              );
-            })
-          ) : (
-            <span>No logs to search!</span>
-          )}
-        </StyledCardRoot>
+        ) : (
+          <TableContent
+            logs={logs.filter(log => log.sent)}
+            activeId={activeId}
+            query={query}
+            handleQuery={this.handleQuery}
+            type={type}
+            handleViewPDF={this.handleViewPDF}
+          />
+        )}
       </div>
     );
   }

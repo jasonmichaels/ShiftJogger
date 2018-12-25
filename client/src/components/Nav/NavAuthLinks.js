@@ -4,7 +4,7 @@ import { StyledNavButton } from "../componentStyles/navStyles";
 
 export const NavAuthLinks = ({ name, handleLogoutClick, handleRedirect }) => (
   <ul className="navbar-nav ml-auto">
-    <li className="nav-item" style={{ marginRight: "3px" }}>
+    <li className="nav-item">
       <Link
         style={{ cursor: "pointer" }}
         className="nav-link"
@@ -13,7 +13,7 @@ export const NavAuthLinks = ({ name, handleLogoutClick, handleRedirect }) => (
         New Log
       </Link>
     </li>
-    <li className="nav-item" style={{ marginRight: "3px" }}>
+    <li className="nav-item">
       <Link className="nav-link" to="/drafts">
         Drafts
       </Link>
