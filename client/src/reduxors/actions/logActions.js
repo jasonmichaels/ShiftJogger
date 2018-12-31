@@ -4,7 +4,7 @@ import axios from "axios";
 // add log
 
 export const addLog = (log, history) => dispatch => {
-  // dispatch(clearErrors());
+  clearErrors();
   axios
     .post(`/api/users/logs/add`, log)
     .then(res => {
@@ -88,7 +88,7 @@ export const goBack = (path, history) => dispatch => {
 };
 
 export const deleteLog = id => dispatch => {
-  dispatch(setActiveID(id));
+  setActiveID(id);
   axios
     .delete(`/api/users/logs/${id}`)
     .then(res => {
@@ -138,7 +138,7 @@ export const prepSend = (id, history) => dispatch => {
 
 export const sendLog = (userData, logId, history) => dispatch => {
   console.log(userData, logId, history);
-  clearErrors();
+  // clearErrors();
   axios
     .post(`/api/users/logs/send/${logId}`, userData)
     .then(res => {
@@ -152,7 +152,7 @@ export const sendLog = (userData, logId, history) => dispatch => {
       console.log(err);
       dispatch({
         type: actionTypes.GET_ERRORS,
-        payload: err
+        payload: err.response.data
       });
     });
 };

@@ -20,6 +20,7 @@ class SendForm extends Component {
   };
 
   componentWillReceiveProps = nextProps => {
+    console.log(nextProps);
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors

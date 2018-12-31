@@ -15,6 +15,7 @@ const validateSendInput = require("../../validation/send");
 
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(keys.SENDGRID_API_KEY);
+
 // load user model
 // capitalize for schema
 const User = require("../../models/User");
@@ -245,40 +246,6 @@ router.get(
   }
 );
 
-// @route   POST api/users/send/:log_id
-// @desc    Generate PDF and send email by log ID
-// @access  Private
-
-router.post(
-  "/send/:log_id",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const userId = req.body.userId;
-    User.findOne({ _id: userId })
-      .then(user => {
-        const { errors, isValid } = validateSendInput(req.body);
-        if (!isValid) {
-          // if errors, send 400 with errors obj
-          return res.status(400).json(errors);
-        }
-        const logId = req.params.log_id;
-        user.logs.map(log => {
-          if (log.id === logId) {
-            log.sent = true;
-            return log;
-          }
-          return log;
-        });
-        user.save().then(user => {
-          res.json(user.logs);
-        });
-      })
-      .catch(err =>
-        res.status(404).json({ noLogsFound: "No logs found" + err })
-      );
-  }
-);
-
 // @route   GET api/users/logs/:log_id
 // @desc    Get a specific log from user
 // @access  Private
@@ -336,6 +303,12 @@ router.post(
   "/logs/send/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const { errors, isValid } = validateSendInput(req.body);
+    console.log(isValid);
+    if (!isValid) {
+      // if errors, send 400 with errors obj
+      return res.status(400).json(errors);
+    }
     User.findOne({ _id: req.body.user.id })
       .then(user => {
         if (user) {

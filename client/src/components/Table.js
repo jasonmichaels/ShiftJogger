@@ -10,6 +10,7 @@ import {
 import { withRouter } from "react-router-dom";
 
 import { TableContent } from "../components/common/TableContent";
+import { isEmpty } from "../helpers/isEmpty";
 
 class Table extends Component {
   state = {
@@ -51,7 +52,7 @@ class Table extends Component {
       <div className="logs" style={{ marginTop: "1rem" }}>
         {type === "drafts" ? (
           <TableContent
-            logs={logs.filter(log => !log.sent)}
+            logs={!isEmpty(logs) ? logs.filter(log => !log.sent) : null}
             activeId={activeId}
             query={query}
             handleQuery={this.handleQuery}
@@ -62,7 +63,7 @@ class Table extends Component {
           />
         ) : (
           <TableContent
-            logs={logs.filter(log => log.sent)}
+            logs={!isEmpty(logs) ? logs.filter(log => log.sent) : null}
             activeId={activeId}
             query={query}
             handleQuery={this.handleQuery}

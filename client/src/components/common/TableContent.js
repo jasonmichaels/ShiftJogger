@@ -37,7 +37,7 @@ export const TableContent = ({
         />
       </div>
       <StyledCardRoot>
-        {logs.length > 0 ? (
+        {logs !== null && logs.length > 0 ? (
           logs.map(log => {
             return (
               log.displayed && (
