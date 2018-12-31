@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { HeaderTextStyle } from "../componentStyles/headerStyles";
 import { StyledCardRoot } from "../componentStyles/tableStyles";
 import CardComponent from "../CardComponent";
+import { StyledInput } from "../componentStyles/tableStyles";
 
 export const TableContent = ({
   logs,
@@ -20,7 +21,7 @@ export const TableContent = ({
   return (
     <>
       <HeaderTextStyle>{type === "drafts" ? "Drafts" : "Sent"}</HeaderTextStyle>
-      <div
+      <StyledInput
         style={{
           margin: "0 auto",
           width: "90%",
@@ -35,7 +36,7 @@ export const TableContent = ({
             logs !== undefined ? "Search logs by title" : "Nothing to search!"
           }
         />
-      </div>
+      </StyledInput>
       <StyledCardRoot>
         {logs !== null && logs.length > 0 ? (
           logs.map(log => {

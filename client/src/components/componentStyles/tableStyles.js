@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const CardStyles = styled.div`
+  transform: scale(0.8);
+  transition: transform 0.15s ease-in;
+
   &.title {
     font-size: 12px;
   }
@@ -19,6 +22,9 @@ export const CardStyles = styled.div`
     display: flex;
     justify-content: space-between;
   }
+  &:hover {
+    transform: scale(0.9);
+  }
 `;
 
 export const StyledCardRoot = styled.div`
@@ -35,4 +41,10 @@ export const StyledCardRoot = styled.div`
   &::after {
     content: "";
   }
+`;
+
+export const StyledInput = styled.div`
+  margin: 0 auto;
+  width: 90%;
+  max-width: calc(1000px - (1rem * 2));
 `;

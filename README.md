@@ -13,7 +13,7 @@ To start, you'll need an mLab API key and a custom `secret` key. For development
 ```
 module.exports = {
   mongoURL:
-    "mongodb://<USER_NAME_ON_DB_HERE>:<USER_PASSWORD_ON_DB_HERE>@ds227674.mlab.com:27674/<CUSTOM_APP_NAME_GIVEN_WHEN_SETTING_UP_DB_HERE>",
+    "mongodb://<mLab_KEY_HERE>",
     secretOrKey: "<SECRET_KEY_HERE>",
     SENDGRID_API_KEY: "<SENDGRID_API_KEY_HERE"
 };
