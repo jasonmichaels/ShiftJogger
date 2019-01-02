@@ -12,9 +12,6 @@ import { prepSend } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 
 class CardComponent extends Component {
-  componentDidMount = () => {
-    console.log(this.props.log);
-  };
   handlePrepSend = id => {
     const { history } = this.props;
     this.props.prepSend(id, history);

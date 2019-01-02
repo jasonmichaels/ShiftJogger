@@ -8,7 +8,7 @@ Our objective was to create a React app, using Next.js and Redux, complete with 
 
 ## Usage
 
-To start, you'll need an mLab API key and a custom `secret` key. For development, these should go in the root directory's `config` folder in a file named `keys_dev.js`. Since we utilized Sendgrid, development keys for that service should also go here. The file structure may look like:
+To start, you'll need an mLab API key, as well as a custom `secret` key. For development, these should go in the root directory's `config` folder in a file named `keys_dev.js`. Note that the `secret` key is entirely up to you and is only used for session authentication within and for use with ShiftJogger itself. Since we utilized Sendgrid, development keys for that service should also go here. The file structure may look like:
 
 ```
 module.exports = {
