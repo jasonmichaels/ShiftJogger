@@ -74,3 +74,5 @@ As detailed in the server-side and client-side `package.json` files, this projec
 ## Contributors
 
 As of 12/11/2018, `drunkenkismet` is the sole contributor to this project, although he's actively recruiting from the Chingu Voyage 7 cohort to help with front-end design, back-end design and testing, overall code cleanup, and -- eventually -- testing with Enzyme/Jest.
+
+On 1/4/2019, `volantTyler` joined the development team. His initial focus will be on front-end design and code cleanup.
