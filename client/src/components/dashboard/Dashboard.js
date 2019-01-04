@@ -30,10 +30,10 @@ class Dashboard extends Component {
           <div className="upper-right">
             <DraftsInsights unsent={unsent} />
           </div>
-          <div className="lower-left">
+          <div className="lower-right">
             <SentInsights sent={sent} />
           </div>
-          <div className="lower-right">
+          <div className="lower-left">
             <GlobalInsights logs={logs} />
           </div>
         </StyledDashboard>
