@@ -45,6 +45,7 @@ router.post("/register", (req, res) => {
       errors.email = "Email already exists";
       res.status(400).json(errors);
     } else {
+      console.log("no user");
       // create newUser based on req object body data
       const newUser = new User({
         name: req.body.name,
@@ -119,7 +120,7 @@ router.post("/login", (req, res) => {
             expiresIn: 6000
           },
           (err, token) => {
-            // gives back an error or token
+            // response w/ token
             res.json({
               success: true,
               token: `Bearer ${token}`
