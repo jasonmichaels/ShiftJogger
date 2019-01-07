@@ -2,6 +2,8 @@ const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const cloudinary = require("cloudinary");
 const keys = require("../config/keys");
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(keys.SENDGRID_API_KEY);
 
 const PDFBuildProcess = {};
 
@@ -34,8 +36,19 @@ PDFBuildProcess.savePDF = PDFPath => {
   });
 };
 
-PDFBuildProcess.emailPDF = () => {
-  console.log("emailing");
+PDFBuildProcess.emailPDF = (req, user, log, res) => {
+  // do the sending, such as calling third-party API here
+  return new Promise((res, rej) => {
+    const msg = {
+      to: `${req.body.destEmail}`,
+      from: `${req.body.fromEmail}`,
+      subject: `${req.body.subject}`,
+      text: "tester text",
+      html: "<strong>This is a test</strong>"
+    };
+    sgMail.send(msg);
+    res({ sent: true });
+  });
 };
 
 module.exports = PDFBuildProcess;

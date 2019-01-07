@@ -13,10 +13,7 @@ const validateLoginInput = require("../../validation/login");
 const validateLogInput = require("../../validation/logs");
 const validateSendInput = require("../../validation/send");
 
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(keys.SENDGRID_API_KEY);
-
-const { buildPDF, savePDF } = require("../../helpers/pdfProcessing");
+const { buildPDF, savePDF, emailPDF } = require("../../helpers/pdfProcessing");
 
 // load user model
 // capitalize for schema
@@ -319,21 +316,16 @@ router.post(
             if (log._id.toString() === req.body.log._id) {
               console.log("match");
               buildPDF(user, log).then(pdfPath => {
-                savePDF(pdfPath).then(res => {
-                  console.log(res);
+                savePDF(pdfPath).then(cloudinaryResponse => {
+                  emailPDF(req, user, log, res).then(response => {
+                    if (response) {
+                      log.cloudinary = cloudinaryResponse;
+                      log.sent = true;
+                      user.save().then(user => res.json(user.logs));
+                    }
+                  });
                 });
               });
-              // do the sending, such as calling third-party API here
-              const msg = {
-                to: `${req.body.destEmail}`,
-                from: `${req.body.fromEmail}`,
-                subject: `${req.body.subject}`,
-                text: "tester text",
-                html: "<strong>This is a test</strong>"
-              };
-              sgMail.send(msg);
-              log.sent = true;
-              user.save().then(user => res.json(user.logs));
             }
           });
         }
