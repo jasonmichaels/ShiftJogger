@@ -42,8 +42,8 @@ class Table extends Component {
     this.props.prepSend(id, this.props.history);
   };
 
-  handleViewPDF = id => {
-    console.log(id);
+  handleViewPDF = cloudinary => {
+    window.open(cloudinary.url, "_blank");
   };
   render() {
     const { type, logs, activeId } = this.props;

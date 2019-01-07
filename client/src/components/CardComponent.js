@@ -45,7 +45,7 @@ class CardComponent extends Component {
       return (
         <Button
           size="small"
-          onClick={() => handleViewPDF(log._id)}
+          onClick={() => handleViewPDF(log.cloudinary)}
           style={{ margin: "0 auto" }}>
           View PDF
         </Button>
