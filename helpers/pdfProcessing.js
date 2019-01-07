@@ -36,7 +36,7 @@ PDFBuildProcess.savePDF = PDFPath => {
   });
 };
 
-PDFBuildProcess.emailPDF = (req, user, log, res) => {
+PDFBuildProcess.emailPDF = (req, user, log, cloudinaryResponse) => {
   // do the sending, such as calling third-party API here
   return new Promise((res, rej) => {
     const msg = {
@@ -44,7 +44,9 @@ PDFBuildProcess.emailPDF = (req, user, log, res) => {
       from: `${req.body.fromEmail}`,
       subject: `${req.body.subject}`,
       text: "tester text",
-      html: "<strong>This is a test</strong>"
+      html: `<strong>This is a test</strong><a href=${
+        cloudinaryResponse.url
+      }><button>View PDF</button></a>`
     };
     sgMail.send(msg);
     res({ sent: true });

@@ -317,13 +317,16 @@ router.post(
               console.log("match");
               buildPDF(user, log).then(pdfPath => {
                 savePDF(pdfPath).then(cloudinaryResponse => {
-                  emailPDF(req, user, log, res).then(response => {
-                    if (response) {
-                      log.cloudinary = cloudinaryResponse;
-                      log.sent = true;
-                      user.save().then(user => res.json(user.logs));
+                  console.log(cloudinaryResponse);
+                  emailPDF(req, user, log, cloudinaryResponse).then(
+                    response => {
+                      if (response) {
+                        log.cloudinary = cloudinaryResponse;
+                        log.sent = true;
+                        user.save().then(user => res.json(user.logs));
+                      }
                     }
-                  });
+                  );
                 });
               });
             }
