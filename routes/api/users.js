@@ -16,6 +16,8 @@ const validateSendInput = require("../../validation/send");
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(keys.SENDGRID_API_KEY);
 
+const { buildPDF, savePDF } = require("../../helpers/pdfProcessing");
+
 // load user model
 // capitalize for schema
 const User = require("../../models/User");
@@ -298,7 +300,7 @@ router.delete(
 );
 
 // @route   Post api/users/logs/send/:log_id
-// @desc    Send a specific log from user via Mail Chimp
+// @desc    Send a specific log from user via SendGrid
 // @access  Private
 router.post(
   "/logs/send/:log_id",
@@ -315,6 +317,12 @@ router.post(
         if (user) {
           user.logs.map(log => {
             if (log._id.toString() === req.body.log._id) {
+              console.log("match");
+              buildPDF(user, log).then(pdfPath => {
+                savePDF(pdfPath).then(res => {
+                  console.log(res);
+                });
+              });
               // do the sending, such as calling third-party API here
               const msg = {
                 to: `${req.body.destEmail}`,
@@ -325,8 +333,8 @@ router.post(
               };
               sgMail.send(msg);
               log.sent = true;
+              user.save().then(user => res.json(user.logs));
             }
-            user.save().then(user => res.json(user.logs));
           });
         }
       })

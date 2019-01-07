@@ -51,6 +51,7 @@ class SendForm extends Component {
       log._id,
       history
     );
+    console.log(user, log);
     this.setState(initialState);
   };
   render() {
