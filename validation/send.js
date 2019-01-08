@@ -31,8 +31,8 @@ module.exports = validateSendInput = data => {
   if (Validator.isEmpty(data.subject)) {
     errors.subject = "Subject line is a required field";
   }
-  if (!Validator.isLength(data.subject, { min: 6, max: 20 })) {
-    errors.subject = "Subject line must be between 6 and 20 characters";
+  if (!Validator.isLength(data.subject, { min: 4 })) {
+    errors.subject = "Subject line must be at least 4 characters long!";
   }
 
   return {

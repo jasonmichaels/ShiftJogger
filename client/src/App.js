@@ -34,27 +34,24 @@ const StyledApp = styled.div`
   margin: 0;
 `;
 
-class App extends Component {
-  componentWillMount = () => {
-    // check for token
-    if (localStorage.jwtToken) {
-      // set auth token header auth
-      setAuthToken(localStorage.jwtToken);
-      // decode token and get user info and expiry
-      const decoded = jwt_decode(localStorage.jwtToken);
-      // set user and isAuthenticated
-      store.dispatch(setCurrentUser(decoded));
-      // check for expired token
-      const currentTime = Date.now() / 1000;
-      if (decoded.exp < currentTime) {
-        // log out user
-        store.dispatch(logoutUser());
-        // redirect
-        window.location.href = "/auth/login";
-      }
-    }
-  };
+if (localStorage.jwtToken) {
+  // set auth token header auth
+  setAuthToken(localStorage.jwtToken);
+  // decode token and get user info and expiry
+  const decoded = jwt_decode(localStorage.jwtToken);
+  // set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+  // check for expired token
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+    // log out user
+    store.dispatch(logoutUser());
+    // redirect
+    window.location.href = "/auth/login";
+  }
+}
 
+class App extends Component {
   render() {
     return (
       <Provider store={store}>

@@ -12,9 +12,6 @@ import { prepSend } from "../reduxors/actions/logActions";
 import { connect } from "react-redux";
 
 class CardComponent extends Component {
-  componentDidMount = () => {
-    console.log(this.props.log);
-  };
   handlePrepSend = id => {
     const { history } = this.props;
     this.props.prepSend(id, history);
@@ -48,7 +45,7 @@ class CardComponent extends Component {
       return (
         <Button
           size="small"
-          onClick={() => handleViewPDF(log._id)}
+          onClick={() => handleViewPDF(log.cloudinary)}
           style={{ margin: "0 auto" }}>
           View PDF
         </Button>

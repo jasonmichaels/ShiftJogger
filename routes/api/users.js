@@ -13,8 +13,9 @@ const validateLoginInput = require("../../validation/login");
 const validateLogInput = require("../../validation/logs");
 const validateSendInput = require("../../validation/send");
 
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(keys.SENDGRID_API_KEY);
+const fs = require("fs");
+
+const { buildPDF, savePDF, emailPDF } = require("../../helpers/pdfProcessing");
 
 // load user model
 // capitalize for schema
@@ -45,6 +46,7 @@ router.post("/register", (req, res) => {
       errors.email = "Email already exists";
       res.status(400).json(errors);
     } else {
+      console.log("no user");
       // create newUser based on req object body data
       const newUser = new User({
         name: req.body.name,
@@ -119,7 +121,7 @@ router.post("/login", (req, res) => {
             expiresIn: 6000
           },
           (err, token) => {
-            // gives back an error or token
+            // response w/ token
             res.json({
               success: true,
               token: `Bearer ${token}`
@@ -297,7 +299,7 @@ router.delete(
 );
 
 // @route   Post api/users/logs/send/:log_id
-// @desc    Send a specific log from user via Mail Chimp
+// @desc    Send a specific log from user via SendGrid
 // @access  Private
 router.post(
   "/logs/send/:log_id",
@@ -312,20 +314,26 @@ router.post(
     User.findOne({ _id: req.body.user.id })
       .then(user => {
         if (user) {
+          let cloudinary;
           user.logs.map(log => {
             if (log._id.toString() === req.body.log._id) {
-              // do the sending, such as calling third-party API here
-              const msg = {
-                to: `${req.body.destEmail}`,
-                from: `${req.body.fromEmail}`,
-                subject: `${req.body.subject}`,
-                text: "tester text",
-                html: "<strong>This is a test</strong>"
-              };
-              sgMail.send(msg);
-              log.sent = true;
+              console.log("match");
+              buildPDF(user, log).then(pdfPath => {
+                savePDF(pdfPath).then(cloudinaryResponse => {
+                  cloudinary = cloudinaryResponse;
+                  emailPDF(req, user, cloudinaryResponse)
+                    .then(response => {
+                      if (response) {
+                        console.log("complete");
+                        log.cloudinary = cloudinary;
+                        log.sent = true;
+                        user.save().then(user => res.json(user.logs));
+                      }
+                    })
+                    .catch(err => console.log(err));
+                });
+              });
             }
-            user.save().then(user => res.json(user.logs));
           });
         }
       })
