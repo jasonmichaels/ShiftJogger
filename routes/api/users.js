@@ -13,6 +13,8 @@ const validateLoginInput = require("../../validation/login");
 const validateLogInput = require("../../validation/logs");
 const validateSendInput = require("../../validation/send");
 
+const fs = require("fs");
+
 const { buildPDF, savePDF, emailPDF } = require("../../helpers/pdfProcessing");
 
 // load user model
@@ -312,21 +314,23 @@ router.post(
     User.findOne({ _id: req.body.user.id })
       .then(user => {
         if (user) {
+          let cloudinary;
           user.logs.map(log => {
             if (log._id.toString() === req.body.log._id) {
               console.log("match");
               buildPDF(user, log).then(pdfPath => {
                 savePDF(pdfPath).then(cloudinaryResponse => {
-                  console.log(cloudinaryResponse);
-                  emailPDF(req, user, log, cloudinaryResponse).then(
-                    response => {
+                  cloudinary = cloudinaryResponse;
+                  emailPDF(req, user, cloudinaryResponse)
+                    .then(response => {
                       if (response) {
-                        log.cloudinary = cloudinaryResponse;
+                        console.log("complete");
+                        log.cloudinary = cloudinary;
                         log.sent = true;
                         user.save().then(user => res.json(user.logs));
                       }
-                    }
-                  );
+                    })
+                    .catch(err => console.log(err));
                 });
               });
             }

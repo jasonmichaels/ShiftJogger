@@ -65,6 +65,9 @@ const UserSchema = new Schema({
       },
       cloudinary: {
         type: Object
+      },
+      sentData: {
+        type: Object
       }
     }
   ]

@@ -18,6 +18,7 @@ export const TableContent = ({
   activeId,
   handleViewPDF
 }) => {
+  console.log(logs);
   return (
     <>
       <HeaderTextStyle>{type === "drafts" ? "Drafts" : "Sent"}</HeaderTextStyle>
@@ -33,8 +34,11 @@ export const TableContent = ({
           value={query}
           onChange={e => handleQuery(e.target.value)}
           placeholder={
-            logs !== undefined ? "Search logs by title" : "Nothing to search!"
+            logs !== null && logs.length > 0
+              ? "Search logs by title"
+              : "Nothing to search!"
           }
+          disabled={logs !== null ? false : true}
         />
       </StyledInput>
       <StyledCardRoot>

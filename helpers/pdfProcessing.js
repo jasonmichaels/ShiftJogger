@@ -5,6 +5,8 @@ const keys = require("../config/keys");
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(keys.SENDGRID_API_KEY);
 
+const templateId = "d-bda5260c19af423e9ee86450f8f197ff";
+
 const PDFBuildProcess = {};
 
 PDFBuildProcess.buildPDF = (user, log) => {
@@ -36,20 +38,36 @@ PDFBuildProcess.savePDF = PDFPath => {
   });
 };
 
-PDFBuildProcess.emailPDF = (req, user, log, cloudinaryResponse) => {
+PDFBuildProcess.emailPDF = (req, user, cloudinaryResponse) => {
   // do the sending, such as calling third-party API here
   return new Promise((res, rej) => {
     const msg = {
-      to: `${req.body.destEmail}`,
-      from: `${req.body.fromEmail}`,
-      subject: `${req.body.subject}`,
+      to: req.body.destEmail,
+      from: req.body.fromEmail,
+      templateId: templateId,
+      dynamic_template_data: {
+        userName: user.name,
+        subject: req.body.subject,
+        link: cloudinaryResponse.url
+      }
+      /*
       text: "tester text",
-      html: `<strong>This is a test</strong><a href=${
-        cloudinaryResponse.url
-      }><button>View PDF</button></a>`
+      html: `<div class="card is-centered">
+              <h1>${user.name} has sent you an invoice!</h1>
+              <br> 
+              <a href=${
+                cloudinaryResponse.url
+              } class="btn btn-primary">View Invoice</a>
+             </div>`
+
+      */
     };
-    sgMail.send(msg);
-    res({ sent: true });
+    sgMail
+      .send(msg)
+      .then(sent => {
+        res({ sent: true, sentData: sent });
+      })
+      .catch(err => rej({ sent: false, err }));
   });
 };
 

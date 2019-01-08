@@ -21,6 +21,10 @@ class Table extends Component {
     this.props.getLogs();
   };
 
+  componentDidMount = () => {
+    console.log(this.props.logs);
+  };
+
   handleQuery = query => {
     this.setState({ query: query });
     if (query) {
