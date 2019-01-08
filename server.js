@@ -7,6 +7,7 @@ const passport = require("passport");
 const path = require("path");
 
 const users = require("./routes/api/users");
+// separate logs endpoints into separate routes file and add here, along with guest views
 
 const app = express();
 
@@ -35,6 +36,10 @@ require("./config/passport")(passport);
 
 // user routes
 app.use("/api/users", users);
+/*
+  - break out logs from user routes and use 'em here
+  - add guest route 
+*/
 
 // static prod assets
 if (process.env.NODE_ENV === "production") {
