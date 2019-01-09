@@ -11,18 +11,24 @@ const PDFBuildProcess = {};
 
 PDFBuildProcess.buildPDF = (user, log) => {
   // make the PDF
-  return new Promise((res, rej) => {
-    const doc = new PDFDocument();
-    const stream = doc.pipe(
-      fs.createWriteStream(`${__dirname}/../pdf/tmp/${user._id}-${log._id}.pdf`)
-    );
-    doc.text(`${user.name}`, 100, 100);
-    doc.end();
-    stream.on("finish", () => {
-      console.log("finished");
-      res(`${__dirname}/../pdf/tmp/${user._id}-${log._id}.pdf`);
-    });
-  });
+  // @TODO: changed to pdfmake --> augment the following
+  /*
+    - pdfmake supports tables and styling -->
+      - see https://pdfmake.github.io/docs/getting-started/server-side/
+      - check localhost:1234 after launching pdfmake's `dev-playground` 
+  */
+  // return new Promise((res, rej) => {
+  //   const doc = new PDFDocument();
+  //   const stream = doc.pipe(
+  //     fs.createWriteStream(`${__dirname}/../pdf/tmp/${user._id}-${log._id}.pdf`)
+  //   );
+  //   doc.text(`${user.name}`, 100, 100);
+  //   doc.end();
+  //   stream.on("finish", () => {
+  //     console.log("finished");
+  //     res(`${__dirname}/../pdf/tmp/${user._id}-${log._id}.pdf`);
+  //   });
+  // });
 };
 
 PDFBuildProcess.savePDF = PDFPath => {
