@@ -12,6 +12,7 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const validateLogInput = require("../../validation/logs");
 const validateSendInput = require("../../validation/send");
+const globalValidator = require("../../validation/globalValidator");
 
 const fs = require("fs");
 
@@ -31,11 +32,11 @@ const User = require("../../models/User");
 router.post("/register", (req, res) => {
   // destructuring of `req`, with the body passed to the helper function
   // in `is-empty.js`, which checks strings and objects to see if they're empty
-  const { errors, isValid } = validateRegisterInput(req.body);
-
+  const { errors, isValid } = globalValidator(req.body);
+  console.log("users, line 36", errors, isValid);
   // check validation
   if (!isValid) {
-    res.status(400).json(errors);
+    return res.status(400).json(errors);
   }
   User.findOne({
     // access what req is sending through req.body,
@@ -46,7 +47,6 @@ router.post("/register", (req, res) => {
       errors.email = "Email already exists";
       res.status(400).json(errors);
     } else {
-      console.log("no user");
       // create newUser based on req object body data
       const newUser = new User({
         name: req.body.name,
@@ -79,7 +79,7 @@ router.post("/register", (req, res) => {
 // @desc    login user / return json web token
 // @access  Public
 router.post("/login", (req, res) => {
-  const { errors, isValid } = validateLoginInput(req.body);
+  const { errors, isValid } = globalValidator(req.body);
 
   // check validation
   if (!isValid) {
@@ -306,7 +306,6 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateSendInput(req.body);
-    console.log(isValid);
     if (!isValid) {
       // if errors, send 400 with errors obj
       return res.status(400).json(errors);
@@ -317,14 +316,12 @@ router.post(
           let cloudinary;
           user.logs.map(log => {
             if (log._id.toString() === req.body.log._id) {
-              console.log("match");
               buildPDF(user, log).then(pdfPath => {
                 savePDF(pdfPath).then(cloudinaryResponse => {
                   cloudinary = cloudinaryResponse;
                   emailPDF(req, user, cloudinaryResponse)
                     .then(response => {
                       if (response) {
-                        console.log("complete");
                         log.cloudinary = cloudinary;
                         log.sent = true;
                         user.save().then(user => res.json(user.logs));
