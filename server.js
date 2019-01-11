@@ -11,6 +11,8 @@ const users = require("./routes/api/users");
 
 const app = express();
 
+app.set("view engine", "pug");
+
 // Body parser middleware -- used in users.js
 app.use(
   bodyParser.urlencoded({
