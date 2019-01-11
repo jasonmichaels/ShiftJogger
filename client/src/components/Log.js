@@ -177,7 +177,7 @@ class Log extends Component {
               type="date"
               inputType="input"
               error={errors.dateStart}
-              info={"Enter shift start date"}
+              info={"Start Date"}
             />
 
             <TextField
@@ -188,7 +188,7 @@ class Log extends Component {
               inputType="input"
               error={errors.date}
               disabled={!checked}
-              info={"Enter shift end date"}
+              info={"End Date"}
             />
             <TextField
               name="shiftStart"
@@ -198,7 +198,7 @@ class Log extends Component {
               value={shiftStart}
               style={{ height: "48px" }}
               error={errors.shiftStart}
-              info={"Enter shift start time"}
+              info={"Start Time"}
             />
             <TextField
               name="shiftEnd"
@@ -207,7 +207,7 @@ class Log extends Component {
               handleChange={this.handleChange}
               value={shiftEnd}
               style={{ height: "48px" }}
-              info={"Enter shift end time"}
+              info={"End Time"}
             />
           </div>
 
