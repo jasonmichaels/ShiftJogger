@@ -1,5 +1,8 @@
-const PDFDocument = require("pdfkit");
 const fs = require("fs");
+const PdfPrinter = require("../node_modules/pdfmake/src/printer");
+const time = require("../helpers/time");
+const path = require("path");
+const template = require("./template");
 const cloudinary = require("cloudinary");
 const keys = require("../config/keys");
 const sgMail = require("@sendgrid/mail");
@@ -10,6 +13,51 @@ const templateId = "d-bda5260c19af423e9ee86450f8f197ff";
 const PDFBuildProcess = {};
 
 PDFBuildProcess.buildPDF = (user, log) => {
+  return new Promise((res, rej) => {
+    const { name } = user;
+    const { dateStart, dateEnd, shiftStart, shiftEnd } = log;
+
+    const hours = time(
+      { startTime: shiftStart, startDay: dateStart },
+      { endTime: shiftEnd, endDay: dateEnd !== null ? dateEnd : dateStart }
+    );
+    const builtTemplate = template(
+      name,
+      dateStart,
+      dateEnd,
+      shiftStart,
+      shiftEnd,
+      hours
+    );
+
+    const fonts = {
+      Roboto: {
+        normal: path.join(__dirname, "fonts", "Roboto-Regular.ttf"),
+        bold: path.join(__dirname, "fonts", "Roboto-Medium.ttf"),
+        italics: path.join(__dirname, "fonts", "Roboto-Italic.ttf"),
+        boldItalics: path.join(__dirname, "fonts", "Roboto-MediumItalic.ttf")
+      }
+    };
+
+    const printer = new PdfPrinter(fonts);
+
+    const pdfPath = path.join(__dirname, "tmp", `${user._id}-${log._id}.pdf`);
+
+    const writeStream = fs.createWriteStream(pdfPath);
+
+    const pdfDoc = printer.createPdfKitDocument({
+      docDefinition: builtTemplate
+    });
+
+    pdfDoc.pipe(writeStream).on("error", err => console.log(err));
+
+    pdfDoc.on("end", () => {
+      console.log("finished");
+      res(pdfPath);
+    });
+    pdfDoc.end();
+  });
+
   // make the PDF
   // @TODO: changed to pdfmake --> augment the following
   /*

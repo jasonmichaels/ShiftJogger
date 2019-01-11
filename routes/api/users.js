@@ -8,6 +8,7 @@ const keys = require("../../config/keys");
 const passport = require("passport");
 
 // load input validation
+// next two exchanged for globalValidator -- convert Log & Send usage reqs to utilize globalValidator as well
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const validateLogInput = require("../../validation/logs");
@@ -16,7 +17,7 @@ const globalValidator = require("../../validation/globalValidator");
 
 const fs = require("fs");
 
-const { buildPDF, savePDF, emailPDF } = require("../../helpers/pdfProcessing");
+const { buildPDF, savePDF, emailPDF } = require("../../pdf/pdfProcessing");
 
 // load user model
 // capitalize for schema
@@ -33,7 +34,6 @@ router.post("/register", (req, res) => {
   // destructuring of `req`, with the body passed to the helper function
   // in `is-empty.js`, which checks strings and objects to see if they're empty
   const { errors, isValid } = globalValidator(req.body);
-  console.log("users, line 36", errors, isValid);
   // check validation
   if (!isValid) {
     return res.status(400).json(errors);
@@ -79,7 +79,7 @@ router.post("/register", (req, res) => {
 // @desc    login user / return json web token
 // @access  Public
 router.post("/login", (req, res) => {
-  const { errors, isValid } = globalValidator(req.body);
+  const { errors, isValid } = validateLoginInput(req.body);
 
   // check validation
   if (!isValid) {
@@ -316,26 +316,28 @@ router.post(
           let cloudinary;
           user.logs.map(log => {
             if (log._id.toString() === req.body.log._id) {
-              buildPDF(user, log).then(pdfPath => {
-                savePDF(pdfPath).then(cloudinaryResponse => {
-                  cloudinary = cloudinaryResponse;
-                  emailPDF(req, user, cloudinaryResponse)
-                    .then(response => {
-                      if (response) {
-                        log.cloudinary = cloudinary;
-                        log.sent = true;
-                        user.save().then(user => res.json(user.logs));
-                      }
-                    })
-                    .catch(err => console.log(err));
-                });
-              });
+              buildPDF(user, log)
+                .then(path => {
+                  savePDF(path).then(cloudinaryResponse => {
+                    cloudinary = cloudinaryResponse;
+                    emailPDF(req, user, cloudinaryResponse)
+                      .then(response => {
+                        if (response) {
+                          log.cloudinary = cloudinary;
+                          log.sent = true;
+                          user.save().then(user => res.json(user.logs));
+                        }
+                      })
+                      .catch(err => console.log(err));
+                  });
+                })
+                .catch(err => res.status(400).json({ error: err }));
             }
           });
         }
       })
       .catch(err => {
-        res.status(404).json({ userNotFound: "Couldn't find user" });
+        res.status(404).json({ userNotFound: "Couldn't find user", err });
       });
   }
 );
