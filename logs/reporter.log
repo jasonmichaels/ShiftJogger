@@ -1,0 +1,1768 @@
+2019-01-11T21:16:42.563Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:16:42.564Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:16:42.569Z - info: Extensions location cache not found, crawling directories
+2019-01-11T21:16:51.088Z - info: Found 31 extensions
+2019-01-11T21:16:51.112Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:16:51.113Z - debug: Discovered 31 extensions
+2019-01-11T21:16:51.155Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:16:51.159Z - info: Using extension handlebars
+2019-01-11T21:16:51.165Z - info: Using extension import-export
+2019-01-11T21:16:51.374Z - info: Using extension templates
+2019-01-11T21:16:51.379Z - info: Using extension jsrender
+2019-01-11T21:16:51.381Z - info: Using extension authentication
+2019-01-11T21:16:51.425Z - debug: Extension authentication was disabled
+2019-01-11T21:16:51.425Z - info: Using extension freeze
+2019-01-11T21:16:51.427Z - info: Using extension cli
+2019-01-11T21:16:51.429Z - info: Using extension express
+2019-01-11T21:16:51.520Z - info: Using extension debug
+2019-01-11T21:16:51.522Z - info: Using extension tags
+2019-01-11T21:16:51.525Z - info: Using extension data
+2019-01-11T21:16:51.527Z - info: Using extension fs-store
+2019-01-11T21:16:51.903Z - debug: Extension fs-store was disabled
+2019-01-11T21:16:51.903Z - info: Using extension authorization
+2019-01-11T21:16:51.908Z - debug: Extension authorization was disabled
+2019-01-11T21:16:51.908Z - info: Using extension html-to-xlsx
+2019-01-11T21:16:52.086Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:16:52.086Z - info: Using extension child-templates
+2019-01-11T21:16:52.132Z - info: Using extension browser-client
+2019-01-11T21:16:52.136Z - info: Using extension chrome-pdf
+2019-01-11T21:16:52.143Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:16:52.143Z - info: Using extension pdf-utils
+2019-01-11T21:16:52.146Z - info: Using extension version-control
+2019-01-11T21:16:52.230Z - info: Using extension reports
+2019-01-11T21:16:52.235Z - info: Using extension text
+2019-01-11T21:16:52.236Z - info: Using extension base
+2019-01-11T21:16:52.238Z - info: Using extension studio
+2019-01-11T21:16:52.298Z - info: Using extension licensing
+2019-01-11T21:16:52.343Z - info: Using extension scripts
+2019-01-11T21:16:52.390Z - info: Using extension assets
+2019-01-11T21:16:52.445Z - info: Using extension scheduling
+2019-01-11T21:16:52.494Z - info: Using extension xlsx
+2019-01-11T21:16:52.581Z - info: Using extension sample-template
+2019-01-11T21:16:52.584Z - debug: Creating samples is disabled
+2019-01-11T21:16:52.584Z - info: Using extension resources
+2019-01-11T21:16:52.586Z - info: Using extension public-templates
+2019-01-11T21:16:52.588Z - debug: Extension public-templates was disabled
+2019-01-11T21:16:52.641Z - info: Creating default express app.
+2019-01-11T21:16:52.667Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:16:52.669Z - info: Verifying license key free
+2019-01-11T21:16:52.670Z - info: Using free license
+2019-01-11T21:16:52.672Z - info: reporter initialized
+2019-01-11T21:22:07.280Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:22:07.281Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:22:07.289Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:22:11.846Z - info: Found 31 extensions
+2019-01-11T21:22:11.872Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:22:11.874Z - debug: Discovered 31 extensions
+2019-01-11T21:22:11.915Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:22:11.921Z - info: Using extension handlebars
+2019-01-11T21:22:11.927Z - info: Using extension import-export
+2019-01-11T21:22:12.134Z - info: Using extension templates
+2019-01-11T21:22:12.139Z - info: Using extension jsrender
+2019-01-11T21:22:12.141Z - info: Using extension authentication
+2019-01-11T21:22:12.184Z - debug: Extension authentication was disabled
+2019-01-11T21:22:12.184Z - info: Using extension freeze
+2019-01-11T21:22:12.187Z - info: Using extension cli
+2019-01-11T21:22:12.188Z - info: Using extension express
+2019-01-11T21:22:12.288Z - info: Using extension debug
+2019-01-11T21:22:12.291Z - info: Using extension tags
+2019-01-11T21:22:12.294Z - info: Using extension data
+2019-01-11T21:22:12.296Z - info: Using extension fs-store
+2019-01-11T21:22:12.646Z - debug: Extension fs-store was disabled
+2019-01-11T21:22:12.646Z - info: Using extension authorization
+2019-01-11T21:22:12.651Z - debug: Extension authorization was disabled
+2019-01-11T21:22:12.651Z - info: Using extension html-to-xlsx
+2019-01-11T21:22:12.818Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:22:12.819Z - info: Using extension child-templates
+2019-01-11T21:22:12.868Z - info: Using extension browser-client
+2019-01-11T21:22:12.870Z - info: Using extension chrome-pdf
+2019-01-11T21:22:12.877Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:22:12.878Z - info: Using extension pdf-utils
+2019-01-11T21:22:12.881Z - info: Using extension version-control
+2019-01-11T21:22:12.959Z - info: Using extension reports
+2019-01-11T21:22:12.963Z - info: Using extension text
+2019-01-11T21:22:12.964Z - info: Using extension base
+2019-01-11T21:22:12.966Z - info: Using extension studio
+2019-01-11T21:22:13.038Z - info: Using extension licensing
+2019-01-11T21:22:13.084Z - info: Using extension scripts
+2019-01-11T21:22:13.123Z - info: Using extension assets
+2019-01-11T21:22:13.183Z - info: Using extension scheduling
+2019-01-11T21:22:13.247Z - info: Using extension xlsx
+2019-01-11T21:22:13.355Z - info: Using extension sample-template
+2019-01-11T21:22:13.358Z - debug: Creating samples is disabled
+2019-01-11T21:22:13.358Z - info: Using extension resources
+2019-01-11T21:22:13.360Z - info: Using extension public-templates
+2019-01-11T21:22:13.362Z - debug: Extension public-templates was disabled
+2019-01-11T21:22:13.391Z - info: Creating default express app.
+2019-01-11T21:22:13.414Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:22:13.416Z - info: Verifying license key free
+2019-01-11T21:22:13.417Z - info: Using free license
+2019-01-11T21:22:13.421Z - info: reporter initialized
+2019-01-11T21:22:13.430Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:22:13.431Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:22:13.432Z - debug: Inline data specified.
+2019-01-11T21:22:13.433Z - debug: Resources not defined for this template.
+2019-01-11T21:22:13.441Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:22:13.444Z - warn: Error when processing render request Engine 'pug' not found. If this is a custom engine make sure it's properly installed from npm Error: Engine 'pug' not found. If this is a custom engine make sure it's properly installed from npm
+    at module.exports (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-core\lib\util\createError.js:10:13)
+    at Reporter.createError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-core\lib\reporter.js:256:12)
+    at invokeRender (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-core\lib\render\render.js:38:20)
+    at module.exports (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-core\lib\render\render.js:132:11)
+2019-01-11T21:23:41.550Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:23:41.551Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:23:41.569Z - info: Extensions location cache C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json contains older information, crawling
+2019-01-11T21:23:47.915Z - info: Found 32 extensions
+2019-01-11T21:23:47.939Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:23:47.941Z - debug: Discovered 32 extensions
+2019-01-11T21:23:47.982Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:23:47.987Z - info: Using extension handlebars
+2019-01-11T21:23:47.992Z - info: Using extension jsrender
+2019-01-11T21:23:47.994Z - info: Using extension templates
+2019-01-11T21:23:48.000Z - info: Using extension pug
+2019-01-11T21:23:48.003Z - info: Using extension authentication
+2019-01-11T21:23:48.045Z - debug: Extension authentication was disabled
+2019-01-11T21:23:48.045Z - info: Using extension import-export
+2019-01-11T21:23:48.259Z - info: Using extension cli
+2019-01-11T21:23:48.262Z - info: Using extension freeze
+2019-01-11T21:23:48.264Z - info: Using extension debug
+2019-01-11T21:23:48.267Z - info: Using extension express
+2019-01-11T21:23:48.361Z - info: Using extension tags
+2019-01-11T21:23:48.366Z - info: Using extension data
+2019-01-11T21:23:48.368Z - info: Using extension authorization
+2019-01-11T21:23:48.373Z - debug: Extension authorization was disabled
+2019-01-11T21:23:48.373Z - info: Using extension html-to-xlsx
+2019-01-11T21:23:48.591Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:23:48.591Z - info: Using extension chrome-pdf
+2019-01-11T21:23:48.601Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:23:48.602Z - info: Using extension child-templates
+2019-01-11T21:23:48.658Z - info: Using extension licensing
+2019-01-11T21:23:48.702Z - info: Using extension fs-store
+2019-01-11T21:23:49.080Z - debug: Extension fs-store was disabled
+2019-01-11T21:23:49.080Z - info: Using extension version-control
+2019-01-11T21:23:49.157Z - info: Using extension browser-client
+2019-01-11T21:23:49.161Z - info: Using extension reports
+2019-01-11T21:23:49.166Z - info: Using extension text
+2019-01-11T21:23:49.168Z - info: Using extension base
+2019-01-11T21:23:49.171Z - info: Using extension studio
+2019-01-11T21:23:49.244Z - info: Using extension pdf-utils
+2019-01-11T21:23:49.247Z - info: Using extension scripts
+2019-01-11T21:23:49.293Z - info: Using extension assets
+2019-01-11T21:23:49.348Z - info: Using extension scheduling
+2019-01-11T21:23:49.392Z - info: Using extension xlsx
+2019-01-11T21:23:49.494Z - info: Using extension sample-template
+2019-01-11T21:23:49.496Z - debug: Creating samples is disabled
+2019-01-11T21:23:49.497Z - info: Using extension resources
+2019-01-11T21:23:49.499Z - info: Using extension public-templates
+2019-01-11T21:23:49.502Z - debug: Extension public-templates was disabled
+2019-01-11T21:23:49.550Z - info: Creating default express app.
+2019-01-11T21:23:49.588Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:23:49.590Z - info: Verifying license key free
+2019-01-11T21:23:49.591Z - info: Using free license
+2019-01-11T21:23:49.595Z - info: reporter initialized
+2019-01-11T21:23:49.605Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:23:49.606Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:23:49.606Z - debug: Inline data specified.
+2019-01-11T21:23:49.607Z - debug: Resources not defined for this template.
+2019-01-11T21:23:49.618Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:23:49.619Z - debug: Rendering engine pug
+2019-01-11T21:23:50.372Z - warn: Error when processing render request Error while executing templating engine. Pug:1:1
+  > 1| ./template.pug
+-------^
+
+"/template" is not a valid class name.  Class names can only contain "_", "-", a-z and 0-9, and must contain at least one of "_", or a-z Error: Pug:1:1
+  > 1| ./template.pug
+-------^
+
+"/template" is not a valid class name.  Class names can only contain "_", "-", a-z and 0-9, and must contain at least one of "_", or a-z
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.className (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:448:12)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1492:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+2019-01-11T21:26:30.013Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:26:30.014Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:26:30.021Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:26:34.574Z - info: Found 32 extensions
+2019-01-11T21:26:34.602Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:26:34.604Z - debug: Discovered 32 extensions
+2019-01-11T21:26:34.644Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:26:34.649Z - info: Using extension handlebars
+2019-01-11T21:26:34.654Z - info: Using extension jsrender
+2019-01-11T21:26:34.655Z - info: Using extension templates
+2019-01-11T21:26:34.662Z - info: Using extension pug
+2019-01-11T21:26:34.664Z - info: Using extension authentication
+2019-01-11T21:26:34.712Z - debug: Extension authentication was disabled
+2019-01-11T21:26:34.713Z - info: Using extension import-export
+2019-01-11T21:26:34.937Z - info: Using extension cli
+2019-01-11T21:26:34.938Z - info: Using extension freeze
+2019-01-11T21:26:34.941Z - info: Using extension debug
+2019-01-11T21:26:34.944Z - info: Using extension express
+2019-01-11T21:26:35.047Z - info: Using extension tags
+2019-01-11T21:26:35.051Z - info: Using extension data
+2019-01-11T21:26:35.052Z - info: Using extension authorization
+2019-01-11T21:26:35.057Z - debug: Extension authorization was disabled
+2019-01-11T21:26:35.057Z - info: Using extension html-to-xlsx
+2019-01-11T21:26:35.240Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:26:35.241Z - info: Using extension chrome-pdf
+2019-01-11T21:26:35.248Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:26:35.248Z - info: Using extension child-templates
+2019-01-11T21:26:35.301Z - info: Using extension licensing
+2019-01-11T21:26:35.349Z - info: Using extension fs-store
+2019-01-11T21:26:35.697Z - debug: Extension fs-store was disabled
+2019-01-11T21:26:35.697Z - info: Using extension version-control
+2019-01-11T21:26:35.774Z - info: Using extension browser-client
+2019-01-11T21:26:35.777Z - info: Using extension reports
+2019-01-11T21:26:35.781Z - info: Using extension text
+2019-01-11T21:26:35.783Z - info: Using extension base
+2019-01-11T21:26:35.785Z - info: Using extension studio
+2019-01-11T21:26:35.852Z - info: Using extension pdf-utils
+2019-01-11T21:26:35.854Z - info: Using extension scripts
+2019-01-11T21:26:35.901Z - info: Using extension assets
+2019-01-11T21:26:35.969Z - info: Using extension scheduling
+2019-01-11T21:26:36.051Z - info: Using extension xlsx
+2019-01-11T21:26:36.143Z - info: Using extension sample-template
+2019-01-11T21:26:36.145Z - debug: Creating samples is disabled
+2019-01-11T21:26:36.145Z - info: Using extension resources
+2019-01-11T21:26:36.147Z - info: Using extension public-templates
+2019-01-11T21:26:36.149Z - debug: Extension public-templates was disabled
+2019-01-11T21:26:36.178Z - info: Creating default express app.
+2019-01-11T21:26:36.202Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:26:36.203Z - info: Verifying license key free
+2019-01-11T21:26:36.205Z - info: Using free license
+2019-01-11T21:26:36.211Z - info: reporter initialized
+2019-01-11T21:26:36.224Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:26:36.225Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:26:36.225Z - debug: Inline data specified.
+2019-01-11T21:26:36.225Z - debug: Resources not defined for this template.
+2019-01-11T21:26:36.235Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:26:36.236Z - debug: Rendering engine pug
+2019-01-11T21:26:36.886Z - warn: Error when processing render request Error while executing templating engine. Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use" Error: Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use"
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.fail (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1441:10)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1501:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+    at compileBody (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:86:18)
+2019-01-11T21:27:31.319Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:27:31.320Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:27:31.322Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:27:36.141Z - info: Found 32 extensions
+2019-01-11T21:27:36.144Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:27:36.146Z - debug: Discovered 32 extensions
+2019-01-11T21:27:36.183Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:27:36.185Z - info: Using extension handlebars
+2019-01-11T21:27:36.186Z - info: Using extension jsrender
+2019-01-11T21:27:36.187Z - info: Using extension templates
+2019-01-11T21:27:36.187Z - info: Using extension pug
+2019-01-11T21:27:36.187Z - info: Using extension authentication
+2019-01-11T21:27:36.192Z - debug: Extension authentication was disabled
+2019-01-11T21:27:36.192Z - info: Using extension import-export
+2019-01-11T21:27:36.193Z - info: Using extension cli
+2019-01-11T21:27:36.193Z - info: Using extension freeze
+2019-01-11T21:27:36.194Z - info: Using extension debug
+2019-01-11T21:27:36.195Z - info: Using extension express
+2019-01-11T21:27:36.198Z - info: Using extension tags
+2019-01-11T21:27:36.199Z - info: Using extension data
+2019-01-11T21:27:36.199Z - info: Using extension authorization
+2019-01-11T21:27:36.199Z - debug: Extension authorization was disabled
+2019-01-11T21:27:36.199Z - info: Using extension html-to-xlsx
+2019-01-11T21:27:36.204Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:27:36.204Z - info: Using extension chrome-pdf
+2019-01-11T21:27:36.209Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:27:36.209Z - info: Using extension child-templates
+2019-01-11T21:27:36.210Z - info: Using extension licensing
+2019-01-11T21:27:36.211Z - info: Using extension fs-store
+2019-01-11T21:27:36.214Z - debug: Extension fs-store was disabled
+2019-01-11T21:27:36.214Z - info: Using extension version-control
+2019-01-11T21:27:36.216Z - info: Using extension browser-client
+2019-01-11T21:27:36.218Z - info: Using extension reports
+2019-01-11T21:27:36.220Z - info: Using extension text
+2019-01-11T21:27:36.221Z - info: Using extension base
+2019-01-11T21:27:36.223Z - info: Using extension studio
+2019-01-11T21:27:36.225Z - info: Using extension pdf-utils
+2019-01-11T21:27:36.225Z - info: Using extension scripts
+2019-01-11T21:27:36.227Z - info: Using extension assets
+2019-01-11T21:27:36.228Z - info: Using extension scheduling
+2019-01-11T21:27:36.230Z - info: Using extension xlsx
+2019-01-11T21:27:36.231Z - info: Using extension sample-template
+2019-01-11T21:27:36.233Z - debug: Creating samples is disabled
+2019-01-11T21:27:36.233Z - info: Using extension resources
+2019-01-11T21:27:36.233Z - info: Using extension public-templates
+2019-01-11T21:27:36.233Z - debug: Extension public-templates was disabled
+2019-01-11T21:27:36.243Z - info: Creating default express app.
+2019-01-11T21:27:36.262Z - error: Error when starting http server on port 5448 Error: listen EADDRINUSE :::5448
+    at Server.setupListenHandle [as _listen2] (net.js:1286:14)
+    at listenInCluster (net.js:1334:12)
+    at Server.listen (net.js:1421:7)
+    at Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:23:12)
+    at Promise._execute (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\debuggability.js:313:9)
+    at Promise._resolveFromExecutor (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:483:18)
+    at new Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:79:10)
+    at startAsync (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:17:10)
+    at steps.push (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:51:14)
+    at Object.start (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:125:13)
+    at Object.reporter.initializeListeners.add (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:280:30)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+2019-01-11T21:27:36.264Z - error: Error occured during reporter init Error: listen EADDRINUSE :::5448
+    at Server.setupListenHandle [as _listen2] (net.js:1286:14)
+    at listenInCluster (net.js:1334:12)
+    at Server.listen (net.js:1421:7)
+    at Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:23:12)
+    at Promise._execute (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\debuggability.js:313:9)
+    at Promise._resolveFromExecutor (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:483:18)
+    at new Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:79:10)
+    at startAsync (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:17:10)
+    at steps.push (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:51:14)
+    at Object.start (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:125:13)
+    at Object.reporter.initializeListeners.add (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:280:30)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+2019-01-11T21:29:04.716Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:29:04.718Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:29:04.724Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:29:09.270Z - info: Found 32 extensions
+2019-01-11T21:29:09.294Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:29:09.296Z - debug: Discovered 32 extensions
+2019-01-11T21:29:09.339Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:29:09.345Z - info: Using extension handlebars
+2019-01-11T21:29:09.350Z - info: Using extension jsrender
+2019-01-11T21:29:09.351Z - info: Using extension templates
+2019-01-11T21:29:09.355Z - info: Using extension pug
+2019-01-11T21:29:09.356Z - info: Using extension authentication
+2019-01-11T21:29:09.402Z - debug: Extension authentication was disabled
+2019-01-11T21:29:09.403Z - info: Using extension import-export
+2019-01-11T21:29:09.609Z - info: Using extension cli
+2019-01-11T21:29:09.611Z - info: Using extension freeze
+2019-01-11T21:29:09.613Z - info: Using extension debug
+2019-01-11T21:29:09.618Z - info: Using extension express
+2019-01-11T21:29:09.727Z - info: Using extension tags
+2019-01-11T21:29:09.731Z - info: Using extension data
+2019-01-11T21:29:09.733Z - info: Using extension authorization
+2019-01-11T21:29:09.738Z - debug: Extension authorization was disabled
+2019-01-11T21:29:09.738Z - info: Using extension html-to-xlsx
+2019-01-11T21:29:09.943Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:29:09.943Z - info: Using extension chrome-pdf
+2019-01-11T21:29:09.951Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:29:09.952Z - info: Using extension child-templates
+2019-01-11T21:29:10.003Z - info: Using extension licensing
+2019-01-11T21:29:10.046Z - info: Using extension fs-store
+2019-01-11T21:29:10.393Z - debug: Extension fs-store was disabled
+2019-01-11T21:29:10.393Z - info: Using extension version-control
+2019-01-11T21:29:10.470Z - info: Using extension browser-client
+2019-01-11T21:29:10.473Z - info: Using extension reports
+2019-01-11T21:29:10.477Z - info: Using extension text
+2019-01-11T21:29:10.478Z - info: Using extension base
+2019-01-11T21:29:10.480Z - info: Using extension studio
+2019-01-11T21:29:10.540Z - info: Using extension pdf-utils
+2019-01-11T21:29:10.543Z - info: Using extension scripts
+2019-01-11T21:29:10.589Z - info: Using extension assets
+2019-01-11T21:29:10.645Z - info: Using extension scheduling
+2019-01-11T21:29:10.689Z - info: Using extension xlsx
+2019-01-11T21:29:10.790Z - info: Using extension sample-template
+2019-01-11T21:29:10.793Z - debug: Creating samples is disabled
+2019-01-11T21:29:10.793Z - info: Using extension resources
+2019-01-11T21:29:10.795Z - info: Using extension public-templates
+2019-01-11T21:29:10.797Z - debug: Extension public-templates was disabled
+2019-01-11T21:29:10.825Z - info: Creating default express app.
+2019-01-11T21:29:10.849Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:29:10.850Z - info: Verifying license key free
+2019-01-11T21:29:10.851Z - info: Using free license
+2019-01-11T21:29:10.856Z - info: reporter initialized
+2019-01-11T21:29:10.866Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:29:10.867Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:29:10.867Z - debug: Inline data specified.
+2019-01-11T21:29:10.868Z - debug: Resources not defined for this template.
+2019-01-11T21:29:10.878Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:29:10.878Z - debug: Rendering engine pug
+2019-01-11T21:29:11.552Z - warn: Error when processing render request Error while executing templating engine. Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use" Error: Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use"
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.fail (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1441:10)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1501:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+    at compileBody (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:86:18)
+2019-01-11T21:34:53.193Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:34:53.194Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:34:53.204Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:34:57.838Z - info: Found 32 extensions
+2019-01-11T21:34:57.867Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:34:57.869Z - debug: Discovered 32 extensions
+2019-01-11T21:34:57.910Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:34:57.916Z - info: Using extension handlebars
+2019-01-11T21:34:57.921Z - info: Using extension jsrender
+2019-01-11T21:34:57.923Z - info: Using extension templates
+2019-01-11T21:34:57.928Z - info: Using extension pug
+2019-01-11T21:34:57.929Z - info: Using extension authentication
+2019-01-11T21:34:57.974Z - debug: Extension authentication was disabled
+2019-01-11T21:34:57.974Z - info: Using extension import-export
+2019-01-11T21:34:58.183Z - info: Using extension cli
+2019-01-11T21:34:58.185Z - info: Using extension freeze
+2019-01-11T21:34:58.187Z - info: Using extension debug
+2019-01-11T21:34:58.189Z - info: Using extension express
+2019-01-11T21:34:58.290Z - info: Using extension tags
+2019-01-11T21:34:58.293Z - info: Using extension data
+2019-01-11T21:34:58.295Z - info: Using extension authorization
+2019-01-11T21:34:58.299Z - debug: Extension authorization was disabled
+2019-01-11T21:34:58.299Z - info: Using extension html-to-xlsx
+2019-01-11T21:34:58.480Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:34:58.480Z - info: Using extension chrome-pdf
+2019-01-11T21:34:58.487Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:34:58.488Z - info: Using extension child-templates
+2019-01-11T21:34:58.541Z - info: Using extension licensing
+2019-01-11T21:34:58.592Z - info: Using extension fs-store
+2019-01-11T21:34:58.968Z - debug: Extension fs-store was disabled
+2019-01-11T21:34:58.968Z - info: Using extension version-control
+2019-01-11T21:34:59.044Z - info: Using extension browser-client
+2019-01-11T21:34:59.047Z - info: Using extension reports
+2019-01-11T21:34:59.051Z - info: Using extension text
+2019-01-11T21:34:59.053Z - info: Using extension base
+2019-01-11T21:34:59.055Z - info: Using extension studio
+2019-01-11T21:34:59.117Z - info: Using extension pdf-utils
+2019-01-11T21:34:59.120Z - info: Using extension scripts
+2019-01-11T21:34:59.165Z - info: Using extension assets
+2019-01-11T21:34:59.228Z - info: Using extension scheduling
+2019-01-11T21:34:59.308Z - info: Using extension xlsx
+2019-01-11T21:34:59.401Z - info: Using extension sample-template
+2019-01-11T21:34:59.404Z - debug: Creating samples is disabled
+2019-01-11T21:34:59.404Z - info: Using extension resources
+2019-01-11T21:34:59.406Z - info: Using extension public-templates
+2019-01-11T21:34:59.408Z - debug: Extension public-templates was disabled
+2019-01-11T21:34:59.440Z - info: Creating default express app.
+2019-01-11T21:34:59.460Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:34:59.461Z - info: Verifying license key free
+2019-01-11T21:34:59.462Z - info: Using free license
+2019-01-11T21:34:59.465Z - info: reporter initialized
+2019-01-11T21:34:59.474Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:34:59.475Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:34:59.476Z - debug: Inline data specified.
+2019-01-11T21:34:59.476Z - debug: Resources not defined for this template.
+2019-01-11T21:34:59.486Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:34:59.487Z - debug: Rendering engine pug
+2019-01-11T21:35:00.176Z - warn: Error when processing render request Error while executing templating engine. Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use" Error: Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use"
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.fail (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1441:10)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1501:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+    at compileBody (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:86:18)
+2019-01-11T21:36:52.329Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:36:52.331Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:36:52.338Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:36:56.868Z - info: Found 32 extensions
+2019-01-11T21:36:56.897Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:36:56.899Z - debug: Discovered 32 extensions
+2019-01-11T21:36:56.936Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:36:56.941Z - info: Using extension handlebars
+2019-01-11T21:36:56.947Z - info: Using extension jsrender
+2019-01-11T21:36:56.949Z - info: Using extension templates
+2019-01-11T21:36:56.954Z - info: Using extension pug
+2019-01-11T21:36:56.955Z - info: Using extension authentication
+2019-01-11T21:36:57.001Z - debug: Extension authentication was disabled
+2019-01-11T21:36:57.001Z - info: Using extension import-export
+2019-01-11T21:36:57.207Z - info: Using extension cli
+2019-01-11T21:36:57.209Z - info: Using extension freeze
+2019-01-11T21:36:57.212Z - info: Using extension debug
+2019-01-11T21:36:57.214Z - info: Using extension express
+2019-01-11T21:36:57.307Z - info: Using extension tags
+2019-01-11T21:36:57.310Z - info: Using extension data
+2019-01-11T21:36:57.313Z - info: Using extension authorization
+2019-01-11T21:36:57.318Z - debug: Extension authorization was disabled
+2019-01-11T21:36:57.318Z - info: Using extension html-to-xlsx
+2019-01-11T21:36:57.492Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:36:57.492Z - info: Using extension chrome-pdf
+2019-01-11T21:36:57.499Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:36:57.500Z - info: Using extension child-templates
+2019-01-11T21:36:57.549Z - info: Using extension licensing
+2019-01-11T21:36:57.591Z - info: Using extension fs-store
+2019-01-11T21:36:57.933Z - debug: Extension fs-store was disabled
+2019-01-11T21:36:57.933Z - info: Using extension version-control
+2019-01-11T21:36:58.007Z - info: Using extension browser-client
+2019-01-11T21:36:58.010Z - info: Using extension reports
+2019-01-11T21:36:58.015Z - info: Using extension text
+2019-01-11T21:36:58.016Z - info: Using extension base
+2019-01-11T21:36:58.018Z - info: Using extension studio
+2019-01-11T21:36:58.083Z - info: Using extension pdf-utils
+2019-01-11T21:36:58.085Z - info: Using extension scripts
+2019-01-11T21:36:58.128Z - info: Using extension assets
+2019-01-11T21:36:58.184Z - info: Using extension scheduling
+2019-01-11T21:36:58.265Z - info: Using extension xlsx
+2019-01-11T21:36:58.353Z - info: Using extension sample-template
+2019-01-11T21:36:58.355Z - debug: Creating samples is disabled
+2019-01-11T21:36:58.356Z - info: Using extension resources
+2019-01-11T21:36:58.358Z - info: Using extension public-templates
+2019-01-11T21:36:58.360Z - debug: Extension public-templates was disabled
+2019-01-11T21:36:58.390Z - info: Creating default express app.
+2019-01-11T21:36:58.417Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:36:58.418Z - info: Verifying license key free
+2019-01-11T21:36:58.419Z - info: Using free license
+2019-01-11T21:36:58.423Z - info: reporter initialized
+2019-01-11T21:36:58.434Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:36:58.435Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:36:58.435Z - debug: Inline data specified.
+2019-01-11T21:36:58.436Z - debug: Resources not defined for this template.
+2019-01-11T21:36:58.445Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:36:58.446Z - debug: Rendering engine pug
+2019-01-11T21:36:59.192Z - warn: Error when processing render request Error while executing templating engine. Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use" Error: Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use"
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.fail (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1441:10)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1501:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+    at compileBody (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:86:18)
+2019-01-11T21:39:33.618Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:39:33.618Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:39:33.622Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:39:38.200Z - info: Found 32 extensions
+2019-01-11T21:39:38.203Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:39:38.205Z - debug: Discovered 32 extensions
+2019-01-11T21:39:38.242Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:39:38.245Z - info: Using extension handlebars
+2019-01-11T21:39:38.246Z - info: Using extension jsrender
+2019-01-11T21:39:38.246Z - info: Using extension templates
+2019-01-11T21:39:38.247Z - info: Using extension pug
+2019-01-11T21:39:38.247Z - info: Using extension authentication
+2019-01-11T21:39:38.252Z - debug: Extension authentication was disabled
+2019-01-11T21:39:38.252Z - info: Using extension import-export
+2019-01-11T21:39:38.253Z - info: Using extension cli
+2019-01-11T21:39:38.254Z - info: Using extension freeze
+2019-01-11T21:39:38.255Z - info: Using extension debug
+2019-01-11T21:39:38.256Z - info: Using extension express
+2019-01-11T21:39:38.258Z - info: Using extension tags
+2019-01-11T21:39:38.260Z - info: Using extension data
+2019-01-11T21:39:38.260Z - info: Using extension authorization
+2019-01-11T21:39:38.260Z - debug: Extension authorization was disabled
+2019-01-11T21:39:38.261Z - info: Using extension html-to-xlsx
+2019-01-11T21:39:38.264Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:39:38.264Z - info: Using extension chrome-pdf
+2019-01-11T21:39:38.267Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:39:38.267Z - info: Using extension child-templates
+2019-01-11T21:39:38.268Z - info: Using extension licensing
+2019-01-11T21:39:38.269Z - info: Using extension fs-store
+2019-01-11T21:39:38.272Z - debug: Extension fs-store was disabled
+2019-01-11T21:39:38.272Z - info: Using extension version-control
+2019-01-11T21:39:38.276Z - info: Using extension browser-client
+2019-01-11T21:39:38.278Z - info: Using extension reports
+2019-01-11T21:39:38.280Z - info: Using extension text
+2019-01-11T21:39:38.280Z - info: Using extension base
+2019-01-11T21:39:38.281Z - info: Using extension studio
+2019-01-11T21:39:38.283Z - info: Using extension pdf-utils
+2019-01-11T21:39:38.283Z - info: Using extension scripts
+2019-01-11T21:39:38.285Z - info: Using extension assets
+2019-01-11T21:39:38.287Z - info: Using extension scheduling
+2019-01-11T21:39:38.288Z - info: Using extension xlsx
+2019-01-11T21:39:38.290Z - info: Using extension sample-template
+2019-01-11T21:39:38.292Z - debug: Creating samples is disabled
+2019-01-11T21:39:38.293Z - info: Using extension resources
+2019-01-11T21:39:38.293Z - info: Using extension public-templates
+2019-01-11T21:39:38.293Z - debug: Extension public-templates was disabled
+2019-01-11T21:39:38.301Z - info: Creating default express app.
+2019-01-11T21:39:38.321Z - error: Error when starting http server on port 5448 Error: listen EADDRINUSE :::5448
+    at Server.setupListenHandle [as _listen2] (net.js:1286:14)
+    at listenInCluster (net.js:1334:12)
+    at Server.listen (net.js:1421:7)
+    at Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:23:12)
+    at Promise._execute (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\debuggability.js:313:9)
+    at Promise._resolveFromExecutor (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:483:18)
+    at new Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:79:10)
+    at startAsync (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:17:10)
+    at steps.push (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:51:14)
+    at Object.start (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:125:13)
+    at Object.reporter.initializeListeners.add (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:280:30)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+2019-01-11T21:39:38.332Z - error: Error occured during reporter init Error: listen EADDRINUSE :::5448
+    at Server.setupListenHandle [as _listen2] (net.js:1286:14)
+    at listenInCluster (net.js:1334:12)
+    at Server.listen (net.js:1421:7)
+    at Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:23:12)
+    at Promise._execute (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\debuggability.js:313:9)
+    at Promise._resolveFromExecutor (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:483:18)
+    at new Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:79:10)
+    at startAsync (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:17:10)
+    at steps.push (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:51:14)
+    at Object.start (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:125:13)
+    at Object.reporter.initializeListeners.add (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:280:30)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+2019-01-11T21:40:34.739Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:40:34.740Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:40:34.747Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:40:39.315Z - info: Found 32 extensions
+2019-01-11T21:40:39.357Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:40:39.364Z - debug: Discovered 32 extensions
+2019-01-11T21:40:39.402Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:40:39.407Z - info: Using extension handlebars
+2019-01-11T21:40:39.412Z - info: Using extension jsrender
+2019-01-11T21:40:39.413Z - info: Using extension templates
+2019-01-11T21:40:39.419Z - info: Using extension pug
+2019-01-11T21:40:39.420Z - info: Using extension authentication
+2019-01-11T21:40:39.460Z - debug: Extension authentication was disabled
+2019-01-11T21:40:39.460Z - info: Using extension import-export
+2019-01-11T21:40:39.668Z - info: Using extension cli
+2019-01-11T21:40:39.670Z - info: Using extension freeze
+2019-01-11T21:40:39.672Z - info: Using extension debug
+2019-01-11T21:40:39.674Z - info: Using extension express
+2019-01-11T21:40:39.774Z - info: Using extension tags
+2019-01-11T21:40:39.777Z - info: Using extension data
+2019-01-11T21:40:39.779Z - info: Using extension authorization
+2019-01-11T21:40:39.784Z - debug: Extension authorization was disabled
+2019-01-11T21:40:39.784Z - info: Using extension html-to-xlsx
+2019-01-11T21:40:39.961Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:40:39.961Z - info: Using extension chrome-pdf
+2019-01-11T21:40:39.969Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:40:39.969Z - info: Using extension child-templates
+2019-01-11T21:40:40.017Z - info: Using extension licensing
+2019-01-11T21:40:40.064Z - info: Using extension fs-store
+2019-01-11T21:40:40.433Z - debug: Extension fs-store was disabled
+2019-01-11T21:40:40.433Z - info: Using extension version-control
+2019-01-11T21:40:40.512Z - info: Using extension browser-client
+2019-01-11T21:40:40.515Z - info: Using extension reports
+2019-01-11T21:40:40.520Z - info: Using extension text
+2019-01-11T21:40:40.521Z - info: Using extension base
+2019-01-11T21:40:40.523Z - info: Using extension studio
+2019-01-11T21:40:40.586Z - info: Using extension pdf-utils
+2019-01-11T21:40:40.588Z - info: Using extension scripts
+2019-01-11T21:40:40.630Z - info: Using extension assets
+2019-01-11T21:40:40.688Z - info: Using extension scheduling
+2019-01-11T21:40:40.756Z - info: Using extension xlsx
+2019-01-11T21:40:40.850Z - info: Using extension sample-template
+2019-01-11T21:40:40.852Z - debug: Creating samples is disabled
+2019-01-11T21:40:40.853Z - info: Using extension resources
+2019-01-11T21:40:40.854Z - info: Using extension public-templates
+2019-01-11T21:40:40.856Z - debug: Extension public-templates was disabled
+2019-01-11T21:40:40.885Z - info: Creating default express app.
+2019-01-11T21:40:40.909Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:40:40.910Z - info: Verifying license key free
+2019-01-11T21:40:40.911Z - info: Using free license
+2019-01-11T21:40:40.916Z - info: reporter initialized
+2019-01-11T21:40:40.925Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:40:40.927Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:40:40.928Z - debug: Inline data specified.
+2019-01-11T21:40:40.931Z - debug: Resources not defined for this template.
+2019-01-11T21:40:40.955Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:40:40.956Z - debug: Rendering engine pug
+2019-01-11T21:40:41.648Z - warn: Error when processing render request Error while executing templating engine. Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use" Error: Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use"
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.fail (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1441:10)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1501:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+    at compileBody (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:86:18)
+2019-01-11T21:42:05.478Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:42:05.480Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:42:05.486Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:42:09.940Z - info: Found 32 extensions
+2019-01-11T21:42:09.969Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:42:09.971Z - debug: Discovered 32 extensions
+2019-01-11T21:42:10.008Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:42:10.013Z - info: Using extension handlebars
+2019-01-11T21:42:10.018Z - info: Using extension jsrender
+2019-01-11T21:42:10.021Z - info: Using extension templates
+2019-01-11T21:42:10.026Z - info: Using extension pug
+2019-01-11T21:42:10.027Z - info: Using extension authentication
+2019-01-11T21:42:10.072Z - debug: Extension authentication was disabled
+2019-01-11T21:42:10.072Z - info: Using extension import-export
+2019-01-11T21:42:10.285Z - info: Using extension cli
+2019-01-11T21:42:10.287Z - info: Using extension freeze
+2019-01-11T21:42:10.290Z - info: Using extension debug
+2019-01-11T21:42:10.293Z - info: Using extension express
+2019-01-11T21:42:10.392Z - info: Using extension tags
+2019-01-11T21:42:10.396Z - info: Using extension data
+2019-01-11T21:42:10.399Z - info: Using extension authorization
+2019-01-11T21:42:10.403Z - debug: Extension authorization was disabled
+2019-01-11T21:42:10.404Z - info: Using extension html-to-xlsx
+2019-01-11T21:42:10.580Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:42:10.580Z - info: Using extension chrome-pdf
+2019-01-11T21:42:10.589Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:42:10.589Z - info: Using extension child-templates
+2019-01-11T21:42:10.645Z - info: Using extension licensing
+2019-01-11T21:42:10.688Z - info: Using extension fs-store
+2019-01-11T21:42:11.039Z - debug: Extension fs-store was disabled
+2019-01-11T21:42:11.039Z - info: Using extension version-control
+2019-01-11T21:42:11.114Z - info: Using extension browser-client
+2019-01-11T21:42:11.117Z - info: Using extension reports
+2019-01-11T21:42:11.121Z - info: Using extension text
+2019-01-11T21:42:11.122Z - info: Using extension base
+2019-01-11T21:42:11.124Z - info: Using extension studio
+2019-01-11T21:42:11.184Z - info: Using extension pdf-utils
+2019-01-11T21:42:11.186Z - info: Using extension scripts
+2019-01-11T21:42:11.231Z - info: Using extension assets
+2019-01-11T21:42:11.285Z - info: Using extension scheduling
+2019-01-11T21:42:11.381Z - info: Using extension xlsx
+2019-01-11T21:42:11.469Z - info: Using extension sample-template
+2019-01-11T21:42:11.472Z - debug: Creating samples is disabled
+2019-01-11T21:42:11.472Z - info: Using extension resources
+2019-01-11T21:42:11.474Z - info: Using extension public-templates
+2019-01-11T21:42:11.477Z - debug: Extension public-templates was disabled
+2019-01-11T21:42:11.508Z - info: Creating default express app.
+2019-01-11T21:42:11.530Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:42:11.531Z - info: Verifying license key free
+2019-01-11T21:42:11.532Z - info: Using free license
+2019-01-11T21:42:11.538Z - info: reporter initialized
+2019-01-11T21:42:11.546Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:42:11.547Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:42:11.548Z - debug: Inline data specified.
+2019-01-11T21:42:11.549Z - debug: Resources not defined for this template.
+2019-01-11T21:42:11.560Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:42:11.560Z - debug: Rendering engine pug
+2019-01-11T21:42:12.239Z - warn: Error when processing render request Error while executing templating engine. Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use" Error: Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use"
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.fail (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1441:10)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1501:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+    at compileBody (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:86:18)
+2019-01-11T21:43:02.582Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:43:02.583Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:43:02.592Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:43:07.216Z - info: Found 32 extensions
+2019-01-11T21:43:07.247Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:43:07.249Z - debug: Discovered 32 extensions
+2019-01-11T21:43:07.285Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:43:07.291Z - info: Using extension handlebars
+2019-01-11T21:43:07.298Z - info: Using extension jsrender
+2019-01-11T21:43:07.299Z - info: Using extension templates
+2019-01-11T21:43:07.303Z - info: Using extension pug
+2019-01-11T21:43:07.305Z - info: Using extension authentication
+2019-01-11T21:43:07.347Z - debug: Extension authentication was disabled
+2019-01-11T21:43:07.347Z - info: Using extension import-export
+2019-01-11T21:43:07.550Z - info: Using extension cli
+2019-01-11T21:43:07.552Z - info: Using extension freeze
+2019-01-11T21:43:07.554Z - info: Using extension debug
+2019-01-11T21:43:07.556Z - info: Using extension express
+2019-01-11T21:43:07.652Z - info: Using extension tags
+2019-01-11T21:43:07.656Z - info: Using extension data
+2019-01-11T21:43:07.658Z - info: Using extension authorization
+2019-01-11T21:43:07.663Z - debug: Extension authorization was disabled
+2019-01-11T21:43:07.663Z - info: Using extension html-to-xlsx
+2019-01-11T21:43:07.839Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:43:07.839Z - info: Using extension chrome-pdf
+2019-01-11T21:43:07.846Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:43:07.846Z - info: Using extension child-templates
+2019-01-11T21:43:07.899Z - info: Using extension licensing
+2019-01-11T21:43:07.949Z - info: Using extension fs-store
+2019-01-11T21:43:08.286Z - debug: Extension fs-store was disabled
+2019-01-11T21:43:08.286Z - info: Using extension version-control
+2019-01-11T21:43:08.361Z - info: Using extension browser-client
+2019-01-11T21:43:08.364Z - info: Using extension reports
+2019-01-11T21:43:08.368Z - info: Using extension text
+2019-01-11T21:43:08.369Z - info: Using extension base
+2019-01-11T21:43:08.371Z - info: Using extension studio
+2019-01-11T21:43:08.432Z - info: Using extension pdf-utils
+2019-01-11T21:43:08.434Z - info: Using extension scripts
+2019-01-11T21:43:08.478Z - info: Using extension assets
+2019-01-11T21:43:08.536Z - info: Using extension scheduling
+2019-01-11T21:43:08.582Z - info: Using extension xlsx
+2019-01-11T21:43:08.673Z - info: Using extension sample-template
+2019-01-11T21:43:08.676Z - debug: Creating samples is disabled
+2019-01-11T21:43:08.676Z - info: Using extension resources
+2019-01-11T21:43:08.678Z - info: Using extension public-templates
+2019-01-11T21:43:08.679Z - debug: Extension public-templates was disabled
+2019-01-11T21:43:08.734Z - info: Creating default express app.
+2019-01-11T21:43:08.767Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:43:08.768Z - info: Verifying license key free
+2019-01-11T21:43:08.769Z - info: Using free license
+2019-01-11T21:43:08.773Z - info: reporter initialized
+2019-01-11T21:43:08.782Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:43:08.783Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:43:08.783Z - debug: Inline data specified.
+2019-01-11T21:43:08.783Z - debug: Resources not defined for this template.
+2019-01-11T21:43:08.792Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:43:08.793Z - debug: Rendering engine pug
+2019-01-11T21:43:09.475Z - warn: Error when processing render request Error while executing templating engine. Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use" Error: Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use"
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.fail (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1441:10)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1501:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+    at compileBody (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:86:18)
+2019-01-11T21:44:03.071Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:44:03.072Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:44:03.078Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:44:07.606Z - info: Found 32 extensions
+2019-01-11T21:44:07.634Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:44:07.636Z - debug: Discovered 32 extensions
+2019-01-11T21:44:07.675Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:44:07.683Z - info: Using extension handlebars
+2019-01-11T21:44:07.688Z - info: Using extension jsrender
+2019-01-11T21:44:07.689Z - info: Using extension templates
+2019-01-11T21:44:07.693Z - info: Using extension pug
+2019-01-11T21:44:07.695Z - info: Using extension authentication
+2019-01-11T21:44:07.737Z - debug: Extension authentication was disabled
+2019-01-11T21:44:07.737Z - info: Using extension import-export
+2019-01-11T21:44:07.938Z - info: Using extension cli
+2019-01-11T21:44:07.939Z - info: Using extension freeze
+2019-01-11T21:44:07.944Z - info: Using extension debug
+2019-01-11T21:44:07.946Z - info: Using extension express
+2019-01-11T21:44:08.047Z - info: Using extension tags
+2019-01-11T21:44:08.050Z - info: Using extension data
+2019-01-11T21:44:08.052Z - info: Using extension authorization
+2019-01-11T21:44:08.056Z - debug: Extension authorization was disabled
+2019-01-11T21:44:08.056Z - info: Using extension html-to-xlsx
+2019-01-11T21:44:08.228Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:44:08.228Z - info: Using extension chrome-pdf
+2019-01-11T21:44:08.236Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:44:08.236Z - info: Using extension child-templates
+2019-01-11T21:44:08.283Z - info: Using extension licensing
+2019-01-11T21:44:08.324Z - info: Using extension fs-store
+2019-01-11T21:44:08.659Z - debug: Extension fs-store was disabled
+2019-01-11T21:44:08.659Z - info: Using extension version-control
+2019-01-11T21:44:08.736Z - info: Using extension browser-client
+2019-01-11T21:44:08.739Z - info: Using extension reports
+2019-01-11T21:44:08.743Z - info: Using extension text
+2019-01-11T21:44:08.744Z - info: Using extension base
+2019-01-11T21:44:08.746Z - info: Using extension studio
+2019-01-11T21:44:08.809Z - info: Using extension pdf-utils
+2019-01-11T21:44:08.811Z - info: Using extension scripts
+2019-01-11T21:44:08.855Z - info: Using extension assets
+2019-01-11T21:44:08.912Z - info: Using extension scheduling
+2019-01-11T21:44:09.002Z - info: Using extension xlsx
+2019-01-11T21:44:09.087Z - info: Using extension sample-template
+2019-01-11T21:44:09.090Z - debug: Creating samples is disabled
+2019-01-11T21:44:09.090Z - info: Using extension resources
+2019-01-11T21:44:09.092Z - info: Using extension public-templates
+2019-01-11T21:44:09.094Z - debug: Extension public-templates was disabled
+2019-01-11T21:44:09.125Z - info: Creating default express app.
+2019-01-11T21:44:09.147Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:44:09.149Z - info: Verifying license key free
+2019-01-11T21:44:09.150Z - info: Using free license
+2019-01-11T21:44:09.153Z - info: reporter initialized
+2019-01-11T21:44:09.164Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:44:09.165Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:44:09.166Z - debug: Inline data specified.
+2019-01-11T21:44:09.166Z - debug: Resources not defined for this template.
+2019-01-11T21:44:09.174Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:44:09.175Z - debug: Rendering engine pug
+2019-01-11T21:44:09.862Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T21:44:09.863Z - debug: Executing recipe chrome-pdf
+2019-01-11T21:44:10.075Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T21:44:10.228Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T21:44:10.348Z - debug: Skipping storing report.
+2019-01-11T21:44:10.350Z - info: Rendering request 1 finished in 1186 ms
+2019-01-11T21:44:51.603Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:44:51.604Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:44:51.612Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:44:56.077Z - info: Found 32 extensions
+2019-01-11T21:44:56.101Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:44:56.103Z - debug: Discovered 32 extensions
+2019-01-11T21:44:56.143Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:44:56.148Z - info: Using extension handlebars
+2019-01-11T21:44:56.153Z - info: Using extension jsrender
+2019-01-11T21:44:56.155Z - info: Using extension templates
+2019-01-11T21:44:56.159Z - info: Using extension pug
+2019-01-11T21:44:56.160Z - info: Using extension authentication
+2019-01-11T21:44:56.207Z - debug: Extension authentication was disabled
+2019-01-11T21:44:56.207Z - info: Using extension import-export
+2019-01-11T21:44:56.411Z - info: Using extension cli
+2019-01-11T21:44:56.412Z - info: Using extension freeze
+2019-01-11T21:44:56.414Z - info: Using extension debug
+2019-01-11T21:44:56.417Z - info: Using extension express
+2019-01-11T21:44:56.512Z - info: Using extension tags
+2019-01-11T21:44:56.518Z - info: Using extension data
+2019-01-11T21:44:56.521Z - info: Using extension authorization
+2019-01-11T21:44:56.525Z - debug: Extension authorization was disabled
+2019-01-11T21:44:56.525Z - info: Using extension html-to-xlsx
+2019-01-11T21:44:56.703Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:44:56.703Z - info: Using extension chrome-pdf
+2019-01-11T21:44:56.713Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:44:56.713Z - info: Using extension child-templates
+2019-01-11T21:44:56.762Z - info: Using extension licensing
+2019-01-11T21:44:56.813Z - info: Using extension fs-store
+2019-01-11T21:44:57.152Z - debug: Extension fs-store was disabled
+2019-01-11T21:44:57.152Z - info: Using extension version-control
+2019-01-11T21:44:57.228Z - info: Using extension browser-client
+2019-01-11T21:44:57.231Z - info: Using extension reports
+2019-01-11T21:44:57.235Z - info: Using extension text
+2019-01-11T21:44:57.237Z - info: Using extension base
+2019-01-11T21:44:57.240Z - info: Using extension studio
+2019-01-11T21:44:57.306Z - info: Using extension pdf-utils
+2019-01-11T21:44:57.308Z - info: Using extension scripts
+2019-01-11T21:44:57.349Z - info: Using extension assets
+2019-01-11T21:44:57.405Z - info: Using extension scheduling
+2019-01-11T21:44:57.485Z - info: Using extension xlsx
+2019-01-11T21:44:57.573Z - info: Using extension sample-template
+2019-01-11T21:44:57.575Z - debug: Creating samples is disabled
+2019-01-11T21:44:57.575Z - info: Using extension resources
+2019-01-11T21:44:57.577Z - info: Using extension public-templates
+2019-01-11T21:44:57.580Z - debug: Extension public-templates was disabled
+2019-01-11T21:44:57.610Z - info: Creating default express app.
+2019-01-11T21:44:57.632Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:44:57.633Z - info: Verifying license key free
+2019-01-11T21:44:57.634Z - info: Using free license
+2019-01-11T21:44:57.638Z - info: reporter initialized
+2019-01-11T21:44:57.648Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:44:57.651Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:44:57.651Z - debug: Inline data specified.
+2019-01-11T21:44:57.652Z - debug: Resources not defined for this template.
+2019-01-11T21:44:57.661Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:44:57.661Z - debug: Rendering engine pug
+2019-01-11T21:44:58.368Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T21:44:58.369Z - debug: Executing recipe chrome-pdf
+2019-01-11T21:44:58.477Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T21:44:58.602Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T21:44:58.701Z - debug: Skipping storing report.
+2019-01-11T21:44:58.703Z - info: Rendering request 1 finished in 1056 ms
+2019-01-11T21:46:21.040Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:46:21.041Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:46:21.048Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:46:25.526Z - info: Found 32 extensions
+2019-01-11T21:46:25.547Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:46:25.549Z - debug: Discovered 32 extensions
+2019-01-11T21:46:25.586Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:46:25.590Z - info: Using extension handlebars
+2019-01-11T21:46:25.596Z - info: Using extension jsrender
+2019-01-11T21:46:25.598Z - info: Using extension templates
+2019-01-11T21:46:25.602Z - info: Using extension pug
+2019-01-11T21:46:25.603Z - info: Using extension authentication
+2019-01-11T21:46:25.648Z - debug: Extension authentication was disabled
+2019-01-11T21:46:25.648Z - info: Using extension import-export
+2019-01-11T21:46:25.857Z - info: Using extension cli
+2019-01-11T21:46:25.860Z - info: Using extension freeze
+2019-01-11T21:46:25.862Z - info: Using extension debug
+2019-01-11T21:46:25.866Z - info: Using extension express
+2019-01-11T21:46:25.966Z - info: Using extension tags
+2019-01-11T21:46:25.969Z - info: Using extension data
+2019-01-11T21:46:25.972Z - info: Using extension authorization
+2019-01-11T21:46:25.977Z - debug: Extension authorization was disabled
+2019-01-11T21:46:25.977Z - info: Using extension html-to-xlsx
+2019-01-11T21:46:26.146Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:46:26.147Z - info: Using extension chrome-pdf
+2019-01-11T21:46:26.154Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:46:26.154Z - info: Using extension child-templates
+2019-01-11T21:46:26.206Z - info: Using extension licensing
+2019-01-11T21:46:26.247Z - info: Using extension fs-store
+2019-01-11T21:46:26.586Z - debug: Extension fs-store was disabled
+2019-01-11T21:46:26.586Z - info: Using extension version-control
+2019-01-11T21:46:26.661Z - info: Using extension browser-client
+2019-01-11T21:46:26.664Z - info: Using extension reports
+2019-01-11T21:46:26.668Z - info: Using extension text
+2019-01-11T21:46:26.670Z - info: Using extension base
+2019-01-11T21:46:26.672Z - info: Using extension studio
+2019-01-11T21:46:26.733Z - info: Using extension pdf-utils
+2019-01-11T21:46:26.735Z - info: Using extension scripts
+2019-01-11T21:46:26.780Z - info: Using extension assets
+2019-01-11T21:46:26.845Z - info: Using extension scheduling
+2019-01-11T21:46:26.921Z - info: Using extension xlsx
+2019-01-11T21:46:27.010Z - info: Using extension sample-template
+2019-01-11T21:46:27.012Z - debug: Creating samples is disabled
+2019-01-11T21:46:27.012Z - info: Using extension resources
+2019-01-11T21:46:27.014Z - info: Using extension public-templates
+2019-01-11T21:46:27.017Z - debug: Extension public-templates was disabled
+2019-01-11T21:46:27.048Z - info: Creating default express app.
+2019-01-11T21:46:27.070Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:46:27.073Z - info: Verifying license key free
+2019-01-11T21:46:27.074Z - info: Using free license
+2019-01-11T21:46:27.080Z - info: reporter initialized
+2019-01-11T21:46:27.089Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:46:27.090Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T21:46:27.091Z - debug: Inline data specified.
+2019-01-11T21:46:27.092Z - debug: Resources not defined for this template.
+2019-01-11T21:46:27.100Z - debug: Base url not specified, skipping its injection.
+2019-01-11T21:46:27.101Z - debug: Rendering engine pug
+2019-01-11T21:46:27.788Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T21:46:27.789Z - debug: Executing recipe chrome-pdf
+2019-01-11T21:46:27.906Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T21:46:28.028Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T21:46:28.130Z - debug: Skipping storing report.
+2019-01-11T21:46:28.132Z - info: Rendering request 1 finished in 1043 ms
+2019-01-11T21:49:48.796Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:49:48.797Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:49:48.805Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:49:53.356Z - info: Found 32 extensions
+2019-01-11T21:49:53.378Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:49:53.380Z - debug: Discovered 32 extensions
+2019-01-11T21:49:53.422Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:49:53.427Z - info: Using extension handlebars
+2019-01-11T21:49:53.432Z - info: Using extension jsrender
+2019-01-11T21:49:53.433Z - info: Using extension templates
+2019-01-11T21:49:53.437Z - info: Using extension pug
+2019-01-11T21:49:53.439Z - info: Using extension authentication
+2019-01-11T21:49:53.484Z - debug: Extension authentication was disabled
+2019-01-11T21:49:53.484Z - info: Using extension import-export
+2019-01-11T21:49:53.691Z - info: Using extension cli
+2019-01-11T21:49:53.694Z - info: Using extension freeze
+2019-01-11T21:49:53.696Z - info: Using extension debug
+2019-01-11T21:49:53.699Z - info: Using extension express
+2019-01-11T21:49:53.815Z - info: Using extension tags
+2019-01-11T21:49:53.819Z - info: Using extension data
+2019-01-11T21:49:53.821Z - info: Using extension authorization
+2019-01-11T21:49:53.826Z - debug: Extension authorization was disabled
+2019-01-11T21:49:53.826Z - info: Using extension html-to-xlsx
+2019-01-11T21:49:54.008Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:49:54.008Z - info: Using extension chrome-pdf
+2019-01-11T21:49:54.015Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:49:54.016Z - info: Using extension child-templates
+2019-01-11T21:49:54.065Z - info: Using extension licensing
+2019-01-11T21:49:54.112Z - info: Using extension fs-store
+2019-01-11T21:49:54.458Z - debug: Extension fs-store was disabled
+2019-01-11T21:49:54.458Z - info: Using extension version-control
+2019-01-11T21:49:54.533Z - info: Using extension browser-client
+2019-01-11T21:49:54.537Z - info: Using extension reports
+2019-01-11T21:49:54.541Z - info: Using extension text
+2019-01-11T21:49:54.542Z - info: Using extension base
+2019-01-11T21:49:54.544Z - info: Using extension studio
+2019-01-11T21:49:54.606Z - info: Using extension pdf-utils
+2019-01-11T21:49:54.609Z - info: Using extension scripts
+2019-01-11T21:49:54.652Z - info: Using extension assets
+2019-01-11T21:49:54.713Z - info: Using extension scheduling
+2019-01-11T21:49:54.759Z - info: Using extension xlsx
+2019-01-11T21:49:54.853Z - info: Using extension sample-template
+2019-01-11T21:49:54.856Z - debug: Creating samples is disabled
+2019-01-11T21:49:54.856Z - info: Using extension resources
+2019-01-11T21:49:54.858Z - info: Using extension public-templates
+2019-01-11T21:49:54.860Z - debug: Extension public-templates was disabled
+2019-01-11T21:49:54.903Z - info: Creating default express app.
+2019-01-11T21:49:54.942Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:49:54.943Z - info: Verifying license key free
+2019-01-11T21:49:54.944Z - info: Using free license
+2019-01-11T21:49:54.948Z - info: reporter initialized
+2019-01-11T21:49:54.958Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:49:54.963Z - warn: Error when processing render request Unable to find specified template or user doesnt have permissions to read it: template.pug Error: Unable to find specified template or user doesnt have permissions to read it: template.pug
+    at module.exports (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-core\lib\util\createError.js:10:13)
+    at Reporter.createError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-core\lib\reporter.js:256:12)
+    at AsyncFunction.<anonymous> (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-templates\lib\templates.js:136:20)
+2019-01-11T21:50:31.118Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T21:50:31.119Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:50:31.149Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T21:50:35.721Z - info: Found 32 extensions
+2019-01-11T21:50:35.747Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T21:50:35.749Z - debug: Discovered 32 extensions
+2019-01-11T21:50:35.789Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T21:50:35.796Z - info: Using extension handlebars
+2019-01-11T21:50:35.801Z - info: Using extension jsrender
+2019-01-11T21:50:35.802Z - info: Using extension templates
+2019-01-11T21:50:35.806Z - info: Using extension pug
+2019-01-11T21:50:35.807Z - info: Using extension authentication
+2019-01-11T21:50:35.851Z - debug: Extension authentication was disabled
+2019-01-11T21:50:35.851Z - info: Using extension import-export
+2019-01-11T21:50:36.053Z - info: Using extension cli
+2019-01-11T21:50:36.054Z - info: Using extension freeze
+2019-01-11T21:50:36.056Z - info: Using extension debug
+2019-01-11T21:50:36.059Z - info: Using extension express
+2019-01-11T21:50:36.149Z - info: Using extension tags
+2019-01-11T21:50:36.153Z - info: Using extension data
+2019-01-11T21:50:36.155Z - info: Using extension authorization
+2019-01-11T21:50:36.159Z - debug: Extension authorization was disabled
+2019-01-11T21:50:36.159Z - info: Using extension html-to-xlsx
+2019-01-11T21:50:36.341Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T21:50:36.341Z - info: Using extension chrome-pdf
+2019-01-11T21:50:36.349Z - debug: Chrome strategy is dedicated-process
+2019-01-11T21:50:36.350Z - info: Using extension child-templates
+2019-01-11T21:50:36.397Z - info: Using extension licensing
+2019-01-11T21:50:36.440Z - info: Using extension fs-store
+2019-01-11T21:50:36.794Z - debug: Extension fs-store was disabled
+2019-01-11T21:50:36.794Z - info: Using extension version-control
+2019-01-11T21:50:36.893Z - info: Using extension browser-client
+2019-01-11T21:50:36.896Z - info: Using extension reports
+2019-01-11T21:50:36.903Z - info: Using extension text
+2019-01-11T21:50:36.904Z - info: Using extension base
+2019-01-11T21:50:36.907Z - info: Using extension studio
+2019-01-11T21:50:36.982Z - info: Using extension pdf-utils
+2019-01-11T21:50:36.985Z - info: Using extension scripts
+2019-01-11T21:50:37.031Z - info: Using extension assets
+2019-01-11T21:50:37.089Z - info: Using extension scheduling
+2019-01-11T21:50:37.135Z - info: Using extension xlsx
+2019-01-11T21:50:37.232Z - info: Using extension sample-template
+2019-01-11T21:50:37.235Z - debug: Creating samples is disabled
+2019-01-11T21:50:37.235Z - info: Using extension resources
+2019-01-11T21:50:37.237Z - info: Using extension public-templates
+2019-01-11T21:50:37.239Z - debug: Extension public-templates was disabled
+2019-01-11T21:50:37.270Z - info: Creating default express app.
+2019-01-11T21:50:37.293Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T21:50:37.294Z - info: Verifying license key free
+2019-01-11T21:50:37.295Z - info: Using free license
+2019-01-11T21:50:37.299Z - info: reporter initialized
+2019-01-11T21:50:37.307Z - info: Starting rendering request 1 (user: null)
+2019-01-11T21:50:37.313Z - warn: Error when processing render request Unable to find specified template or user doesnt have permissions to read it: C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug Error: Unable to find specified template or user doesnt have permissions to read it: C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+    at module.exports (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-core\lib\util\createError.js:10:13)
+    at Reporter.createError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-core\lib\reporter.js:256:12)
+    at AsyncFunction.<anonymous> (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-templates\lib\templates.js:136:20)
+2019-01-11T22:06:07.360Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:06:07.361Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:06:07.368Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:06:11.994Z - info: Found 32 extensions
+2019-01-11T22:06:12.023Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:06:12.025Z - debug: Discovered 32 extensions
+2019-01-11T22:06:12.061Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:06:12.067Z - info: Using extension handlebars
+2019-01-11T22:06:12.075Z - info: Using extension jsrender
+2019-01-11T22:06:12.076Z - info: Using extension templates
+2019-01-11T22:06:12.080Z - info: Using extension pug
+2019-01-11T22:06:12.081Z - info: Using extension authentication
+2019-01-11T22:06:12.125Z - debug: Extension authentication was disabled
+2019-01-11T22:06:12.125Z - info: Using extension import-export
+2019-01-11T22:06:12.339Z - info: Using extension cli
+2019-01-11T22:06:12.340Z - info: Using extension freeze
+2019-01-11T22:06:12.344Z - info: Using extension debug
+2019-01-11T22:06:12.347Z - info: Using extension express
+2019-01-11T22:06:12.458Z - info: Using extension tags
+2019-01-11T22:06:12.462Z - info: Using extension data
+2019-01-11T22:06:12.464Z - info: Using extension authorization
+2019-01-11T22:06:12.473Z - debug: Extension authorization was disabled
+2019-01-11T22:06:12.474Z - info: Using extension html-to-xlsx
+2019-01-11T22:06:12.668Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:06:12.668Z - info: Using extension chrome-pdf
+2019-01-11T22:06:12.676Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:06:12.677Z - info: Using extension child-templates
+2019-01-11T22:06:12.728Z - info: Using extension licensing
+2019-01-11T22:06:12.771Z - info: Using extension fs-store
+2019-01-11T22:06:13.129Z - debug: Extension fs-store was disabled
+2019-01-11T22:06:13.130Z - info: Using extension version-control
+2019-01-11T22:06:13.208Z - info: Using extension browser-client
+2019-01-11T22:06:13.211Z - info: Using extension reports
+2019-01-11T22:06:13.215Z - info: Using extension text
+2019-01-11T22:06:13.216Z - info: Using extension base
+2019-01-11T22:06:13.218Z - info: Using extension studio
+2019-01-11T22:06:13.286Z - info: Using extension pdf-utils
+2019-01-11T22:06:13.290Z - info: Using extension scripts
+2019-01-11T22:06:13.334Z - info: Using extension assets
+2019-01-11T22:06:13.392Z - info: Using extension scheduling
+2019-01-11T22:06:13.439Z - info: Using extension xlsx
+2019-01-11T22:06:13.533Z - info: Using extension sample-template
+2019-01-11T22:06:13.537Z - debug: Creating samples is disabled
+2019-01-11T22:06:13.537Z - info: Using extension resources
+2019-01-11T22:06:13.539Z - info: Using extension public-templates
+2019-01-11T22:06:13.541Z - debug: Extension public-templates was disabled
+2019-01-11T22:06:13.572Z - info: Creating default express app.
+2019-01-11T22:06:13.595Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T22:06:13.596Z - info: Verifying license key free
+2019-01-11T22:06:13.597Z - info: Using free license
+2019-01-11T22:06:13.601Z - info: reporter initialized
+2019-01-11T22:06:13.609Z - info: Starting rendering request 1 (user: null)
+2019-01-11T22:06:13.610Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T22:06:13.611Z - debug: Inline data specified.
+2019-01-11T22:06:13.611Z - debug: Resources not defined for this template.
+2019-01-11T22:06:13.621Z - debug: Base url not specified, skipping its injection.
+2019-01-11T22:06:13.621Z - debug: Rendering engine pug
+2019-01-11T22:06:14.325Z - warn: Error when processing render request Error while executing templating engine. Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use" Error: Pug:1:2
+  > 1| C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\pdf\template.pug
+--------^
+
+unexpected text ":\Use"
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.fail (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1441:10)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1501:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+    at compileBody (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:86:18)
+2019-01-11T22:06:51.091Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:06:51.092Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:06:51.102Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:06:55.657Z - info: Found 32 extensions
+2019-01-11T22:06:55.687Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:06:55.689Z - debug: Discovered 32 extensions
+2019-01-11T22:06:55.731Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:06:55.736Z - info: Using extension handlebars
+2019-01-11T22:06:55.742Z - info: Using extension jsrender
+2019-01-11T22:06:55.743Z - info: Using extension templates
+2019-01-11T22:06:55.747Z - info: Using extension pug
+2019-01-11T22:06:55.748Z - info: Using extension authentication
+2019-01-11T22:06:55.794Z - debug: Extension authentication was disabled
+2019-01-11T22:06:55.794Z - info: Using extension import-export
+2019-01-11T22:06:56.014Z - info: Using extension cli
+2019-01-11T22:06:56.017Z - info: Using extension freeze
+2019-01-11T22:06:56.020Z - info: Using extension debug
+2019-01-11T22:06:56.022Z - info: Using extension express
+2019-01-11T22:06:56.128Z - info: Using extension tags
+2019-01-11T22:06:56.132Z - info: Using extension data
+2019-01-11T22:06:56.135Z - info: Using extension authorization
+2019-01-11T22:06:56.140Z - debug: Extension authorization was disabled
+2019-01-11T22:06:56.140Z - info: Using extension html-to-xlsx
+2019-01-11T22:06:56.325Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:06:56.325Z - info: Using extension chrome-pdf
+2019-01-11T22:06:56.332Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:06:56.332Z - info: Using extension child-templates
+2019-01-11T22:06:56.386Z - info: Using extension licensing
+2019-01-11T22:06:56.428Z - info: Using extension fs-store
+2019-01-11T22:06:56.802Z - debug: Extension fs-store was disabled
+2019-01-11T22:06:56.802Z - info: Using extension version-control
+2019-01-11T22:06:56.884Z - info: Using extension browser-client
+2019-01-11T22:06:56.887Z - info: Using extension reports
+2019-01-11T22:06:56.892Z - info: Using extension text
+2019-01-11T22:06:56.893Z - info: Using extension base
+2019-01-11T22:06:56.895Z - info: Using extension studio
+2019-01-11T22:06:56.960Z - info: Using extension pdf-utils
+2019-01-11T22:06:56.962Z - info: Using extension scripts
+2019-01-11T22:06:57.007Z - info: Using extension assets
+2019-01-11T22:06:57.064Z - info: Using extension scheduling
+2019-01-11T22:06:57.145Z - info: Using extension xlsx
+2019-01-11T22:06:57.244Z - info: Using extension sample-template
+2019-01-11T22:06:57.247Z - debug: Creating samples is disabled
+2019-01-11T22:06:57.247Z - info: Using extension resources
+2019-01-11T22:06:57.248Z - info: Using extension public-templates
+2019-01-11T22:06:57.251Z - debug: Extension public-templates was disabled
+2019-01-11T22:06:57.279Z - info: Creating default express app.
+2019-01-11T22:06:57.304Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T22:06:57.305Z - info: Verifying license key free
+2019-01-11T22:06:57.306Z - info: Using free license
+2019-01-11T22:06:57.309Z - info: reporter initialized
+2019-01-11T22:06:57.317Z - info: Starting rendering request 1 (user: null)
+2019-01-11T22:06:57.318Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: pug }
+2019-01-11T22:06:57.319Z - debug: Inline data specified.
+2019-01-11T22:06:57.319Z - debug: Resources not defined for this template.
+2019-01-11T22:06:57.329Z - debug: Base url not specified, skipping its injection.
+2019-01-11T22:06:57.329Z - debug: Rendering engine pug
+2019-01-11T22:06:58.019Z - warn: Error when processing render request Error while executing templating engine. Pug:1:1
+  > 1| ./template.pug
+-------^
+
+"/template" is not a valid class name.  Class names can only contain "_", "-", a-z and 0-9, and must contain at least one of "_", or a-z Error: Pug:1:1
+  > 1| ./template.pug
+-------^
+
+"/template" is not a valid class name.  Class names can only contain "_", "-", a-z and 0-9, and must contain at least one of "_", or a-z
+    at makeError (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-error\index.js:32:13)
+    at Lexer.error (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:59:15)
+    at Lexer.className (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:448:12)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.advance (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1492:15)
+    at Lexer.callLexerFunction (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1456:23)
+    at Lexer.getTokens (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:1512:12)
+    at lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-lexer\index.js:12:42)
+    at Object.lex (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug\lib\index.js:99:27)
+    at Function.loadString [as string] (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\pug-load\index.js:44:24)
+2019-01-11T22:15:24.594Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:15:24.596Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:15:24.603Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:15:29.151Z - info: Found 32 extensions
+2019-01-11T22:15:29.176Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:15:29.178Z - debug: Discovered 32 extensions
+2019-01-11T22:15:29.219Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:15:29.226Z - info: Using extension handlebars
+2019-01-11T22:15:29.230Z - info: Using extension jsrender
+2019-01-11T22:15:29.232Z - info: Using extension templates
+2019-01-11T22:15:29.236Z - info: Using extension pug
+2019-01-11T22:15:29.237Z - info: Using extension authentication
+2019-01-11T22:15:29.283Z - debug: Extension authentication was disabled
+2019-01-11T22:15:29.283Z - info: Using extension import-export
+2019-01-11T22:15:29.481Z - info: Using extension cli
+2019-01-11T22:15:29.482Z - info: Using extension freeze
+2019-01-11T22:15:29.485Z - info: Using extension debug
+2019-01-11T22:15:29.488Z - info: Using extension express
+2019-01-11T22:15:29.584Z - info: Using extension tags
+2019-01-11T22:15:29.587Z - info: Using extension data
+2019-01-11T22:15:29.590Z - info: Using extension authorization
+2019-01-11T22:15:29.594Z - debug: Extension authorization was disabled
+2019-01-11T22:15:29.594Z - info: Using extension html-to-xlsx
+2019-01-11T22:15:29.767Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:15:29.767Z - info: Using extension chrome-pdf
+2019-01-11T22:15:29.775Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:15:29.776Z - info: Using extension child-templates
+2019-01-11T22:15:29.826Z - info: Using extension licensing
+2019-01-11T22:15:29.868Z - info: Using extension fs-store
+2019-01-11T22:15:30.205Z - debug: Extension fs-store was disabled
+2019-01-11T22:15:30.206Z - info: Using extension version-control
+2019-01-11T22:15:30.278Z - info: Using extension browser-client
+2019-01-11T22:15:30.280Z - info: Using extension reports
+2019-01-11T22:15:30.284Z - info: Using extension text
+2019-01-11T22:15:30.286Z - info: Using extension base
+2019-01-11T22:15:30.288Z - info: Using extension studio
+2019-01-11T22:15:30.347Z - info: Using extension pdf-utils
+2019-01-11T22:15:30.349Z - info: Using extension scripts
+2019-01-11T22:15:30.390Z - info: Using extension assets
+2019-01-11T22:15:30.446Z - info: Using extension scheduling
+2019-01-11T22:15:30.523Z - info: Using extension xlsx
+2019-01-11T22:15:30.610Z - info: Using extension sample-template
+2019-01-11T22:15:30.613Z - debug: Creating samples is disabled
+2019-01-11T22:15:30.613Z - info: Using extension resources
+2019-01-11T22:15:30.615Z - info: Using extension public-templates
+2019-01-11T22:15:30.618Z - debug: Extension public-templates was disabled
+2019-01-11T22:15:30.645Z - info: Creating default express app.
+2019-01-11T22:15:30.669Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T22:15:30.670Z - info: Verifying license key free
+2019-01-11T22:15:30.671Z - info: Using free license
+2019-01-11T22:15:30.674Z - info: reporter initialized
+2019-01-11T22:15:30.684Z - info: Starting rendering request 1 (user: null)
+2019-01-11T22:15:30.686Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: none }
+2019-01-11T22:15:30.686Z - debug: Data item not defined for this template.
+2019-01-11T22:15:30.687Z - debug: Resources not defined for this template.
+2019-01-11T22:15:30.696Z - debug: Base url not specified, skipping its injection.
+2019-01-11T22:15:30.696Z - debug: Rendering engine none
+2019-01-11T22:15:30.917Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T22:15:30.917Z - debug: Executing recipe chrome-pdf
+2019-01-11T22:15:31.141Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T22:15:31.476Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T22:15:31.719Z - debug: Skipping storing report.
+2019-01-11T22:15:31.721Z - info: Rendering request 1 finished in 1036 ms
+2019-01-11T22:17:24.972Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:17:24.972Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:17:24.974Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:17:29.411Z - info: Found 32 extensions
+2019-01-11T22:17:29.414Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:17:29.415Z - debug: Discovered 32 extensions
+2019-01-11T22:17:29.447Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:17:29.448Z - info: Using extension handlebars
+2019-01-11T22:17:29.449Z - info: Using extension jsrender
+2019-01-11T22:17:29.449Z - info: Using extension templates
+2019-01-11T22:17:29.449Z - info: Using extension pug
+2019-01-11T22:17:29.449Z - info: Using extension authentication
+2019-01-11T22:17:29.456Z - debug: Extension authentication was disabled
+2019-01-11T22:17:29.456Z - info: Using extension import-export
+2019-01-11T22:17:29.457Z - info: Using extension cli
+2019-01-11T22:17:29.457Z - info: Using extension freeze
+2019-01-11T22:17:29.458Z - info: Using extension debug
+2019-01-11T22:17:29.460Z - info: Using extension express
+2019-01-11T22:17:29.462Z - info: Using extension tags
+2019-01-11T22:17:29.463Z - info: Using extension data
+2019-01-11T22:17:29.463Z - info: Using extension authorization
+2019-01-11T22:17:29.464Z - debug: Extension authorization was disabled
+2019-01-11T22:17:29.464Z - info: Using extension html-to-xlsx
+2019-01-11T22:17:29.467Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:17:29.467Z - info: Using extension chrome-pdf
+2019-01-11T22:17:29.469Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:17:29.469Z - info: Using extension child-templates
+2019-01-11T22:17:29.469Z - info: Using extension licensing
+2019-01-11T22:17:29.471Z - info: Using extension fs-store
+2019-01-11T22:17:29.474Z - debug: Extension fs-store was disabled
+2019-01-11T22:17:29.474Z - info: Using extension version-control
+2019-01-11T22:17:29.475Z - info: Using extension browser-client
+2019-01-11T22:17:29.476Z - info: Using extension reports
+2019-01-11T22:17:29.477Z - info: Using extension text
+2019-01-11T22:17:29.477Z - info: Using extension base
+2019-01-11T22:17:29.478Z - info: Using extension studio
+2019-01-11T22:17:29.481Z - info: Using extension pdf-utils
+2019-01-11T22:17:29.481Z - info: Using extension scripts
+2019-01-11T22:17:29.484Z - info: Using extension assets
+2019-01-11T22:17:29.485Z - info: Using extension scheduling
+2019-01-11T22:17:29.487Z - info: Using extension xlsx
+2019-01-11T22:17:29.489Z - info: Using extension sample-template
+2019-01-11T22:17:29.490Z - debug: Creating samples is disabled
+2019-01-11T22:17:29.490Z - info: Using extension resources
+2019-01-11T22:17:29.490Z - info: Using extension public-templates
+2019-01-11T22:17:29.491Z - debug: Extension public-templates was disabled
+2019-01-11T22:17:29.501Z - info: Creating default express app.
+2019-01-11T22:17:29.519Z - error: Error when starting http server on port 5448 Error: listen EADDRINUSE :::5448
+    at Server.setupListenHandle [as _listen2] (net.js:1286:14)
+    at listenInCluster (net.js:1334:12)
+    at Server.listen (net.js:1421:7)
+    at Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:23:12)
+    at Promise._execute (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\debuggability.js:313:9)
+    at Promise._resolveFromExecutor (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:483:18)
+    at new Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:79:10)
+    at startAsync (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:17:10)
+    at steps.push (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:51:14)
+    at Object.start (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:125:13)
+    at Object.reporter.initializeListeners.add (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:280:30)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+2019-01-11T22:17:29.531Z - error: Error occured during reporter init Error: listen EADDRINUSE :::5448
+    at Server.setupListenHandle [as _listen2] (net.js:1286:14)
+    at listenInCluster (net.js:1334:12)
+    at Server.listen (net.js:1421:7)
+    at Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:23:12)
+    at Promise._execute (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\debuggability.js:313:9)
+    at Promise._resolveFromExecutor (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:483:18)
+    at new Promise (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\node_modules\bluebird\js\release\promise.js:79:10)
+    at startAsync (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:17:10)
+    at steps.push (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:51:14)
+    at Object.start (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:125:13)
+    at Object.reporter.initializeListeners.add (C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\node_modules\jsreport-express\lib\reporter.express.js:280:30)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+2019-01-11T22:35:25.939Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:35:25.940Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:35:25.946Z - info: Extensions location cache C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json contains older information, crawling
+2019-01-11T22:35:32.306Z - info: Found 32 extensions
+2019-01-11T22:35:32.342Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:35:32.350Z - debug: Discovered 32 extensions
+2019-01-11T22:35:32.387Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:35:32.394Z - info: Using extension handlebars
+2019-01-11T22:35:32.398Z - info: Using extension jsrender
+2019-01-11T22:35:32.400Z - info: Using extension templates
+2019-01-11T22:35:32.405Z - info: Using extension pug
+2019-01-11T22:35:32.407Z - info: Using extension authentication
+2019-01-11T22:35:32.449Z - debug: Extension authentication was disabled
+2019-01-11T22:35:32.449Z - info: Using extension import-export
+2019-01-11T22:35:32.648Z - info: Using extension cli
+2019-01-11T22:35:32.649Z - info: Using extension freeze
+2019-01-11T22:35:32.651Z - info: Using extension debug
+2019-01-11T22:35:32.653Z - info: Using extension express
+2019-01-11T22:35:32.750Z - info: Using extension tags
+2019-01-11T22:35:32.753Z - info: Using extension data
+2019-01-11T22:35:32.756Z - info: Using extension authorization
+2019-01-11T22:35:32.760Z - debug: Extension authorization was disabled
+2019-01-11T22:35:32.760Z - info: Using extension html-to-xlsx
+2019-01-11T22:35:32.936Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:35:32.936Z - info: Using extension chrome-pdf
+2019-01-11T22:35:32.943Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:35:32.944Z - info: Using extension child-templates
+2019-01-11T22:35:32.990Z - info: Using extension licensing
+2019-01-11T22:35:33.033Z - info: Using extension fs-store
+2019-01-11T22:35:33.380Z - debug: Extension fs-store was disabled
+2019-01-11T22:35:33.380Z - info: Using extension version-control
+2019-01-11T22:35:33.451Z - info: Using extension browser-client
+2019-01-11T22:35:33.455Z - info: Using extension reports
+2019-01-11T22:35:33.459Z - info: Using extension text
+2019-01-11T22:35:33.461Z - info: Using extension base
+2019-01-11T22:35:33.464Z - info: Using extension studio
+2019-01-11T22:35:33.540Z - info: Using extension pdf-utils
+2019-01-11T22:35:33.543Z - info: Using extension scripts
+2019-01-11T22:35:33.607Z - info: Using extension assets
+2019-01-11T22:35:33.662Z - info: Using extension scheduling
+2019-01-11T22:35:33.709Z - info: Using extension xlsx
+2019-01-11T22:35:33.800Z - info: Using extension sample-template
+2019-01-11T22:35:33.803Z - debug: Creating samples is disabled
+2019-01-11T22:35:33.803Z - info: Using extension resources
+2019-01-11T22:35:33.805Z - info: Using extension public-templates
+2019-01-11T22:35:33.807Z - debug: Extension public-templates was disabled
+2019-01-11T22:35:33.832Z - info: Creating default express app.
+2019-01-11T22:35:33.859Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T22:35:33.860Z - info: Verifying license key free
+2019-01-11T22:35:33.861Z - info: Using free license
+2019-01-11T22:35:33.865Z - info: reporter initialized
+2019-01-11T22:35:33.874Z - info: Starting rendering request 1 (user: null)
+2019-01-11T22:35:33.876Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: none }
+2019-01-11T22:35:33.878Z - debug: Data item not defined for this template.
+2019-01-11T22:35:33.879Z - debug: Resources not defined for this template.
+2019-01-11T22:35:33.888Z - debug: Base url not specified, skipping its injection.
+2019-01-11T22:35:33.888Z - debug: Rendering engine none
+2019-01-11T22:35:34.101Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T22:35:34.102Z - debug: Executing recipe chrome-pdf
+2019-01-11T22:35:34.338Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T22:35:37.629Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T22:35:37.910Z - debug: Skipping storing report.
+2019-01-11T22:35:37.912Z - info: Rendering request 1 finished in 4038 ms
+2019-01-11T22:36:50.898Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:36:50.899Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:36:50.906Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:36:55.481Z - info: Found 32 extensions
+2019-01-11T22:36:55.526Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:36:55.529Z - debug: Discovered 32 extensions
+2019-01-11T22:36:55.571Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:36:55.576Z - info: Using extension handlebars
+2019-01-11T22:36:55.580Z - info: Using extension jsrender
+2019-01-11T22:36:55.581Z - info: Using extension templates
+2019-01-11T22:36:55.586Z - info: Using extension pug
+2019-01-11T22:36:55.587Z - info: Using extension authentication
+2019-01-11T22:36:55.626Z - debug: Extension authentication was disabled
+2019-01-11T22:36:55.626Z - info: Using extension import-export
+2019-01-11T22:36:55.840Z - info: Using extension cli
+2019-01-11T22:36:55.841Z - info: Using extension freeze
+2019-01-11T22:36:55.843Z - info: Using extension debug
+2019-01-11T22:36:55.845Z - info: Using extension express
+2019-01-11T22:36:55.957Z - info: Using extension tags
+2019-01-11T22:36:55.961Z - info: Using extension data
+2019-01-11T22:36:55.963Z - info: Using extension authorization
+2019-01-11T22:36:55.969Z - debug: Extension authorization was disabled
+2019-01-11T22:36:55.969Z - info: Using extension html-to-xlsx
+2019-01-11T22:36:56.143Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:36:56.143Z - info: Using extension chrome-pdf
+2019-01-11T22:36:56.151Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:36:56.152Z - info: Using extension child-templates
+2019-01-11T22:36:56.198Z - info: Using extension licensing
+2019-01-11T22:36:56.245Z - info: Using extension fs-store
+2019-01-11T22:36:56.635Z - debug: Extension fs-store was disabled
+2019-01-11T22:36:56.635Z - info: Using extension version-control
+2019-01-11T22:36:56.716Z - info: Using extension browser-client
+2019-01-11T22:36:56.719Z - info: Using extension reports
+2019-01-11T22:36:56.723Z - info: Using extension text
+2019-01-11T22:36:56.724Z - info: Using extension base
+2019-01-11T22:36:56.726Z - info: Using extension studio
+2019-01-11T22:36:56.790Z - info: Using extension pdf-utils
+2019-01-11T22:36:56.793Z - info: Using extension scripts
+2019-01-11T22:36:56.835Z - info: Using extension assets
+2019-01-11T22:36:56.888Z - info: Using extension scheduling
+2019-01-11T22:36:56.937Z - info: Using extension xlsx
+2019-01-11T22:36:57.032Z - info: Using extension sample-template
+2019-01-11T22:36:57.035Z - debug: Creating samples is disabled
+2019-01-11T22:36:57.035Z - info: Using extension resources
+2019-01-11T22:36:57.037Z - info: Using extension public-templates
+2019-01-11T22:36:57.039Z - debug: Extension public-templates was disabled
+2019-01-11T22:36:57.072Z - info: Creating default express app.
+2019-01-11T22:36:57.098Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T22:36:57.111Z - info: Verifying license key free
+2019-01-11T22:36:57.112Z - info: Using free license
+2019-01-11T22:36:57.116Z - info: reporter initialized
+2019-01-11T22:36:57.127Z - info: Starting rendering request 1 (user: null)
+2019-01-11T22:36:57.131Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: none }
+2019-01-11T22:36:57.133Z - debug: Data item not defined for this template.
+2019-01-11T22:36:57.137Z - debug: Resources not defined for this template.
+2019-01-11T22:36:57.155Z - debug: Base url not specified, skipping its injection.
+2019-01-11T22:36:57.155Z - debug: Rendering engine none
+2019-01-11T22:36:57.369Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T22:36:57.370Z - debug: Executing recipe chrome-pdf
+2019-01-11T22:36:57.469Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T22:36:58.132Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T22:36:58.403Z - debug: Skipping storing report.
+2019-01-11T22:36:58.405Z - info: Rendering request 1 finished in 1279 ms
+2019-01-11T22:42:17.011Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:42:17.012Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:42:17.032Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:42:21.608Z - info: Found 32 extensions
+2019-01-11T22:42:21.638Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:42:21.639Z - debug: Discovered 32 extensions
+2019-01-11T22:42:21.678Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:42:21.683Z - info: Using extension handlebars
+2019-01-11T22:42:21.688Z - info: Using extension jsrender
+2019-01-11T22:42:21.689Z - info: Using extension templates
+2019-01-11T22:42:21.696Z - info: Using extension pug
+2019-01-11T22:42:21.697Z - info: Using extension authentication
+2019-01-11T22:42:21.741Z - debug: Extension authentication was disabled
+2019-01-11T22:42:21.741Z - info: Using extension import-export
+2019-01-11T22:42:21.937Z - info: Using extension cli
+2019-01-11T22:42:21.938Z - info: Using extension freeze
+2019-01-11T22:42:21.942Z - info: Using extension debug
+2019-01-11T22:42:21.944Z - info: Using extension express
+2019-01-11T22:42:22.039Z - info: Using extension tags
+2019-01-11T22:42:22.043Z - info: Using extension data
+2019-01-11T22:42:22.045Z - info: Using extension authorization
+2019-01-11T22:42:22.051Z - debug: Extension authorization was disabled
+2019-01-11T22:42:22.051Z - info: Using extension html-to-xlsx
+2019-01-11T22:42:22.235Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:42:22.235Z - info: Using extension chrome-pdf
+2019-01-11T22:42:22.244Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:42:22.244Z - info: Using extension child-templates
+2019-01-11T22:42:22.295Z - info: Using extension licensing
+2019-01-11T22:42:22.349Z - info: Using extension fs-store
+2019-01-11T22:42:22.714Z - debug: Extension fs-store was disabled
+2019-01-11T22:42:22.714Z - info: Using extension version-control
+2019-01-11T22:42:22.791Z - info: Using extension browser-client
+2019-01-11T22:42:22.795Z - info: Using extension reports
+2019-01-11T22:42:22.799Z - info: Using extension text
+2019-01-11T22:42:22.801Z - info: Using extension base
+2019-01-11T22:42:22.804Z - info: Using extension studio
+2019-01-11T22:42:22.868Z - info: Using extension pdf-utils
+2019-01-11T22:42:22.870Z - info: Using extension scripts
+2019-01-11T22:42:22.917Z - info: Using extension assets
+2019-01-11T22:42:22.982Z - info: Using extension scheduling
+2019-01-11T22:42:23.029Z - info: Using extension xlsx
+2019-01-11T22:42:23.119Z - info: Using extension sample-template
+2019-01-11T22:42:23.122Z - debug: Creating samples is disabled
+2019-01-11T22:42:23.122Z - info: Using extension resources
+2019-01-11T22:42:23.124Z - info: Using extension public-templates
+2019-01-11T22:42:23.126Z - debug: Extension public-templates was disabled
+2019-01-11T22:42:23.153Z - info: Creating default express app.
+2019-01-11T22:42:23.177Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T22:42:23.189Z - info: Verifying license key free
+2019-01-11T22:42:23.191Z - info: Using free license
+2019-01-11T22:42:23.195Z - info: reporter initialized
+2019-01-11T22:42:23.208Z - info: Starting rendering request 1 (user: null)
+2019-01-11T22:42:23.216Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: none }
+2019-01-11T22:42:23.218Z - debug: Data item not defined for this template.
+2019-01-11T22:42:23.220Z - debug: Resources not defined for this template.
+2019-01-11T22:42:23.239Z - debug: Base url not specified, skipping its injection.
+2019-01-11T22:42:23.240Z - debug: Rendering engine none
+2019-01-11T22:42:23.454Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T22:42:23.455Z - debug: Executing recipe chrome-pdf
+2019-01-11T22:42:23.579Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T22:42:24.375Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T22:42:24.657Z - debug: Skipping storing report.
+2019-01-11T22:42:24.659Z - info: Rendering request 1 finished in 1451 ms
+2019-01-11T22:43:32.697Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:43:32.699Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:43:32.705Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:43:37.211Z - info: Found 32 extensions
+2019-01-11T22:43:37.246Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:43:37.250Z - debug: Discovered 32 extensions
+2019-01-11T22:43:37.290Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:43:37.297Z - info: Using extension handlebars
+2019-01-11T22:43:37.303Z - info: Using extension jsrender
+2019-01-11T22:43:37.304Z - info: Using extension templates
+2019-01-11T22:43:37.310Z - info: Using extension pug
+2019-01-11T22:43:37.311Z - info: Using extension authentication
+2019-01-11T22:43:37.352Z - debug: Extension authentication was disabled
+2019-01-11T22:43:37.353Z - info: Using extension import-export
+2019-01-11T22:43:37.554Z - info: Using extension cli
+2019-01-11T22:43:37.555Z - info: Using extension freeze
+2019-01-11T22:43:37.559Z - info: Using extension debug
+2019-01-11T22:43:37.561Z - info: Using extension express
+2019-01-11T22:43:37.654Z - info: Using extension tags
+2019-01-11T22:43:37.658Z - info: Using extension data
+2019-01-11T22:43:37.660Z - info: Using extension authorization
+2019-01-11T22:43:37.665Z - debug: Extension authorization was disabled
+2019-01-11T22:43:37.665Z - info: Using extension html-to-xlsx
+2019-01-11T22:43:37.843Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:43:37.843Z - info: Using extension chrome-pdf
+2019-01-11T22:43:37.851Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:43:37.851Z - info: Using extension child-templates
+2019-01-11T22:43:37.902Z - info: Using extension licensing
+2019-01-11T22:43:37.946Z - info: Using extension fs-store
+2019-01-11T22:43:38.292Z - debug: Extension fs-store was disabled
+2019-01-11T22:43:38.292Z - info: Using extension version-control
+2019-01-11T22:43:38.368Z - info: Using extension browser-client
+2019-01-11T22:43:38.379Z - info: Using extension reports
+2019-01-11T22:43:38.383Z - info: Using extension text
+2019-01-11T22:43:38.385Z - info: Using extension base
+2019-01-11T22:43:38.387Z - info: Using extension studio
+2019-01-11T22:43:38.460Z - info: Using extension pdf-utils
+2019-01-11T22:43:38.463Z - info: Using extension scripts
+2019-01-11T22:43:38.524Z - info: Using extension assets
+2019-01-11T22:43:38.576Z - info: Using extension scheduling
+2019-01-11T22:43:38.623Z - info: Using extension xlsx
+2019-01-11T22:43:38.719Z - info: Using extension sample-template
+2019-01-11T22:43:38.721Z - debug: Creating samples is disabled
+2019-01-11T22:43:38.721Z - info: Using extension resources
+2019-01-11T22:43:38.723Z - info: Using extension public-templates
+2019-01-11T22:43:38.725Z - debug: Extension public-templates was disabled
+2019-01-11T22:43:38.753Z - info: Creating default express app.
+2019-01-11T22:43:38.778Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T22:43:38.779Z - info: Verifying license key free
+2019-01-11T22:43:38.781Z - info: Using free license
+2019-01-11T22:43:38.784Z - info: reporter initialized
+2019-01-11T22:43:38.795Z - info: Starting rendering request 1 (user: null)
+2019-01-11T22:43:38.797Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: none }
+2019-01-11T22:43:38.797Z - debug: Data item not defined for this template.
+2019-01-11T22:43:38.798Z - debug: Resources not defined for this template.
+2019-01-11T22:43:38.808Z - debug: Base url not specified, skipping its injection.
+2019-01-11T22:43:38.808Z - debug: Rendering engine none
+2019-01-11T22:43:39.032Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T22:43:39.033Z - debug: Executing recipe chrome-pdf
+2019-01-11T22:43:39.192Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T22:43:39.956Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T22:43:40.233Z - debug: Skipping storing report.
+2019-01-11T22:43:40.235Z - info: Rendering request 1 finished in 1440 ms
+2019-01-11T22:45:12.729Z - info: Initializing jsreport@2.3.0 in development mode using configuration file: none
+2019-01-11T22:45:12.730Z - info: Searching for available extensions in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:45:12.736Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\jason\Desktop\Chingu Voyage Geckos 18\Geckos-Team-18\
+2019-01-11T22:45:17.212Z - info: Found 32 extensions
+2019-01-11T22:45:17.249Z - debug: Writing extension locations cache to C:\Users\jason\AppData\Local\Temp\jsreport\core\locations.json
+2019-01-11T22:45:17.255Z - debug: Discovered 32 extensions
+2019-01-11T22:45:17.296Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2019-01-11T22:45:17.301Z - info: Using extension handlebars
+2019-01-11T22:45:17.307Z - info: Using extension jsrender
+2019-01-11T22:45:17.309Z - info: Using extension templates
+2019-01-11T22:45:17.315Z - info: Using extension pug
+2019-01-11T22:45:17.317Z - info: Using extension authentication
+2019-01-11T22:45:17.361Z - debug: Extension authentication was disabled
+2019-01-11T22:45:17.361Z - info: Using extension import-export
+2019-01-11T22:45:17.559Z - info: Using extension cli
+2019-01-11T22:45:17.562Z - info: Using extension freeze
+2019-01-11T22:45:17.564Z - info: Using extension debug
+2019-01-11T22:45:17.566Z - info: Using extension express
+2019-01-11T22:45:17.659Z - info: Using extension tags
+2019-01-11T22:45:17.663Z - info: Using extension data
+2019-01-11T22:45:17.665Z - info: Using extension authorization
+2019-01-11T22:45:17.669Z - debug: Extension authorization was disabled
+2019-01-11T22:45:17.670Z - info: Using extension html-to-xlsx
+2019-01-11T22:45:17.854Z - info: html-to-xlsx detected chrome as available html engine
+2019-01-11T22:45:17.854Z - info: Using extension chrome-pdf
+2019-01-11T22:45:17.861Z - debug: Chrome strategy is dedicated-process
+2019-01-11T22:45:17.861Z - info: Using extension child-templates
+2019-01-11T22:45:17.914Z - info: Using extension licensing
+2019-01-11T22:45:17.968Z - info: Using extension fs-store
+2019-01-11T22:45:18.333Z - debug: Extension fs-store was disabled
+2019-01-11T22:45:18.333Z - info: Using extension version-control
+2019-01-11T22:45:18.413Z - info: Using extension browser-client
+2019-01-11T22:45:18.416Z - info: Using extension reports
+2019-01-11T22:45:18.420Z - info: Using extension text
+2019-01-11T22:45:18.421Z - info: Using extension base
+2019-01-11T22:45:18.424Z - info: Using extension studio
+2019-01-11T22:45:18.500Z - info: Using extension pdf-utils
+2019-01-11T22:45:18.503Z - info: Using extension scripts
+2019-01-11T22:45:18.561Z - info: Using extension assets
+2019-01-11T22:45:18.630Z - info: Using extension scheduling
+2019-01-11T22:45:18.675Z - info: Using extension xlsx
+2019-01-11T22:45:18.767Z - info: Using extension sample-template
+2019-01-11T22:45:18.769Z - debug: Creating samples is disabled
+2019-01-11T22:45:18.769Z - info: Using extension resources
+2019-01-11T22:45:18.771Z - info: Using extension public-templates
+2019-01-11T22:45:18.774Z - debug: Extension public-templates was disabled
+2019-01-11T22:45:18.801Z - info: Creating default express app.
+2019-01-11T22:45:18.825Z - info: jsreport server successfully started on http port: 5448
+2019-01-11T22:45:18.826Z - info: Verifying license key free
+2019-01-11T22:45:18.827Z - info: Using free license
+2019-01-11T22:45:18.830Z - info: reporter initialized
+2019-01-11T22:45:18.845Z - info: Starting rendering request 1 (user: null)
+2019-01-11T22:45:18.846Z - info: Rendering anonymous template { recipe: chrome-pdf, engine: none }
+2019-01-11T22:45:18.847Z - debug: Data item not defined for this template.
+2019-01-11T22:45:18.847Z - debug: Resources not defined for this template.
+2019-01-11T22:45:18.857Z - debug: Base url not specified, skipping its injection.
+2019-01-11T22:45:18.858Z - debug: Rendering engine none
+2019-01-11T22:45:19.075Z - debug: Compiled template not found in the cache, compiling
+2019-01-11T22:45:19.076Z - debug: Executing recipe chrome-pdf
+2019-01-11T22:45:19.179Z - debug: Converting with chrome HeadlessChrome/72.0.3617.0 using dedicated-process strategy
+2019-01-11T22:45:19.856Z - debug: Running chrome with params {"margin":{}}
+2019-01-11T22:45:20.121Z - debug: Skipping storing report.
+2019-01-11T22:45:20.123Z - info: Rendering request 1 finished in 1278 ms

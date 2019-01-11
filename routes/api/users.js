@@ -16,6 +16,8 @@ const validateSendInput = require("../../validation/send");
 const globalValidator = require("../../validation/globalValidator");
 
 const fs = require("fs");
+const moment = require("moment");
+const time = require("../../helpers/time");
 
 const { buildPDF, savePDF, emailPDF } = require("../../pdf/pdfProcessing");
 
@@ -169,13 +171,36 @@ router.post(
       return res.status(400).json(errors);
     }
     User.findOne({ email: req.user.email }).then(user => {
+      const offset = new Date().getTimezoneOffset();
+      const newStartDate = moment
+        .utc(req.body.dateStart)
+        .utcOffset(offset)
+        .format("MM/DD/YYYY");
+      const newEndDate =
+        req.body.dateEnd !== ""
+          ? moment
+              .utc(req.body.dateEnd)
+              .utcOffset(offset)
+              .format("MM/DD/YYYY")
+          : newStartDate;
+      const hours = time(
+        { startTime: req.body.shiftStart, startDay: req.body.dateStart },
+        {
+          endTime: req.body.shiftEnd,
+          endDay:
+            req.body.dateEnd !== "" ? req.body.dateEnd : req.body.dateStart
+        }
+      );
       const newLog = {
         title: req.body.title,
         dateStart: req.body.dateStart,
+        finalStartDate: newStartDate,
         dateEnd: req.body.dateEnd,
+        finalDateEnd: newEndDate,
         checked: req.body.checked,
         shiftStart: req.body.shiftStart,
         shiftEnd: req.body.shiftEnd,
+        hours: hours,
         comments: req.body.comments,
         sent: req.body.sent,
         user: req.user.id

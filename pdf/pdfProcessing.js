@@ -2,6 +2,8 @@ const fs = require("fs");
 // const PdfPrinter = require("../node_modules/pdfmake/src/printer");
 const time = require("../helpers/time");
 const path = require("path");
+const jsreport = require("jsreport");
+const axios = require("axios");
 const template = require("./template");
 const cloudinary = require("cloudinary");
 const keys = require("../config/keys");
@@ -16,20 +18,38 @@ PDFBuildProcess.buildPDF = (user, log) => {
   return new Promise((res, rej) => {
     const { name } = user;
     const { dateStart, dateEnd, shiftStart, shiftEnd } = log;
-
+    const finalDate = dateEnd !== null ? dateEnd : dateStart;
     const hours = time(
       { startTime: shiftStart, startDay: dateStart },
       { endTime: shiftEnd, endDay: dateEnd !== null ? dateEnd : dateStart }
     );
 
-    // const builtTemplate = template(
-    //   name,
-    //   dateStart,
-    //   dateEnd,
-    //   shiftStart,
-    //   shiftEnd,
-    //   hours
-    // );
+    jsreport({ httpPort: 5448 })
+      .init()
+      .then(() => {
+        jsreport
+          .render({
+            template: {
+              content: template(
+                name,
+                dateStart,
+                finalDate,
+                shiftStart,
+                shiftEnd,
+                hours
+              ),
+              engine: "none",
+              recipe: "chrome-pdf"
+            }
+          })
+          .then(resp => {
+            const pathToPdf = `${__dirname}/tmp/${user._id}-${log._id}.pdf`;
+            fs.writeFileSync(pathToPdf, resp.content);
+            res(pathToPdf);
+          })
+          .catch(err => console.error(err));
+      })
+      .catch(e => console.error(e));
 
     // const fonts = {
     //   Roboto: {
