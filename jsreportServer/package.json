@@ -1,0 +1,14 @@
+{
+  "name": "jsreportServer",
+  "version": "1.0.0",
+  "description": "jsReport Server",
+  "main": "jsReportServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason White",
+  "license": "ISC",
+  "dependencies": {
+    "jsreport": "^2.3.0"
+  }
+}

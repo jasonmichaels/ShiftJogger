@@ -1,0 +1,22 @@
+// Use !{var} to use unescaped conent
+link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css")
+
+.container 
+  h1.title Invoice from #{name}
+  table.table
+    thead
+      tr
+        th Start Day
+        th Start Time
+        th End Day 
+        th End Time 
+        th Hours
+    tbody
+      tr
+        td #{dateStart}
+        td #{dateEnd !== null ? dateEnd : dateStart}
+        td #{shiftStart}
+        td #{shiftEnd} 
+        td #{hours}
+
+  p Your friends at ShiftJogger!

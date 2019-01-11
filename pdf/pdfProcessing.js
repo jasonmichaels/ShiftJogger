@@ -1,5 +1,5 @@
 const fs = require("fs");
-const PdfPrinter = require("../node_modules/pdfmake/src/printer");
+// const PdfPrinter = require("../node_modules/pdfmake/src/printer");
 const time = require("../helpers/time");
 const path = require("path");
 const template = require("./template");
@@ -21,41 +21,42 @@ PDFBuildProcess.buildPDF = (user, log) => {
       { startTime: shiftStart, startDay: dateStart },
       { endTime: shiftEnd, endDay: dateEnd !== null ? dateEnd : dateStart }
     );
-    const builtTemplate = template(
-      name,
-      dateStart,
-      dateEnd,
-      shiftStart,
-      shiftEnd,
-      hours
-    );
 
-    const fonts = {
-      Roboto: {
-        normal: path.join(__dirname, "fonts", "Roboto-Regular.ttf"),
-        bold: path.join(__dirname, "fonts", "Roboto-Medium.ttf"),
-        italics: path.join(__dirname, "fonts", "Roboto-Italic.ttf"),
-        boldItalics: path.join(__dirname, "fonts", "Roboto-MediumItalic.ttf")
-      }
-    };
+    // const builtTemplate = template(
+    //   name,
+    //   dateStart,
+    //   dateEnd,
+    //   shiftStart,
+    //   shiftEnd,
+    //   hours
+    // );
 
-    const printer = new PdfPrinter(fonts);
+    // const fonts = {
+    //   Roboto: {
+    //     normal: path.join(__dirname, "fonts", "Roboto-Regular.ttf"),
+    //     bold: path.join(__dirname, "fonts", "Roboto-Medium.ttf"),
+    //     italics: path.join(__dirname, "fonts", "Roboto-Italic.ttf"),
+    //     boldItalics: path.join(__dirname, "fonts", "Roboto-MediumItalic.ttf")
+    //   }
+    // };
 
-    const pdfPath = path.join(__dirname, "tmp", `${user._id}-${log._id}.pdf`);
+    // const printer = new PdfPrinter(fonts);
 
-    const writeStream = fs.createWriteStream(pdfPath);
+    // const pdfPath = path.join(__dirname, "tmp", `${user._id}-${log._id}.pdf`);
 
-    const pdfDoc = printer.createPdfKitDocument({
-      docDefinition: builtTemplate
-    });
+    // const writeStream = fs.createWriteStream(pdfPath);
 
-    pdfDoc.pipe(writeStream).on("error", err => console.log(err));
+    // const pdfDoc = printer.createPdfKitDocument({
+    //   docDefinition: builtTemplate
+    // });
 
-    pdfDoc.on("end", () => {
-      console.log("finished");
-      res(pdfPath);
-    });
-    pdfDoc.end();
+    // pdfDoc.pipe(writeStream).on("error", err => console.log(err));
+
+    // pdfDoc.on("end", () => {
+    //   console.log("finished");
+    //   res(pdfPath);
+    // });
+    // pdfDoc.end();
   });
 
   // make the PDF
