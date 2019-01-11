@@ -22,7 +22,7 @@ class Dashboard extends Component {
     const sent = logs.filter(log => log.sent);
     return (
       <DashboardParent className="dashboard">
-        <div className="text-center h1 my-4">Dashboard</div>
+        <div className="text-center h1 my-4">ShiftJogger</div>
         <StyledDashboard>
           <div className="upper-left">
             <Greetings name={user.name} />
