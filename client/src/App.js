@@ -32,6 +32,7 @@ const StyledApp = styled.div`
   position: relative;
   padding: 0;
   margin: 0;
+  background-color: #ebeff3;
 `;
 
 if (localStorage.jwtToken) {
