@@ -144,6 +144,8 @@ class Log extends Component {
           onSubmit={this.handleSubmit}
           style={{ width: "80%", maxWidth: "1000px", margin: "0 auto" }}>
           <div className="form-group mb-0" style={{ gridArea: "title" }}>
+            <h4 align="left">Title</h4>
+            <hr></hr>
             <TextField
               name="title"
               autoFocus
@@ -170,6 +172,8 @@ class Log extends Component {
             style={{
               gridArea: "time"
             }}>
+            <h4 align="left">Duration</h4>
+            <hr></hr>
             <TextField
               name="dateStart"
               handleChange={this.handleChange}
@@ -213,6 +217,8 @@ class Log extends Component {
 
           <div className="form-row" style={{ gridArea: "message" }}>
             <div style={{ width: "100%", height: "100%" }}>
+            <h4 align="left">Notes</h4>
+            <hr></hr>
               <TextField
                 rows={!checked ? 8 : 10}
                 name="comments"
