@@ -71,6 +71,10 @@ As detailed in the server-side and client-side `package.json` files, this projec
 - [Redux-Thunk](https://www.npmjs.com/package/redux-thunk) (middleware)
 - and [Styled-Components](https://www.npmjs.com/package/styled-components)
 
+## TODO
+
+- 1/11/19: Create separate class for start/end input fields, such that the title can occupy the left 50% of the section, and the input field the right 50%. Possibly need to create columns within TextField.js? Work with the input title fonts to make a bit more prominent.
+
 ## Contributors
 
 As of 12/11/2018, `drunkenkismet` is the sole contributor to this project, although he's actively recruiting from the Chingu Voyage 7 cohort to help with front-end design, back-end design and testing, overall code cleanup, and -- eventually -- testing with Enzyme/Jest.
