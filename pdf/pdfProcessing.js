@@ -1,10 +1,10 @@
 const fs = require("fs");
 // const PdfPrinter = require("../node_modules/pdfmake/src/printer");
-const time = require("../helpers/time");
 const path = require("path");
-const jsreport = require("jsreport");
-const axios = require("axios");
+// const jsreport = require("jsreport");
+// const axios = require("axios");
 const template = require("./template");
+const jsreport = require("jsreport-core")();
 const cloudinary = require("cloudinary");
 const keys = require("../config/keys");
 const sgMail = require("@sendgrid/mail");
@@ -14,101 +14,59 @@ const templateId = "d-bda5260c19af423e9ee86450f8f197ff";
 
 const PDFBuildProcess = {};
 
-PDFBuildProcess.buildPDF = (user, log) => {
-  return new Promise((res, rej) => {
-    const { name } = user;
-    const { dateStart, dateEnd, shiftStart, shiftEnd } = log;
-    const finalDate = dateEnd !== null ? dateEnd : dateStart;
-    const hours = time(
-      { startTime: shiftStart, startDay: dateStart },
-      { endTime: shiftEnd, endDay: dateEnd !== null ? dateEnd : dateStart }
-    );
+PDFBuildProcess.buildPDF = (name, id, log) => {
+  return new Promise((resolve, reject) => {
+    const { finalStartDate, shiftStart, finalDateEnd, shiftEnd, hours } = log;
+    const content = {
+      name,
+      finalStartDate,
+      shiftStart,
+      finalDateEnd,
+      shiftEnd,
+      hours
+    };
 
-    jsreport({ httpPort: 5448 })
+    jsreport
       .init()
       .then(() => {
-        jsreport
+        return jsreport
           .render({
             template: {
-              content: template(
-                name,
-                dateStart,
-                finalDate,
-                shiftStart,
-                shiftEnd,
-                hours
-              ),
+              content: template(content),
               engine: "none",
               recipe: "chrome-pdf"
             }
           })
           .then(resp => {
-            const pathToPdf = `${__dirname}/tmp/${user._id}-${log._id}.pdf`;
+            console.log(resp);
+            const pathToPdf = path.join(
+              __dirname,
+              "tmp",
+              `${id}-${log._id}.pdf`
+            );
             fs.writeFileSync(pathToPdf, resp.content);
-            res(pathToPdf);
+            return pathToPdf;
           })
-          .catch(err => console.error(err));
+          .then(pathToPdf => resolve(pathToPdf))
+          .catch(err => console.log(err));
       })
-      .catch(e => console.error(e));
-
-    // const fonts = {
-    //   Roboto: {
-    //     normal: path.join(__dirname, "fonts", "Roboto-Regular.ttf"),
-    //     bold: path.join(__dirname, "fonts", "Roboto-Medium.ttf"),
-    //     italics: path.join(__dirname, "fonts", "Roboto-Italic.ttf"),
-    //     boldItalics: path.join(__dirname, "fonts", "Roboto-MediumItalic.ttf")
-    //   }
-    // };
-
-    // const printer = new PdfPrinter(fonts);
-
-    // const pdfPath = path.join(__dirname, "tmp", `${user._id}-${log._id}.pdf`);
-
-    // const writeStream = fs.createWriteStream(pdfPath);
-
-    // const pdfDoc = printer.createPdfKitDocument({
-    //   docDefinition: builtTemplate
-    // });
-
-    // pdfDoc.pipe(writeStream).on("error", err => console.log(err));
-
-    // pdfDoc.on("end", () => {
-    //   console.log("finished");
-    //   res(pdfPath);
-    // });
-    // pdfDoc.end();
+      .catch(err => console.log(err));
   });
-
-  // make the PDF
-  // @TODO: changed to pdfmake --> augment the following
-  /*
-    - pdfmake supports tables and styling -->
-      - see https://pdfmake.github.io/docs/getting-started/server-side/
-      - check localhost:1234 after launching pdfmake's `dev-playground` 
-  */
-  // return new Promise((res, rej) => {
-  //   const doc = new PDFDocument();
-  //   const stream = doc.pipe(
-  //     fs.createWriteStream(`${__dirname}/../pdf/tmp/${user._id}-${log._id}.pdf`)
-  //   );
-  //   doc.text(`${user.name}`, 100, 100);
-  //   doc.end();
-  //   stream.on("finish", () => {
-  //     console.log("finished");
-  //     res(`${__dirname}/../pdf/tmp/${user._id}-${log._id}.pdf`);
-  //   });
-  // });
 };
 
-PDFBuildProcess.savePDF = PDFPath => {
+PDFBuildProcess.savePDF = pathToPdf => {
   return new Promise((resolve, reject) => {
     cloudinary.config({
       cloud_name: `${keys.cloudinary_cloud_name}`,
       api_key: `${keys.cloudinary_api_key}`,
       api_secret: `${keys.cloudinary_api_secret}`
     });
-    cloudinary.v2.uploader.upload(PDFPath, (err, res) => {
-      resolve(res);
+    cloudinary.v2.uploader.upload(pathToPdf, (err, res) => {
+      if (!err) {
+        resolve(res);
+      } else {
+        reject(err);
+      }
     });
   });
 };
@@ -125,17 +83,6 @@ PDFBuildProcess.emailPDF = (req, user, cloudinaryResponse) => {
         subject: req.body.subject,
         link: cloudinaryResponse.url
       }
-      /*
-      text: "tester text",
-      html: `<div class="card is-centered">
-              <h1>${user.name} has sent you an invoice!</h1>
-              <br> 
-              <a href=${
-                cloudinaryResponse.url
-              } class="btn btn-primary">View Invoice</a>
-             </div>`
-
-      */
     };
     sgMail
       .send(msg)

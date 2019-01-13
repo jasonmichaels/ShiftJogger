@@ -11,8 +11,6 @@ const users = require("./routes/api/users");
 
 const app = express();
 
-app.set("view engine", "pug");
-
 // Body parser middleware -- used in users.js
 app.use(
   bodyParser.urlencoded({
@@ -38,10 +36,6 @@ require("./config/passport")(passport);
 
 // user routes
 app.use("/api/users", users);
-/*
-  - break out logs from user routes and use 'em here
-  - add guest route 
-*/
 
 // static prod assets
 if (process.env.NODE_ENV === "production") {

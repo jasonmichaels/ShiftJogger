@@ -46,13 +46,11 @@ const equalChecker = (password, password2) => {
 };
 
 module.exports = globalValidator = data => {
-  console.log("line 44", data);
   const errors = {};
   const newData = {};
 
   for (let key in data) {
     newData[key] = !isEmpty(data[key]) ? data[key] : "";
-    console.log("line 50, validation", newData);
   }
 
   for (let key in newData) {
@@ -75,19 +73,15 @@ module.exports = globalValidator = data => {
 
   for (let key in newData) {
     let password, password2;
-    console.log("line 71", key);
     if (key !== "password" || key !== "password2") {
       null;
     } else {
       if (key.toString() === "password") {
-        console.log("line 76", key);
         password = newData[key];
       }
       if (key.toString() === "password2") {
-        console.log("line 80", key);
         password2 = newData[key];
       }
-      console.log("line 83", password, password2);
       errors["password2"] = equalChecker(password, password2);
     }
   }

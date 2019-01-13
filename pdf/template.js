@@ -1,16 +1,13 @@
 const moment = require("moment");
 
-const template = (name, dateStart, dateEnd, shiftStart, shiftEnd, hours) => {
-  const offset = new Date().getTimezoneOffset();
-  const tempDayEnd = dateEnd !== null ? dateEnd : dateStart;
-  const finalDateEnd = moment
-    .utc(tempDayEnd)
-    .utcOffset(offset)
-    .format("MM/DD/YYYY");
-  const finalDateStart = moment
-    .utc(dateStart)
-    .utcOffset(offset)
-    .format("MM/DD/YYYY");
+const template = ({
+  name,
+  finalStartDate,
+  shiftStart,
+  finalDateEnd,
+  shiftEnd,
+  hours
+}) => {
   const content = `
     <!DOCTYPE html>
     <html>
@@ -40,9 +37,9 @@ const template = (name, dateStart, dateEnd, shiftStart, shiftEnd, hours) => {
                   </thead>
                   <tbody>
                       <tr>
-                          <td>${finalDateStart}</td>
-                          <td>${finalDateEnd}</td>
+                          <td>${finalStartDate}</td>
                           <td>${shiftStart}</td>
+                          <td>${finalDateEnd}</td>
                           <td>${shiftEnd}</td>
                           <td>${hours}</td>
                       </tr>
