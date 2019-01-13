@@ -24,7 +24,7 @@ class Dashboard extends Component {
     const sent = !isEmpty(logs) ? logs.filter(log => log.sent) : 0;
     return (
       <DashboardParent className="dashboard">
-        <div className="text-center h1 my-4">Dashboard</div>
+        <div className="text-center h1 my-4">ShiftJogger</div>
         <StyledDashboard>
           <div className="upper-left">
             <Greetings name={user.name} />

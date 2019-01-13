@@ -33,7 +33,7 @@ export const StyledCardRoot = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #ebeff3;
   max-width: 1000px;
   &::before {
     content: "";

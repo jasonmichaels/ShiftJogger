@@ -71,6 +71,13 @@ As detailed in the server-side and client-side `package.json` files, this projec
 - [Redux-Thunk](https://www.npmjs.com/package/redux-thunk) (middleware)
 - and [Styled-Components](https://www.npmjs.com/package/styled-components)
 
+## TODO
+
+- 1/11/19: Reduce width of the "Duration" input fields, probably by moving their labels to the left side of the field, so the input takes up half currend width. Most likely solution: Create separate class for start/end input fields, such that the title can occupy the left 50% of the section, and the input field the right 50%. Possibly need to create columns within TextField.js? Work with the input title fonts to make a bit more prominent.
+- 1/12/19: <body> and <div id="root"> sections seem to be 100% of screen height, not 100% of content height, meaning the background color added today cuts off about 80% of the way down the screen when scrolling to bottom.
+  1/12/19: New grouping for content on Dashboard: buttons closer to each other, less white space/padding. Also need to add "new draft" button to dashboard--currently only found on nav-bar.
+  
+
 ## Contributors
 
 As of 12/11/2018, `drunkenkismet` is the sole contributor to this project, although he's actively recruiting from the Chingu Voyage 7 cohort to help with front-end design, back-end design and testing, overall code cleanup, and -- eventually -- testing with Enzyme/Jest.
