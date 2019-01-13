@@ -40,7 +40,7 @@ app.use("/api/users", users);
 // static prod assets
 if (process.env.NODE_ENV === "production") {
   // set static folder
-  app.use(express.static(__dirname, "./client/build"));
+  app.use(express.static(__dirname, "client/build"));
   app.get("/*", (req, res) =>
     res.sendFile(path.join(__dirname, "./client/build/index.html"))
   );
