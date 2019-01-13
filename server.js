@@ -24,7 +24,7 @@ const db = require("./config/keys");
 
 // connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI || db.MONGODB_URI)
+  .connect(process.env.MONGODB_URI || db.mongoURL)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
@@ -40,7 +40,7 @@ app.use("/api/users", users);
 // static prod assets
 if (process.env.NODE_ENV === "production") {
   // set static folder
-  app.use(express.static(__dirname, "client/build"));
+  app.use(express.static("client/build"));
   app.get("/*", (req, res) =>
     res.sendFile(path.join(__dirname, "./client/build/index.html"))
   );
