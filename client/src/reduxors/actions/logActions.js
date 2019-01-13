@@ -137,7 +137,6 @@ export const prepSend = (id, history) => dispatch => {
 };
 
 export const sendLog = (userData, logId, history) => dispatch => {
-  console.log(userData, logId, history);
   // clearErrors();
   // dispatch(setBuilding());
   axios

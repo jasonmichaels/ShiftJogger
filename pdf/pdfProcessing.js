@@ -1,10 +1,6 @@
 const fs = require("fs");
-// const PdfPrinter = require("../node_modules/pdfmake/src/printer");
 const path = require("path");
-// const jsreport = require("jsreport");
-// const axios = require("axios");
-const template = require("./template");
-const jsreport = require("jsreport-core")();
+const request = require("request");
 const cloudinary = require("cloudinary");
 const keys = require("../config/keys");
 const sgMail = require("@sendgrid/mail");
@@ -26,31 +22,37 @@ PDFBuildProcess.buildPDF = (name, id, log) => {
       hours
     };
 
-    jsreport
-      .init()
-      .then(() => {
-        return jsreport
-          .render({
-            template: {
-              content: template(content),
-              engine: "none",
-              recipe: "chrome-pdf"
-            }
-          })
-          .then(resp => {
-            console.log(resp);
-            const pathToPdf = path.join(
-              __dirname,
-              "tmp",
-              `${id}-${log._id}.pdf`
-            );
-            fs.writeFileSync(pathToPdf, resp.content);
-            return pathToPdf;
-          })
-          .then(pathToPdf => resolve(pathToPdf))
-          .catch(err => console.log(err));
+    const hash = new Buffer.from(
+      `${keys.jsreportUser}:${keys.jsreportPassword}`
+    ).toString("base64");
+
+    const data = {
+      template: {
+        shortid: "ksTF7CJ"
+      },
+      data: content
+    };
+
+    const options = {
+      url: "https://shiftjogger.jsreportonline.net/api/report",
+      method: "POST",
+      strictSSL: false,
+      rejectUnauthorized: false,
+      json: true,
+      headers: {
+        "content-type": "application/json",
+        Authorization: "Basic " + hash
+      },
+      body: data
+    };
+
+    const pathToPdf = path.join(__dirname, "tmp", `${id}-${log._id}.pdf`);
+
+    request(options)
+      .on("end", () => {
+        resolve(pathToPdf);
       })
-      .catch(err => console.log(err));
+      .pipe(fs.createWriteStream(pathToPdf));
   });
 };
 
@@ -63,7 +65,9 @@ PDFBuildProcess.savePDF = pathToPdf => {
     });
     cloudinary.v2.uploader.upload(pathToPdf, (err, res) => {
       if (!err) {
-        resolve(res);
+        fs.unlink(pathToPdf, () => {
+          resolve(res);
+        });
       } else {
         reject(err);
       }

@@ -21,7 +21,6 @@ class SendForm extends Component {
   };
 
   componentWillReceiveProps = nextProps => {
-    console.log(nextProps);
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
@@ -37,8 +36,6 @@ class SendForm extends Component {
 
   handleSubmit = e => {
     const { sendLog, history, log, user } = this.props;
-    console.log(this.props);
-    console.log(log);
     e.preventDefault();
     const { destEmail, fromEmail, subject } = this.state;
     sendLog(
@@ -52,7 +49,6 @@ class SendForm extends Component {
       log._id,
       history
     );
-    console.log(user, log);
     this.setState(initialState);
   };
   render() {

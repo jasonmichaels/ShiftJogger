@@ -118,14 +118,17 @@ router.post("/login", (req, res) => {
           keys.secretOrKey,
           {
             // need to determine best expiry timeframe
-            expiresIn: 6000
+            expiresIn: 1000 * 60 * 30
           },
           (err, token) => {
-            // response w/ token
-            res.json({
-              success: true,
-              token: `Bearer ${token}`
-            });
+            if (!err) {
+              res.json({
+                success: true,
+                token: `Bearer ${token}`
+              });
+            } else {
+              res.status(401, { error: err });
+            }
           }
         );
       } else {
@@ -261,9 +264,7 @@ router.post(
           .then(user => res.json(user))
           .catch(err => res.status(406, { error: err }));
       })
-      .catch(err =>
-        res.status(404).json({ noLogFound: "No log found: " + err })
-      );
+      .catch(err => res.status(404, { noLogFound: "No log found: " + err }));
   }
 );
 
@@ -381,7 +382,7 @@ router.post(
                       .catch(err => console.log(err));
                   });
                 })
-                .catch(err => res.status(400).json({ error: err }));
+                .catch(err => res.status(400, { error: err }));
             }
           });
         }

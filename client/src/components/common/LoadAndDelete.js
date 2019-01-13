@@ -1,6 +1,10 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+/*
+  - ldsDualRing for deletion animation (logs) using styled-component keyframes
+*/
+
 const ldsDualRing = keyframes`
     0% {
       transform: rotate(0deg);
