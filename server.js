@@ -20,11 +20,11 @@ app.use(
 app.use(bodyParser.json());
 
 // DB config
-const db = require("./config/keys").mongoURL;
+const db = require("./config/keys");
 
 // connect to MongoDB
 mongoose
-  .connect(process.env.mongoURL || db)
+  .connect(process.env.MONGODB_URI || db.MONGODB_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
