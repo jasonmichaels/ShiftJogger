@@ -65,7 +65,9 @@ PDFBuildProcess.savePDF = pathToPdf => {
     });
     cloudinary.v2.uploader.upload(pathToPdf, (err, res) => {
       if (!err) {
-        resolve(res);
+        fs.unlink(pathToPdf, () => {
+          resolve(res);
+        });
       } else {
         reject(err);
       }
