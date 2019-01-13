@@ -22,9 +22,11 @@ app.use(bodyParser.json());
 // DB config
 const db = require("./config/keys");
 
+const databaseActual = process.env.MONGODB_URI || db.MONGODB_URI;
+
 // connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI || db.mongoURL)
+  .connect(databaseActual)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
