@@ -15,11 +15,9 @@ const validateLogInput = require("../../validation/logs");
 const validateSendInput = require("../../validation/send");
 const globalValidator = require("../../validation/globalValidator");
 
-const fs = require("fs");
-const moment = require("moment");
 const time = require("../../helpers/time");
-
 const { buildPDF, savePDF, emailPDF } = require("../../pdf/pdfProcessing");
+const dateConversion = require("../../helpers/timeDateStrConvert");
 
 // load user model
 // capitalize for schema
@@ -170,44 +168,41 @@ router.post(
       // if errors, send 400 with errors obj
       return res.status(400).json(errors);
     }
-    User.findOne({ email: req.user.email }).then(user => {
-      const offset = new Date().getTimezoneOffset();
-      const newStartDate = moment
-        .utc(req.body.dateStart)
-        .utcOffset(offset)
-        .format("MM/DD/YYYY");
-      const newEndDate =
-        req.body.dateEnd !== ""
-          ? moment
-              .utc(req.body.dateEnd)
-              .utcOffset(offset)
-              .format("MM/DD/YYYY")
-          : newStartDate;
-      const hours = time(
-        { startTime: req.body.shiftStart, startDay: req.body.dateStart },
-        {
-          endTime: req.body.shiftEnd,
-          endDay:
-            req.body.dateEnd !== "" ? req.body.dateEnd : req.body.dateStart
-        }
-      );
-      const newLog = {
-        title: req.body.title,
-        dateStart: req.body.dateStart,
-        finalStartDate: newStartDate,
-        dateEnd: req.body.dateEnd,
-        finalDateEnd: newEndDate,
-        checked: req.body.checked,
-        shiftStart: req.body.shiftStart,
-        shiftEnd: req.body.shiftEnd,
-        hours: hours,
-        comments: req.body.comments,
-        sent: req.body.sent,
-        user: req.user.id
-      };
-      user.logs.unshift(newLog);
-      user.save().then(user => res.json(user));
-    });
+    User.findOne({ email: req.user.email })
+      .then(user => {
+        const { newStartDate, newEndDate } = dateConversion(
+          req.body.dateStart,
+          req.body.dateEnd
+        );
+        const hours = time(
+          { startTime: req.body.shiftStart, startDay: req.body.dateStart },
+          {
+            endTime: req.body.shiftEnd,
+            endDay:
+              req.body.dateEnd !== "" ? req.body.dateEnd : req.body.dateStart
+          }
+        );
+        const newLog = {
+          title: req.body.title,
+          dateStart: req.body.dateStart,
+          finalStartDate: newStartDate,
+          dateEnd: req.body.dateEnd,
+          finalDateEnd: newEndDate,
+          checked: req.body.checked,
+          shiftStart: req.body.shiftStart,
+          shiftEnd: req.body.shiftEnd,
+          hours: hours,
+          comments: req.body.comments,
+          sent: req.body.sent,
+          user: req.user.id
+        };
+        user.logs.unshift(newLog);
+        user
+          .save()
+          .then(user => res.json(user))
+          .catch(err => res.status(406, { error: err }));
+      })
+      .catch(err => res.status(404, { err: err }));
   }
 );
 
@@ -226,27 +221,45 @@ router.post(
     }
     User.findOne({ email: req.user.email })
       .then(user => {
+        const { newStartDate, newEndDate } = dateConversion(
+          req.body.dateStart,
+          req.body.dateEnd
+        );
+        const hours = time(
+          { startTime: req.body.shiftStart, startDay: req.body.dateStart },
+          {
+            endTime: req.body.shiftEnd,
+            endDay:
+              req.body.dateEnd !== "" ? req.body.dateEnd : req.body.dateStart
+          }
+        );
         const newLog = {
           title: req.body.title,
           dateStart: req.body.dateStart,
+          finalStartDate: newStartDate,
           dateEnd: req.body.dateEnd,
+          finalDateEnd: newEndDate,
           checked: req.body.checked,
           shiftStart: req.body.shiftStart,
           shiftEnd: req.body.shiftEnd,
+          hours: hours,
           comments: req.body.comments,
           sent: req.body.sent,
-          user: req.user._id
+          user: req.user.id
         };
         const logId = req.params.log_id;
-        user.logs.map((log, i) => {
+        user.logs.map(log => {
           if (log._id.toString() === logId) {
-            const removeIndex = log.id.toString().indexOf(logId);
+            const removeIndex = log._id.toString().indexOf(logId);
             user.logs.splice(removeIndex, 1);
             user.logs.splice(removeIndex, 0, newLog);
           }
         });
 
-        user.save().then(user => res.json(user));
+        user
+          .save()
+          .then(user => res.json(user))
+          .catch(err => res.status(406, { error: err }));
       })
       .catch(err =>
         res.status(404).json({ noLogFound: "No log found: " + err })
@@ -265,10 +278,13 @@ router.get(
     User.findOne({ email: req.user.email })
       .then(user => {
         user.logs.map(log => (log.displayed = true));
-        user.save().then(user => res.json(user.logs));
+        user
+          .save()
+          .then(user => res.json(user.logs))
+          .catch(err => res.status(406, { error: err }));
       })
       .catch(err =>
-        res.status(404).json({ noLogsFound: "No logs found" + err })
+        res.status(404).json({ noLogsFound: "No logs found", error: err })
       );
   }
 );
@@ -286,7 +302,9 @@ router.get(
         if (user) {
           const logId = req.params.log_id;
           user.logs.map(log => {
-            if (log.id === logId) res.json(log);
+            if (log.id === logId) {
+              res.json(log);
+            }
           });
         }
       })
@@ -312,7 +330,10 @@ router.delete(
             if (log.id === logId) {
               const removeIndex = log.id.toString().indexOf(logId);
               user.logs.splice(removeIndex, 1);
-              user.save().then(user => res.json(user.logs));
+              user
+                .save()
+                .then(user => res.json(user.logs))
+                .catch(err => res.status(406, { error: err }));
             }
           });
         }
@@ -324,7 +345,7 @@ router.delete(
 );
 
 // @route   Post api/users/logs/send/:log_id
-// @desc    Send a specific log from user via SendGrid
+// @desc    Built invoice PDF using jsreport server, save to Cloudinary, send invoice via SendGrid
 // @access  Private
 router.post(
   "/logs/send/:log_id",
@@ -341,7 +362,7 @@ router.post(
           let cloudinary;
           user.logs.map(log => {
             if (log._id.toString() === req.body.log._id) {
-              buildPDF(user, log)
+              buildPDF(user.name, user.id, log)
                 .then(path => {
                   savePDF(path).then(cloudinaryResponse => {
                     cloudinary = cloudinaryResponse;
@@ -350,7 +371,11 @@ router.post(
                         if (response) {
                           log.cloudinary = cloudinary;
                           log.sent = true;
-                          user.save().then(user => res.json(user.logs));
+                          user
+                            .save()
+                            .then(user =>
+                              res.json({ success: true, logs: user.logs })
+                            );
                         }
                       })
                       .catch(err => console.log(err));

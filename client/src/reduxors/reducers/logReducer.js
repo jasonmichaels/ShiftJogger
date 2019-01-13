@@ -3,7 +3,8 @@ import { actionTypes } from "../types";
 const initialState = {
   logs: [],
   log: {},
-  activeId: ""
+  activeId: "",
+  building: false
 };
 
 export default (state = initialState, action) => {
@@ -39,7 +40,8 @@ export default (state = initialState, action) => {
     case actionTypes.SEND_LOG:
       return {
         ...state,
-        logs: action.payload
+        logs: action.payload,
+        building: false
       };
     case actionTypes.GO_BACK:
       return {
@@ -55,6 +57,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         logs: action.payload
+      };
+    case actionTypes.SET_BUILDING:
+      return {
+        ...state,
+        building: true
       };
     default:
       return state;
