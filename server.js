@@ -20,11 +20,11 @@ app.use(
 app.use(bodyParser.json());
 
 // DB config
-const db = require("./config/keys").mongoURL;
+const db = require("./config/keys");
 
 // connect to MongoDB
 mongoose
-  .connect(db)
+  .connect(process.env.MONGODB_URI || db.mongoURL)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
@@ -36,10 +36,6 @@ require("./config/passport")(passport);
 
 // user routes
 app.use("/api/users", users);
-/*
-  - break out logs from user routes and use 'em here
-  - add guest route 
-*/
 
 // static prod assets
 if (process.env.NODE_ENV === "production") {

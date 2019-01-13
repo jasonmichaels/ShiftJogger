@@ -137,14 +137,14 @@ export const prepSend = (id, history) => dispatch => {
 };
 
 export const sendLog = (userData, logId, history) => dispatch => {
-  console.log(userData, logId, history);
   // clearErrors();
+  // dispatch(setBuilding());
   axios
     .post(`/api/users/logs/send/${logId}`, userData)
     .then(res => {
       dispatch({
         type: actionTypes.SEND_LOG,
-        payload: res.data
+        payload: res.data.logs
       });
       history.push("/sent");
     })
@@ -180,5 +180,11 @@ export const clearErrors = () => {
   return {
     type: actionTypes.CLEAR_ERRORS,
     payload: {}
+  };
+};
+
+export const setBuilding = () => {
+  return {
+    type: actionTypes.SET_BUILDING
   };
 };

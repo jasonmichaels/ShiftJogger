@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { HeaderTextStyle } from "../componentStyles/headerStyles";
@@ -18,7 +17,6 @@ export const TableContent = ({
   activeId,
   handleViewPDF
 }) => {
-  console.log(logs);
   return (
     <>
       <HeaderTextStyle>{type === "drafts" ? "Drafts" : "Sent"}</HeaderTextStyle>
@@ -65,4 +63,16 @@ export const TableContent = ({
       </StyledCardRoot>
     </>
   );
+};
+
+TableContent.propTypes = {
+  logs: PropTypes.array,
+  query: PropTypes.string,
+  type: PropTypes.string,
+  handleQuery: PropTypes.func,
+  handleDelete: PropTypes.func,
+  handleEdit: PropTypes.func,
+  handleSend: PropTypes.func,
+  activeId: PropTypes.string,
+  handleViewPDF: PropTypes.func
 };

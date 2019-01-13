@@ -35,8 +35,14 @@ const UserSchema = new Schema({
         type: Date,
         required: true
       },
+      finalStartDate: {
+        type: String
+      },
       dateEnd: {
         type: Date
+      },
+      finalDateEnd: {
+        type: String
       },
       checked: {
         type: Boolean
@@ -47,6 +53,9 @@ const UserSchema = new Schema({
       },
       shiftEnd: {
         type: String
+      },
+      hours: {
+        type: Number
       },
       comments: {
         type: String

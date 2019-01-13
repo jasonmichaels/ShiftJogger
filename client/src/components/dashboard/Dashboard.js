@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import { DraftsInsights } from "./DraftsInsights";
 import { SentInsights } from "./SentInsights";
@@ -11,6 +12,7 @@ import {
 } from "../componentStyles/dashboardStyles";
 
 import { getLogs } from "../../reduxors/actions/logActions";
+import { isEmpty } from "../../helpers/isEmpty";
 
 class Dashboard extends Component {
   componentDidMount = () => {
@@ -18,8 +20,8 @@ class Dashboard extends Component {
   };
   render() {
     const { logs, user } = this.props;
-    const unsent = logs.filter(log => !log.sent);
-    const sent = logs.filter(log => log.sent);
+    const unsent = !isEmpty(logs) ? logs.filter(log => !log.sent) : 0;
+    const sent = !isEmpty(logs) ? logs.filter(log => log.sent) : 0;
     return (
       <DashboardParent className="dashboard">
         <div className="text-center h1 my-4">ShiftJogger</div>
@@ -34,13 +36,19 @@ class Dashboard extends Component {
             <SentInsights sent={sent} />
           </div>
           <div className="lower-left">
-            <GlobalInsights logs={logs} />
+            <GlobalInsights />
           </div>
         </StyledDashboard>
       </DashboardParent>
     );
   }
 }
+
+Dashboard.propTypes = {
+  user: PropTypes.object.isRequired,
+  logs: PropTypes.array.isRequired,
+  getLogs: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
   const { user } = state.auth;
