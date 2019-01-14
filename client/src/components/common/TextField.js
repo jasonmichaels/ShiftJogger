@@ -18,8 +18,6 @@ export const TextField = ({
   const InputType = `${inputType}`;
   return (
     <div className="form-group">
-      {info && <small className="form-text text-muted">{info} </small>}
-      {error && <div className="invalid-feedback">{error}</div>}
       <InputType
         rows={rows ? rows : null}
         type={type}
@@ -37,6 +35,8 @@ export const TextField = ({
             : null
         }
       />
+      {info && <small className="form-text text-muted">{info} </small>}
+      {error && <div className="invalid-feedback text-center">{error}</div>}
     </div>
   );
 };

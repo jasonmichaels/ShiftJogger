@@ -25,6 +25,8 @@ module.exports = validateLoginInput = data => {
     ? (errors.password = "Pasword must be between 6 and 30 characters")
     : null;
 
+  console.log(errors);
+
   return {
     errors,
     isValid: isEmpty(errors)

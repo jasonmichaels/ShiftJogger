@@ -83,6 +83,7 @@ router.post("/login", (req, res) => {
 
   // check validation
   if (!isValid) {
+    console.log(errors);
     return res.status(400).json(errors);
   }
   // send form via req
