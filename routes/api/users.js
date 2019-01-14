@@ -34,6 +34,7 @@ router.post("/register", (req, res) => {
   // destructuring of `req`, with the body passed to the helper function
   // in `is-empty.js`, which checks strings and objects to see if they're empty
   const { errors, isValid } = globalValidator(req.body);
+  console.log(errors, isValid);
   // check validation
   if (!isValid) {
     return res.status(400).json(errors);
@@ -79,11 +80,10 @@ router.post("/register", (req, res) => {
 // @desc    login user / return json web token
 // @access  Public
 router.post("/login", (req, res) => {
-  const { errors, isValid } = validateLoginInput(req.body);
+  const { errors, isValid } = globalValidator(req.body);
 
   // check validation
   if (!isValid) {
-    console.log(errors);
     return res.status(400).json(errors);
   }
   // send form via req
@@ -167,7 +167,7 @@ router.post(
   "/logs/add",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateLogInput(req.body);
+    const { errors, isValid } = globalValidator(req.body);
     if (!isValid) {
       // if errors, send 400 with errors obj
       return res.status(400).json(errors);
@@ -218,7 +218,7 @@ router.post(
   "/logs/edit/:log_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateLogInput(req.body);
+    const { errors, isValid } = globalValidator(req.body);
     if (!isValid) {
       // if errors, send 400 with errors obj
       return res.status(400).json(errors);

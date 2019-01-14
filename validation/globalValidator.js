@@ -1,5 +1,6 @@
 const Validator = require("validator");
 const isEmpty = require("./is-empty");
+const messages = require("./messages");
 
 /* 
 @TODO: Implement key field conversion for log/add, log/edit, and send, so 
@@ -13,76 +14,77 @@ const lengthParams = {
   subject: { min: 4 }
 };
 
-const lengthMessage = field => {
-  const min = lengthParams[field].min;
-  const max = lengthParams[field].max;
-  return `${field.charAt(0).toUpperCase() + field.slice(1)} must be ${
-    min && max ? `between ${min} and ${max}` : `at least ${min}`
-  } characters`;
-};
-
-const emptyChecker = (key, value) => {
+const emptyChecker = (key, value, type) => {
+  if (!messages[type][key]) return;
   if (Validator.isEmpty(value)) {
-    return `${key.charAt(0).toUpperCase() + key.slice(1)} is a required field`;
+    return messages[type][key].required;
   }
 };
 
-const lengthChecker = (key, value) => {
+const lengthChecker = (key, value, type) => {
+  if (!messages[type][key].invalid) return;
   if (!Validator.isLength(value, lengthParams[key])) {
-    return lengthMessage(key);
+    return messages[type][key].invalid;
   }
 };
 
-const emailChecker = property => {
-  if (!Validator.isEmail(property)) {
-    return `Email format is invalid`;
+const emailChecker = (key, type) => {
+  if (!Validator.isEmail(key)) {
+    return messages[type][key].invalid;
   }
 };
 
-const equalChecker = (password, password2) => {
+const equalChecker = (password, password2, type) => {
   if (!Validator.equals(password, password2)) {
-    return `Passwords must match!`;
+    return messages[type].password2.invalid;
   }
 };
 
 module.exports = globalValidator = data => {
   const errors = {};
   const newData = {};
+  const passwords = {};
+  const { type, ...rest } = data;
 
-  for (let key in data) {
+  for (let key in rest) {
     newData[key] = !isEmpty(data[key]) ? data[key] : "";
   }
 
   for (let key in newData) {
     if (key.toLowerCase().includes("email")) {
-      errors[key] = emailChecker(newData[key]);
+      errors[key] = emailChecker(key, type);
     }
+  }
+
+  for (let key in newData) {
+    if (type === "register") {
+      if (key === "password" || key === "password2") {
+        passwords[key] = newData[key];
+      }
+    }
+  }
+
+  if (passwords.password && passwords.password2) {
+    errors["password2"] = equalChecker(
+      passwords.password,
+      passwords.password2,
+      "register"
+    );
   }
 
   for (let key in newData) {
     for (let elem in lengthParams) {
       if (key === elem) {
-        errors[key] = lengthChecker(key, newData[key].toString());
+        errors[key] = lengthChecker(key, newData[key].toString(), type);
       }
     }
-    errors[key] = emptyChecker(key, newData[key]);
-    if (errors[key] === undefined) {
+    errors[key] = emptyChecker(key, newData[key], type);
+    if (
+      errors[key] === undefined ||
+      errors[key] === null ||
+      errors[key] === ""
+    ) {
       delete errors[key];
-    }
-  }
-
-  for (let key in newData) {
-    let password, password2;
-    if (key !== "password" || key !== "password2") {
-      null;
-    } else {
-      if (key.toString() === "password") {
-        password = newData[key];
-      }
-      if (key.toString() === "password2") {
-        password2 = newData[key];
-      }
-      errors["password2"] = equalChecker(password, password2);
     }
   }
 

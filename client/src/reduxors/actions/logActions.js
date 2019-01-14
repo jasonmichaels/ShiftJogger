@@ -1,10 +1,11 @@
 import { actionTypes } from "../types";
+import { isEmpty } from "../../helpers/isEmpty";
 import axios from "axios";
 
 // add log
 
 export const addLog = (log, history) => dispatch => {
-  clearErrors();
+  dispatch(clearErrors());
   axios
     .post(`/api/users/logs/add`, log)
     .then(res => {
@@ -23,6 +24,7 @@ export const addLog = (log, history) => dispatch => {
 };
 
 export const getLog = (id, history) => dispatch => {
+  dispatch(clearErrors());
   axios
     .get(`/api/users/logs/${id}`)
     .then(res => {
@@ -41,6 +43,7 @@ export const getLog = (id, history) => dispatch => {
 };
 
 export const editLog = (log, id, history) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/users/logs/edit/${id}`, log)
     .then(res => {
@@ -50,15 +53,16 @@ export const editLog = (log, id, history) => dispatch => {
       });
       history.push("/dashboard");
     })
-    .catch(err =>
+    .catch(err => {
       dispatch({
         type: actionTypes.GET_ERRORS,
-        payload: err
-      })
-    );
+        payload: err.response.data
+      });
+    });
 };
 
 export const getLogs = () => dispatch => {
+  dispatch(clearErrors());
   clearErrors();
   axios
     .get(`/api/users/logs`)
@@ -77,6 +81,7 @@ export const getLogs = () => dispatch => {
 };
 
 export const goBack = (path, history) => dispatch => {
+  dispatch(clearErrors());
   dispatch({
     type: actionTypes.GO_BACK,
     payload: {}
@@ -88,6 +93,7 @@ export const goBack = (path, history) => dispatch => {
 };
 
 export const deleteLog = id => dispatch => {
+  dispatch(clearErrors());
   setActiveID(id);
   axios
     .delete(`/api/users/logs/${id}`)
@@ -119,6 +125,7 @@ export const setActiveID = id => dispatch => {
 };
 
 export const prepSend = (id, history) => dispatch => {
+  dispatch(clearErrors());
   axios
     .get(`/api/users/logs/${id}`)
     .then(res => {
@@ -137,11 +144,11 @@ export const prepSend = (id, history) => dispatch => {
 };
 
 export const sendLog = (userData, logId, history) => dispatch => {
-  // clearErrors();
-  // dispatch(setBuilding());
+  dispatch(clearErrors());
   axios
     .post(`/api/users/logs/send/${logId}`, userData)
     .then(res => {
+      dispatch(setBuilding());
       dispatch({
         type: actionTypes.SEND_LOG,
         payload: res.data.logs

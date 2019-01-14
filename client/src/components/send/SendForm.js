@@ -44,7 +44,8 @@ class SendForm extends Component {
         fromEmail,
         subject,
         log,
-        user
+        user,
+        type: "send"
       },
       log._id,
       history

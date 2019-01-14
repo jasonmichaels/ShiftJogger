@@ -6,7 +6,7 @@ import axios from "axios";
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post(`/api/users/register`, userData)
-    .then(res => history.push("/auth/login"))
+    .then(() => history.push("/auth/login"))
     .catch(err => {
       dispatch({
         type: actionTypes.GET_ERRORS,

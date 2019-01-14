@@ -35,7 +35,8 @@ class Login extends Component {
     e.preventDefault();
     const loginCred = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      type: "login"
     };
     this.props.loginUser(loginCred);
   };
