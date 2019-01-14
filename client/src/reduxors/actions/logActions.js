@@ -149,7 +149,6 @@ export const sendLog = (userData, logId, history) => dispatch => {
       history.push("/sent");
     })
     .catch(err => {
-      console.log(err);
       dispatch({
         type: actionTypes.GET_ERRORS,
         payload: err.response.data

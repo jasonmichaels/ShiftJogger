@@ -12,10 +12,15 @@ To start, you'll need an mLab API key, as well as a custom `secret` key. For dev
 
 ```
 module.exports = {
-  mongoURL:
-    "mongodb://<mLab_KEY_HERE>",
-    secretOrKey: "<SECRET_KEY_HERE>",
-    SENDGRID_API_KEY: "<SENDGRID_API_KEY_HERE"
+  MONGODB_URI:
+    "<mongodb://mLab_KEY>",
+  secretOrKey: "<SECRET_KEY>",
+  SENDGRID_API_KEY: "<SENDGRID_API_KEY>",
+  cloudinary_cloud_name: "<CLOUDINARY_CLOUD_NAME>",
+  cloudinary_api_key: "<CLOUDINARY_API>",
+  cloudinary_api_secret: "<CLOUDINARY_PAI_SECRET>",
+  jsreportUser: "<JSREPORT_AUTH_USERNAME>",
+  jsreportPassword: "<JSREPORT_AUTH_USER_PW>"
 };
 ```
 
@@ -29,7 +34,7 @@ To run the app in development, following installation of all server-side and cli
 
 ## Demo
 
-A Heroku-hosted version of ShiftJogger is available at our [ShiftJogger](https://lit-ridge-25934.herokuapp.com/) site.
+A Heroku-hosted version of ShiftJogger is available at our [ShiftJogger](https://shift-jogger-app.herokuapp.com/) site.
 
 ## Dependencies
 
@@ -40,6 +45,7 @@ As detailed in the server-side and client-side `package.json` files, this projec
 - [Sendgrid](https://www.npmjs.com/package/@sendgrid/mail)
 - [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
 - [body-parser](https://www.npmjs.com/package/body-parser)
+- [cloudinary](https://www.npmjs.com/package/cloudinary)
 - [concurrently](https://www.npmjs.com/package/concurrently) (for development and Heroku deployment)
 - [Express](https://www.npmjs.com/package/express)
 - [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken)
@@ -76,10 +82,21 @@ As detailed in the server-side and client-side `package.json` files, this projec
 - 1/11/19: Reduce width of the "Duration" input fields, probably by moving their labels to the left side of the field, so the input takes up half currend width. Most likely solution: Create separate class for start/end input fields, such that the title can occupy the left 50% of the section, and the input field the right 50%. Possibly need to create columns within TextField.js? Work with the input title fonts to make a bit more prominent.
 - 1/12/19: <body> and <div id="root"> sections seem to be 100% of screen height, not 100% of content height, meaning the background color added today cuts off about 80% of the way down the screen when scrolling to bottom.
   1/12/19: New grouping for content on Dashboard: buttons closer to each other, less white space/padding. Also need to add "new draft" button to dashboard--currently only found on nav-bar.
-  
 
 ## Contributors
 
 As of 12/11/2018, `drunkenkismet` is the sole contributor to this project, although he's actively recruiting from the Chingu Voyage 7 cohort to help with front-end design, back-end design and testing, overall code cleanup, and -- eventually -- testing with Enzyme/Jest.
 
 On 1/4/2019, `volantTyler` joined the development team. His initial focus will be on front-end design and code cleanup.
+
+## Project Status
+
+As of 1/14/19, the barebones of the project are in place. The front-end design is ongoing, but it showcases the essential funcitonality of the MVP. Users can register, login and logout, and session authentication works per an authentication HOC for protected routes. Users may log and edit hours, as well as add comments to logs. Lots of opportunities to extend functionality on the front end, including providing users a way to group logs together so they're sent as part of the same invoice.
+
+The back end is also largely in place, with the remaining pieces being more resilient error-handling, division of routes, code-cleanup, and possibly utilizing jsreport server-side rather than hitting up their own `jsreport online` API. However, the back-end interface functions as intended at this point. Users are able to send single invoices, although the ShiftJogger domain has yet to be purchased (which would decrease incidences of spam warning by popular email providers). This process first generates a PDF via jsreport, saves the resultant PDF response server-side to ShiftJogger (rather than streaming a result) to Cloudinary, and then the PDF's cloud URL is sent via email to a recipient. Users may also, at any time, view sent PDFs directly from the Sent component.
+
+Soon, too, users will be able to archive sent invoices, and the Dashboard component will provide more granular information concerning logs. For example, ratings of experiences, the ability to factor per-hour or by-project payments into logs and invoices, pagination for Draft and Sent components, and improved search functionality that takes advantage of MongoDB's more complex queries rather than (currently) a largely JavaScript-dependent log-searching process. Other ideas are in the works as well, with the front-end aesthetic being paramount in the coming weeks.
+
+Finally, it's important to note my (drunkenkismet's) relative newness to React, Redux, Node, and MongoDB. However, I feel the process has been illuminating. Aside from `volantTyler`'s recent help with portions of the front end, I completed the bulk of this project solo. As such, there is tons of room for improvement, from security, UX/UI, code efficiency, etc. I intend to maintain this project for some time in hopes that, by Spring, 2019, it's of a substantially improved form and demonstrates my commitment to useful, performany web applications.
+
+Thanks to Chingu for the opportunity to work on this project, and to `volantTyler` for aiding me toward the end (and also for his continued assistance)!

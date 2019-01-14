@@ -20,7 +20,6 @@ const returnDate = (date, time) => {
 };
 
 module.exports = (startObj, endObj) => {
-  console.log(startObj, endObj);
   const { startTime, startDay } = startObj;
   const { endTime, endDay } = endObj;
 
