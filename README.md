@@ -1,4 +1,4 @@
-# Geckos-Team-18: Shift-Logger
+# Geckos-Team-18: ShiftJogger
 
 ## Purpose
 
