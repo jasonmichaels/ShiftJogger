@@ -58,7 +58,7 @@ class CardComponent extends Component {
       <CardStyles>
         <Card className="card">
           <CardContent>
-            <Typography className="title" color="textSecondary" gutterBottom>
+            <Typography className="title" color="textSecondary">
               {log.title}
             </Typography>
             <Typography variant="h6" component="h4">

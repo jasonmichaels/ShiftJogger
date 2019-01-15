@@ -6,6 +6,6 @@ export const StyledNavButton = styled.button`
   outline: none;
   cursor: pointer;
   margin-left: 1rem;
-  border-left: ${props => (props.bLeft ? props.bLeft : null)};
-  padding-left: ${props => (props.pRight ? props.pRight : null)};
+  // border-left: ${props => (props.bLeft ? props.bLeft : null)};
+  // padding-left: ${props => (props.pRight ? props.pRight : null)};
 `;

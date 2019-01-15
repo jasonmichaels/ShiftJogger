@@ -51,7 +51,7 @@ class Register extends Component {
           width: "100%",
           textAlign: "center",
           margin: "0 auto",
-          marginTop: "50px"
+          height: "calc(100vh - 83px)"
         }}>
         <div className="container">
           <div className="row">

@@ -5,7 +5,7 @@ export const SentInsights = ({ sent }) => {
   return (
     <>
       <div>
-        <p>You have {sent.length} sent logs</p>
+        <p>You have {sent.length ? sent.length : 0} sent logs</p>
       </div>
       <Link to="/sent">
         <input

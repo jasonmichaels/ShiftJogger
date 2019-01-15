@@ -2,14 +2,16 @@ import styled from "styled-components";
 
 export const StyledDashboard = styled.div`
   max-width: 1000px;
-  height: 100%;
+  height: calc(100vh - 100px);
   display: grid;
+  padding: 2rem;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "upper-left upper-right"
-    "lower-left lower-right";
-  margin: 0 auto;
+    "lower-left lower-right"
+    ". .";
+  margin: auto auto;
   padding: 0;
 
   @media screen and (max-width: 550px) {
@@ -31,7 +33,7 @@ export const StyledDashboard = styled.div`
     display: grid;
     justify-content: center;
     align-content: center;
-    padding: 2rem;
+    padding: 1rem;
     font-size: 2rem;
   }
   & .upper-right {

@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import notFound from "../../img/not-found.gif";
 
 const NotFound = () => {
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", height: "calc(100vh - 100px)" }}>
       <h1 className="display-4 mt-4">Whoopsies! Page Not Found!</h1>
       <p>
         Sorry, either that page doesn't exist or we're having problems fetching
@@ -17,9 +18,9 @@ const NotFound = () => {
         Go Back
       </Link>
       <img
-        src="https://media.giphy.com/media/Gzvo3F4TBUm1W/giphy.gif"
+        src={notFound}
         alt="walking away"
-        style={{ width: "400px", position: "fixed", bottom: 0, left: 0 }}
+        style={{ width: "400px", position: "fixed", bottom: "40px", left: 0 }}
       />
     </div>
   );

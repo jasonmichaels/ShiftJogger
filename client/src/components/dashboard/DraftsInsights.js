@@ -6,7 +6,7 @@ export const DraftsInsights = ({ unsent }) => {
   return (
     <>
       <div>
-        <p>You have {unsent.length} unsent logs</p>
+        <p>You have {unsent.length ? unsent.length : 0} unsent logs</p>
       </div>
       <Link to="/drafts">
         <input

@@ -43,7 +43,7 @@ class Login extends Component {
   render() {
     const { errors, email, password } = this.state;
     return (
-      <div className="login">
+      <div className="login" style={{ height: "calc(100vh - 83px)" }}>
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">

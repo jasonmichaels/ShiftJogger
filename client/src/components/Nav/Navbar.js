@@ -21,7 +21,9 @@ class Navbar extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark navbar-fixed-top">
+      <nav
+        className="navbar navbar-expand-sm navbar-dark bg-dark navbar-fixed-top"
+        style={{ height: "60px" }}>
         <div className="container">
           <Link
             className="navbar-brand"

@@ -1,40 +1,40 @@
 import styled from "styled-components";
 
 export const CardStyles = styled.div`
-  transform: scale(0.8);
+  transform: scale(1);
   transition: transform 0.15s ease-in;
+  margin: 1rem auto 0 auto;
 
   &.title {
     font-size: 12px;
   }
   &.card {
     display: grid;
-    grid-template-rows: 1fr auto;
-    grid-gap: 8px;
-    width: 300px;
-    min-height: 280px;
-    margin: 1rem;
-  }
-  &.pos {
-    margin-top: 1rem;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    width: 30%;
+    margin: 0 0.5rem;
+    height: auto;
   }
   &.actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   &:hover {
-    transform: scale(0.9);
+    transform: scale(1.05);
   }
 `;
 
 export const StyledCardRoot = styled.div`
   display: flex;
-  margin: 1rem auto;
+  margin: 0 auto;
   flex-wrap: wrap;
-  justify-content: space-between;
   overflow: hidden;
   background-color: #ebeff3;
-  max-width: 1000px;
+  width: 90%;
+  justify-content: center;
+  max-width: calc(1000px - (1rem * 2));
+  height: calc(100vh - 100px);
   &::before {
     content: "";
   }

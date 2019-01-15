@@ -226,7 +226,7 @@ class Log extends Component {
               <h4 align="left">Notes</h4>
               <hr />
               <TextField
-                rows={!checked ? 8 : 10}
+                rows={10}
                 name="comments"
                 className="form-control"
                 inputType="textarea"

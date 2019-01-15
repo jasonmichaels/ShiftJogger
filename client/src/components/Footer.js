@@ -6,13 +6,21 @@ import styled from "styled-components";
 const StyledFooter = styled.footer`
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
+  height: 60px;
   position: fixed;
   bottom: 0;
+  left: 0;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: ${props =>
     props.isAuthenticated ? "rgba(52, 58, 64, 0.9)" : "transparent"};
   & * {
-    margin: 0.25rem 0;
+    margin: auto 0;
+  }
+  &::before {
+    display: block;
+    padding: 20px;
+    height: 60px;
+    width: 100%;
   }
 `;
 

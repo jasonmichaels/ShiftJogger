@@ -22,7 +22,7 @@ export const TableContent = ({
       <HeaderTextStyle>{type === "drafts" ? "Drafts" : "Sent"}</HeaderTextStyle>
       <StyledInput
         style={{
-          margin: "0 auto",
+          margin: "1.5rem auto",
           width: "90%",
           maxWidth: "calc(1000px - (1rem * 2))"
         }}>
@@ -40,7 +40,8 @@ export const TableContent = ({
         />
       </StyledInput>
       <StyledCardRoot>
-        {logs !== null && logs.length > 0 ? (
+        {logs !== null &&
+          logs.length > 0 &&
           logs.map(log => {
             return (
               log.displayed && (
@@ -56,10 +57,7 @@ export const TableContent = ({
                 />
               )
             );
-          })
-        ) : (
-          <span>No logs to search!</span>
-        )}
+          })}
       </StyledCardRoot>
     </>
   );
