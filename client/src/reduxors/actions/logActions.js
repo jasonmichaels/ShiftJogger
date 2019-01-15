@@ -1,5 +1,5 @@
 import { actionTypes } from "../types";
-import { isEmpty } from "../../helpers/isEmpty";
+import { clearErrors } from "./errorActions";
 import axios from "axios";
 
 // add log
@@ -178,15 +178,6 @@ export const searchLogs = query => dispatch => {
         payload: {}
       })
     );
-};
-
-// clear errors from forms
-
-export const clearErrors = () => {
-  return {
-    type: actionTypes.CLEAR_ERRORS,
-    payload: {}
-  };
 };
 
 export const setBuilding = () => {

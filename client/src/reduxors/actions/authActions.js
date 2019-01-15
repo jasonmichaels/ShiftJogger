@@ -1,9 +1,11 @@
 import { actionTypes } from "../types";
 import { setAuthToken } from "../../helpers/utils";
+import { clearErrors } from "./errorActions";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
 export const registerUser = (userData, history) => dispatch => {
+  dispatch(clearErrors({}));
   axios
     .post(`/api/users/register`, userData)
     .then(() => history.push("/auth/login"))
@@ -16,6 +18,7 @@ export const registerUser = (userData, history) => dispatch => {
 };
 
 export const loginUser = userData => dispatch => {
+  clearErrors();
   axios
     .post("/api/users/login", userData)
     .then(res => {
@@ -49,16 +52,4 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // set current user to empty object {}, which also sets isAuthenticated to false
   dispatch(setCurrentUser({}));
-};
-
-export const setProfileLoading = () => {
-  return {
-    type: actionTypes.PROFILE_LOADING
-  };
-};
-
-export const clearCurrentProfile = () => {
-  return {
-    type: actionTypes.CLEAR_CURRENT_PROFILE
-  };
 };

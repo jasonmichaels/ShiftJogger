@@ -2,25 +2,25 @@ module.exports = {
   login: {
     email: {
       required: "Email is a required field",
-      invalid: "Email field is invalid"
+      invalid: "Email is invalid or incorrect"
     },
     password: {
-      required: "Blarghity is a required field",
-      invalid: "Password is invalid or incorrect"
+      required: "Password is a required field",
+      length: "Password must be between 6 and 30 characters"
     }
   },
   register: {
     name: {
       required: "Name field is required",
-      invalid: "Name must be between 2 and 30 characters"
+      length: "Name must be between 4 and 30 characters"
     },
     email: {
       required: "Email is a required field",
-      invalid: "Email is invalid"
+      invalid: "Email is a invalid or incorrect"
     },
     password: {
       required: "Password is a required field",
-      invalid: "Password must be between 6 and 30 characters"
+      length: "Password must be between 6 and 30 characters"
     },
     password2: {
       required: "Please, confirm your password",
@@ -30,7 +30,7 @@ module.exports = {
   log: {
     title: {
       required: "Log title is a required field",
-      invalid: "Log titles must be between 60 and 100 characters"
+      length: "Log titles must be between 6 and 50 characters"
     },
     dateStart: {
       required: "Log start date is a required field"
@@ -42,15 +42,15 @@ module.exports = {
   send: {
     destEmail: {
       required: "Destination email is a required field",
-      invalid: "Destination email is invalid"
+      invalid: "Destination email is a required field"
     },
     fromEmail: {
       required: "Your email is a required field",
-      invalid: "Your email is invalid"
+      invalid: "Your email is a required field"
     },
     subject: {
       required: "Subject line is a required field",
-      invalid: "Subject line must be at least 4 characters long"
+      length: "Subject line must be at least 4 characters long"
     }
   }
 };
