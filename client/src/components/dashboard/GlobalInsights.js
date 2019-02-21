@@ -5,18 +5,20 @@ import { getLogs } from "../../reduxors/actions/logActions";
 
 const GlobalInsights = ({ logs }) => {
   const unsentHours =
-    logs.length !== 0
-      ? logs
-          .map(log => (!log.sent ? log.hours : null))
-          .reduce((prev, curr) => prev + curr, 0)
-      : 0;
+    // logs.length !== 0
+    //   ? logs
+    //       .map(log => (!log.sent ? log.hours : null))
+    //       .reduce((prev, curr) => prev + curr, 0)
+      // : 
+      0;
 
   const sentHours =
-    logs.length !== 0
-      ? logs
-          .map(log => (log.sent ? log.hours : null))
-          .reduce((prev, curr) => prev + curr, 0)
-      : 0;
+    // logs.length !== 0
+    //   ? logs
+    //       .map(log => (log.sent ? log.hours : null))
+    //       .reduce((prev, curr) => prev + curr, 0)
+      // : 
+      0;
 
   return (
     <>
